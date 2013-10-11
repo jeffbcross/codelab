@@ -1,4 +1,4 @@
 angular.module('todos')
-  .controller('TodoListController', ['$scope', 'Todo', function ($scope, Todo) {
-    $scope.todos = Todo.query();
+  .controller('TodoListController', ['$scope', 'tdTodosStore', function ($scope, tdTodosStore) {
+    $scope.todos = tdTodosStore.todos;
   }]);
