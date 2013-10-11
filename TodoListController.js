@@ -1,5 +1,5 @@
 angular.module('todos')
-  .controller('TodoListController', ['$scope', 'tdTodosStore', function ($scope, tdTodosStore) {
+  .controller('TodoListController', ['$scope', 'tdTodosStore', 'Todo', function ($scope, tdTodosStore, Todo) {
     $scope.todos = tdTodosStore.todos;
 
     $scope.$watch('todos', updateChangedTodo, true);
@@ -13,7 +13,7 @@ angular.module('todos')
 
       for (var id in mappedOldVal) {
         if (mappedOldVal.hasOwnProperty(id)) {
-          if (mappedOldVal[id] !== mappedNewVal[id]) return mappedNewVal[id].$save({id: id});
+          if (mappedOldVal[id] !== mappedNewVal[id]) return Todo.update({id: id}, mappedNewVal[id]);
         }
       }
     }
