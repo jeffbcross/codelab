@@ -4,6 +4,7 @@ angular.module('todos')
     this.todos = [];
 
     this.add = function (todo) {
+      todo.id = Math.random() * 100 + this.todos[this.todos.length - 1].id
       this.todos.push(todo);
     };
 
