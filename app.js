@@ -4,4 +4,5 @@ angular.module('todos', ['ngRoute', 'ngResource'])
       controller: 'TodoListController',
       templateUrl: 'templates/todo-list.html'
     });
-  }]);
+  }])
+  .constant('TODOS_PATH', 'temp/todos.json');
