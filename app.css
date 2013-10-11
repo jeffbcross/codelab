@@ -1,0 +1,5 @@
+.done {
+  text-decoration: line-through;
+  color: gray;
+  font-style: oblique;
+}
