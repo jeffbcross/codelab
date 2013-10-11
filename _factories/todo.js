@@ -1,4 +1,4 @@
 angular.module('todos')
-  .factory('Todo', function ($resource) {
+  .factory('Todo', ['$resource', function ($resource) {
     return $resource('temp/todos.json');
-  });
+  }]);
