@@ -5,8 +5,7 @@ module.exports = function (config) {
     basePath: '../',
     files: [
       'temp/angular.js',
-      'temp/angular-resource.js',
-      'temp/angular-route.js',
+      'temp/angular-*.js',
       'app.js',
       '_directives/*.js',
       '_factories/*.js',

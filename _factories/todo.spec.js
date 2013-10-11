@@ -5,7 +5,9 @@ describe('Todo', function () {
 
   beforeEach(inject(function (_$httpBackend_, _Todo_) {
     Todo = _Todo_;
+    $httpBackend = _$httpBackend_;
   }));
+
 
   it('should exist', function () {
     expect(!!Todo).toBe(true);
@@ -19,9 +21,9 @@ describe('Todo', function () {
 
   it('should return a promise when calling query', function () {
     var response = [{text: 'Do this', done: false}];
-    $httpBackend.whenGET('/temp/todos.json').respond(response);
+    $httpBackend.whenGET('temp/todos.json').respond(response);
     var todos = Todo.query();
     $httpBackend.flush();
-    expect(todos).toBe(response);
+    expect(todos[0].text).toBe(response[0].text);
   });
 });
