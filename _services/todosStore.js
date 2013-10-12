@@ -4,12 +4,9 @@ angular.module('todos')
     this.todos = [];
 
     this.add = function (todo) {
-      todo.id = Math.random() * 100 + (prev = this.todos[this.todos.length - 1] ? prev.id : 0);
+      var prev;
+      if (typeof todo.id === 'undefined') todo.id = Math.random() * 100 + (this.todos[this.todos.length - 1] ? this.todos[this.todos.length - 1].id : 0);
       this.todos.push(todo);
-    };
-
-    this.update = function (id, todo) {
-      Todo.save(todo);
     };
 
     Todo.query(function (todos) {

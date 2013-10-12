@@ -14,9 +14,25 @@ describe('TodosStore', function () {
   });
 
 
-  it('should provide a method to add a single todo', function () {
-    expect(typeof tdTodosStore.add).toBe('function');
+  describe('.add()', function () {
+    it('should provide a method to add a single todo', function () {
+      expect(typeof tdTodosStore.add).toBe('function');
+    });
+
+
+    it('should add the todo to the service\'s todos array', function () {
+      var newTodo = {done: true, text: 'Do it', id: 0};
+      var spy = spyOn(tdTodosStore.todos, 'push');
+      tdTodosStore.add(newTodo);
+
+      expect(spy).toHaveBeenCalledWith(newTodo);
+    });
+
+
+    it('should generate a pseudo random id for a todo if one does not exist', function () {
+      var newTodo = {done: true, text: 'Do it'};
+      tdTodosStore.add(newTodo);
+      expect(typeof tdTodosStore.todos.pop().id).toBe('number');
+    });
   });
-
-
 });
