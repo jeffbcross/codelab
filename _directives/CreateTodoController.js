@@ -7,6 +7,6 @@ angular.module('todos')
       });
 
       //Reset the model
-      angular.extend($scope.newTodo, {text: null, done: null});
+      angular.extend($scope.newTodo, {text: null, done: null, id: null});
     };
   }]);

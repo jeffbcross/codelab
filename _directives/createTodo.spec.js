@@ -40,4 +40,33 @@ describe('createTodo', function () {
 
     expect(button.attr('disabled')).toBeUndefined();
   });
+
+
+  describe('CreateTodoController', function () {
+    var CreateTodoController, scope, Todo;
+
+    beforeEach(inject(function ($controller, _Todo_) {
+      scope = $rootScope.$new();
+      Todo = _Todo_;
+      CreateTodoController = $controller('CreateTodoController', {
+        $scope: scope
+      });
+    }));
+
+
+    it('should provide a method to create a new todo', function () {
+      expect(typeof scope.saveTodo).toBe('function');
+    });
+
+
+    it('should reset the form model when saving a todo', function () {
+      var originalModel = {done: false, text: 'Do the thing', id: 1};
+      scope.newTodo = originalModel;
+
+      expect(scope.newTodo).toEqual(originalModel);
+      scope.saveTodo();
+
+      expect(scope.newTodo).toEqual({done: null, text: null, id: null});
+    });
+  });
 });

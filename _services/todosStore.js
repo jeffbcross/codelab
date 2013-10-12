@@ -4,12 +4,11 @@ angular.module('todos')
     this.todos = [];
 
     this.add = function (todo) {
-      todo.id = Math.random() * 100 + this.todos[this.todos.length - 1].id
+      todo.id = Math.random() * 100 + (prev = this.todos[this.todos.length - 1] ? prev.id : 0);
       this.todos.push(todo);
     };
 
     this.update = function (id, todo) {
-      console.log('update', id, todo);
       Todo.save(todo);
     };
 
