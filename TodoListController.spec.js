@@ -58,28 +58,4 @@ describe('TodoListController', function () {
       expect(spy).toHaveBeenCalledWith({id: 0}, todo1Done);
     });
   });
-
-
-  describe('.map()', function () {
-    it('should exist', function () {
-      expect(typeof TodoListController.map).toBe('function');
-    });
-
-
-    it('should return a map of ids to todos', function () {
-      var todo1 = {
-        done: false,
-        text: 'Do it',
-        id: 0
-      };
-      var todo2 = {
-        done: true,
-        text: 'Done',
-        id: 1
-      };
-      var todoArray = [todo1, todo2];
-
-      expect(TodoListController.map(todoArray)).toEqual({0: todo1, 1: todo2});
-    });
-  });
 });

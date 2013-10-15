@@ -13,6 +13,7 @@ module.exports = function (config) {
       'app.js',
       '_directives/*.js',
       '_factories/*.js',
+      '_filters/*.js',
       '_services/*.js',
       '*.js',
       '_directives/*.html'
