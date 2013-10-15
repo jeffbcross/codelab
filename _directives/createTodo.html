@@ -1,5 +1,36 @@
-<form name="newTodo" ng-submit="saveTodo()">
-  <input type="checkbox" ng-model="newTodo.done">
-  <input type="text" ng-model="newTodo.text" required>
-  <input type="submit" ng-disabled="!newTodo.$valid" value="Add Todo">
-</form>
+<div class="well">
+  <h2>Add a Todo</h2>
+
+  <form
+    name="newTodo"
+    role="form"
+    class="form-inline"
+    ng-submit="saveTodo()">
+
+    <div class="checkbox">
+      <label>
+        <input
+          type="checkbox"
+          ng-model="newTodo.done">
+          Done?
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="newTodo.text">
+        What to do:
+      </label>
+      <input
+        type="text"
+        class="form-control"
+        ng-model="newTodo.text"
+        required>
+    </div>
+
+    <input
+      type="submit"
+      ng-disabled="!newTodo.$valid"
+      class="btn btn-default"
+      value="Add Todo">
+  </form>
+</div>
