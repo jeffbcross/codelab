@@ -3,7 +3,7 @@ angular.module('todos')
     return {
       restrict: 'E',
       scope: true,
-      templateUrl: '_directives/createTodo.html',
+      templateUrl: 'components/createTodo/createTodo.html',
       controller: 'CreateTodoController'
     };
   });
