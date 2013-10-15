@@ -11,15 +11,15 @@ module.exports = function (config) {
       'temp/angular.js',
       'temp/angular-*.js',
       'app.js',
-      '_directives/*.js',
-      '_factories/*.js',
-      '_filters/*.js',
-      '_services/*.js',
+      'components/**/*.js',
+      'factories/*.js',
+      'filters/*.js',
+      'services/*.js',
       '*.js',
-      '_directives/*.html'
+      'components/**/*.html'
     ],
     preprocessors: {
-      '_directives/*.html': ['ng-html2js']
+      'components/**/*.html': ['ng-html2js']
     },
     autoWatch: true,
     browsers: ['Chrome']
