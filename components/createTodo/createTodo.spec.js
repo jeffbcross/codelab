@@ -1,7 +1,7 @@
 describe('createTodo', function () {
   var $compile, $rootScope, $httpBackend;
 
-  beforeEach(module('todos', '_directives/createTodo.html'));
+  beforeEach(module('todos', 'components/createTodo/createTodo.html'));
 
   beforeEach(inject( function (_$compile_, _$rootScope_, _$httpBackend_, TODOS_PATH) {
     $rootScope = _$rootScope_;
