@@ -17,7 +17,7 @@ angular.module('todos')
           if (mappedOldVal[id] !== mappedNewVal[id]) return Todo.update({id: parseInt(id, 0)}, mappedNewVal[id]);
         }
       }
-    }
+    };
 
     $scope.$watch('todos', this.updateChangedTodo, true);
   }]);
