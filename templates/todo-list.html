@@ -1,8 +1,0 @@
-<h1>My Todos</h1>
-<ul>
-  <li ng-repeat="todo in todos | orderBy:'done':true track by todo.id" ng-class="{done: todo.done}">
-    <input type="checkbox" ng-model="todo.done">
-    {{todo.text}}
-  </li>
-</ul>
-<td-create-todo></td-create-todo>

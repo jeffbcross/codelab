@@ -1,0 +1,6 @@
+<ul>
+  <li ng-repeat="todo in model | orderBy:'done':true track by todo.id" ng-class="{done: todo.done}">
+    <input type="checkbox" ng-model="todo.done">
+    {{todo.text}}
+  </li>
+</ul>
