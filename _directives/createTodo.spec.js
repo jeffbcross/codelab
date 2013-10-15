@@ -16,7 +16,7 @@ describe('createTodo', function () {
     var scope = elem.scope();
     $httpBackend.flush();
 
-    var textInput = angular.element(elem.children().children()[1]);
+    var textInput = angular.element(elem.find('form').children().find('input')[1]);
     expect(textInput.val()).toBe('');
 
     scope.newTodo.text = 'Do the thing';
@@ -32,7 +32,7 @@ describe('createTodo', function () {
     $httpBackend.flush();
     scope.$digest();
 
-    var button = angular.element(elem.children().children()[2]);
+    var button = angular.element(elem.find('form').children()[2]);
     expect(button.attr('disabled')).toBe('disabled');
 
     scope.newTodo.text = 'Do the thing!';
