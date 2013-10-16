@@ -1,6 +1,9 @@
 <ul>
   <li ng-repeat="todo in model | orderBy:'done':true track by todo.id" ng-class="{done: todo.done}">
-    <input type="checkbox" ng-model="todo.done">
+    <a ng-click="todo.done = !todo.done" class="checkbox">
+      <span ng-show="todo.done">&#x2611;</span>
+      <span ng-hide="todo.done">&#x2610;</span>
+    </a>
     <a ng-href="/#/todo/{{todo.id}}">{{todo.text}}</a>
   </li>
 </ul>

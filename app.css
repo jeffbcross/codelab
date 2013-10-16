@@ -3,11 +3,7 @@ body {
   margin: 24px;
 }
 
-.done {
-  text-decoration: line-through;
-  color: gray;
-  font-style: oblique;
-}
+
 
 .todoDetail .todoHeading {
   border-bottom: 1px solid #ccc;
