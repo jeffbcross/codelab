@@ -1,9 +1,20 @@
 angular.module('todos')
   .service('tdTodoCommentsStore', ['Comments', function (Comments) {
-    var mapTodoComments = {};
+    this.mapTodoComments = {};
 
     this.getCommentsForTodo = function (id) {
-      mapTodoComments[id] = mapTodoComments[id] || Comments.get({todoid: id});
-      return mapTodoComments[id];
+      this.mapTodoComments[id] = this.mapTodoComments[id] || Comments.query({todoid: id});
+      return this.mapTodoComments[id];
+    }
+
+    this.addCommentToTodo = function (id, comment) {
+      if (!comment.date) comment.date = new Date().getTime();
+
+      Comments.save({todoid: id}, comment, function (value) {
+        comment.id = value.id
+      });
+
+      this.mapTodoComments[id] = this.mapTodoComments[id] || [];
+      this.mapTodoComments[id].push(comment);
     }
   }]);
