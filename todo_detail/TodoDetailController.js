@@ -1,5 +1,4 @@
 angular.module('todos')
-  .controller('TodoDetailController', ['$scope', '$routeParams', 'Todo', function ($scope, $routeParams, Todo) {
-    $scope.todo = Todo.get({ id: $routeParams.id });
+  .controller('TodoDetailController', ['$scope', '$routeParams', function ($scope, $routeParams) {
     $scope.todoId = $routeParams.id;
   }]);

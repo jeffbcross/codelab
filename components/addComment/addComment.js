@@ -6,7 +6,7 @@ angular.module('todos')
       controller: 'AddCommentController',
       scope: true,
       link: function (scope, element, attrs) {
-        scope.todo = $parse(attrs.todo)(scope);
+        scope.todoId = $parse(attrs.todoId)(scope);
       }
     }
   }]);

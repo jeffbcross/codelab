@@ -6,7 +6,7 @@ angular.module('todos')
       templateUrl: 'components/todoHeading/todo-heading.html',
       controller: 'TodoHeadingController',
       link: function (scope, element, attrs) {
-        scope.todo = $parse(attrs.todo)(scope);
+        scope.todoId = $parse(attrs.todoId)(scope);
       }
     };
   }]);
