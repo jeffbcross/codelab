@@ -1,8 +1,8 @@
 <div class="todoHeading">
-  <h1 ng-hide="editingText" ng-click="editingText = todo.text || true" ng-bind="todo.text"></h1>
+  <h1 class="todo-edit-heading" ng-hide="editingText" ng-click="editingText = todo.text || true" ng-bind="todo.text"></h1>
   <form ng-show="editingText" ng-submit="editingText = false">
     <input class="todo-edit-heading" ng-model="todo.text">
-    <br>
+
     <a ng-click="editingText = !(todo.text = editingText)">Cancel</a>
   </form>
 
