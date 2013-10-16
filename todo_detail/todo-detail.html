@@ -1,0 +1,6 @@
+<h1 ng-hide="editingText" ng-click="editingText = true" ng-bind="todo.text"></h1>
+<form ng-show="editingText" ng-submit="editingText = false">
+  <input class="todo-edit-heading" ng-model="todo.text">
+</form>
+
+<p>This todo is <strong ng-hide="todo.done">not</strong> complete</p>

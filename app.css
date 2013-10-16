@@ -3,3 +3,11 @@
   color: gray;
   font-style: oblique;
 }
+
+.todo-edit-heading {
+  font-size: 36px;
+  margin-top: 20px;
+  font-weight: 500;
+  padding: 0 1px;
+  line-height: 1.1;
+}
