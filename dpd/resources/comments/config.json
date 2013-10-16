@@ -1,0 +1,29 @@
+{
+	"type": "Collection",
+	"properties": {
+		"text": {
+			"name": "text",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "text",
+			"order": 0
+		},
+		"date": {
+			"name": "date",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "date",
+			"order": 1
+		},
+		"todoid": {
+			"name": "todoid",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "todoid",
+			"order": 2
+		}
+	}
+}

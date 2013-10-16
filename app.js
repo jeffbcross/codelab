@@ -9,4 +9,5 @@ angular.module('todos', ['ngRoute', 'ngResource'])
       templateUrl: 'todo_detail/todo-detail.html'
     });
   }])
-  .constant('TODOS_PATH', '/todos');
+  .constant('TODOS_PATH', '/todos')
+  .constant('COMMENTS_PATH', '/comments');
