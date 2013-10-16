@@ -4,7 +4,12 @@
   font-style: oblique;
 }
 
-.todo-edit-heading {
+.todoHeading {
+  border-bottom: 1px solid #ccc;
+  padding: 24px;
+}
+
+input.todo-edit-heading {
   font-size: 36px;
   margin-top: 20px;
   font-weight: 500;
