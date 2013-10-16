@@ -9,4 +9,4 @@ angular.module('todos', ['ngRoute', 'ngResource'])
       templateUrl: 'todo_detail/todo-detail.html'
     });
   }])
-  .constant('TODOS_PATH', 'temp/todos.json');
+  .constant('TODOS_PATH', '/todos');

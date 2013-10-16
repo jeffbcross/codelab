@@ -14,7 +14,7 @@ angular.module('todos')
 
       for (var id in mappedOldVal) {
         if (mappedOldVal.hasOwnProperty(id)) {
-          if (mappedOldVal[id] !== mappedNewVal[id]) return Todo.update({id: parseInt(id, 0)}, mappedNewVal[id]);
+          if (mappedOldVal[id].done !== mappedNewVal[id].done) return Todo.update({id: id}, mappedNewVal[id]);
         }
       }
     };

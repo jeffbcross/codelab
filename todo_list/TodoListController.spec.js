@@ -25,7 +25,7 @@ describe('TodoListController', function () {
 
   it('should call updateChangedTodo when a todo\'s done is toggled', function () {
     var spy = spyOn(Todo, 'update');
-    var todo = {done: false, text: 'Do it', id: 0};
+    var todo = {done: false, text: 'Do it', id: '0'};
     scope.todos.push(todo);
     scope.$digest();
 
@@ -33,7 +33,7 @@ describe('TodoListController', function () {
     todo.done = true;
     scope.$digest();
 
-    expect(spy).toHaveBeenCalledWith({id: 0}, todo);
+    expect(spy).toHaveBeenCalledWith({id: '0'}, todo);
   });
 
 
@@ -45,8 +45,8 @@ describe('TodoListController', function () {
 
     it('should call Todo.update with the correct todo', function () {
       var spy = spyOn(Todo, 'update');
-      var todo1 = {done: false, text: 'Do it once', id: 0};
-      var todo2 = {done: true, text: 'Do it twice', id: 1};
+      var todo1 = {done: false, text: 'Do it once', id: '0'};
+      var todo2 = {done: true, text: 'Do it twice', id: '1'};
       var todo1Done = angular.copy(todo1);
       todo1Done.done = true;
 
@@ -55,7 +55,7 @@ describe('TodoListController', function () {
 
       TodoListController.updateChangedTodo([todo1Done, todo2], [todo1, todo2]);
 
-      expect(spy).toHaveBeenCalledWith({id: 0}, todo1Done);
+      expect(spy).toHaveBeenCalledWith({id: '0'}, todo1Done);
     });
   });
 });

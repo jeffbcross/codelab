@@ -27,12 +27,5 @@ describe('TodosStore', function () {
 
       expect(spy).toHaveBeenCalledWith(newTodo);
     });
-
-
-    it('should generate a pseudo random id for a todo if one does not exist', function () {
-      var newTodo = {done: true, text: 'Do it'};
-      tdTodosStore.add(newTodo);
-      expect(typeof tdTodosStore.todos.pop().id).toBe('number');
-    });
   });
 });
