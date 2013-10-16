@@ -7,6 +7,10 @@ module.exports = function (config) {
     ],
     frameworks: ['jasmine'],
     basePath: '../',
+    exclude: [
+      'dpd/',
+      'dpd/*'
+    ],
     files: [
       'temp/angular.js',
       'temp/angular-*.js',
