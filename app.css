@@ -1,3 +1,8 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 24px;
+}
+
 .done {
   text-decoration: line-through;
   color: gray;
