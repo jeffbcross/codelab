@@ -16,6 +16,14 @@
 			"required": false,
 			"id": "done",
 			"order": 1
+		},
+		"comments": {
+			"name": "comments",
+			"type": "array",
+			"typeLabel": "array",
+			"required": false,
+			"id": "comments",
+			"order": 2
 		}
 	}
 }
