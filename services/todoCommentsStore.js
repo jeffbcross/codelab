@@ -4,6 +4,7 @@ angular.module('todos')
 
     this.getCommentsForTodo = function (id) {
       this.mapTodoComments[id] = this.mapTodoComments[id] || Comments.query({todoid: id});
+
       return this.mapTodoComments[id];
     };
 

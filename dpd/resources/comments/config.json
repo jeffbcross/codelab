@@ -19,8 +19,8 @@
 		},
 		"todoid": {
 			"name": "todoid",
-			"type": "number",
-			"typeLabel": "number",
+			"type": "string",
+			"typeLabel": "string",
 			"required": false,
 			"id": "todoid",
 			"order": 2

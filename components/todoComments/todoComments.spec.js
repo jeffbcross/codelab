@@ -10,7 +10,8 @@ describe('todoComments', function () {
         }],
       sampleTodo = {
         text: 'Do it',
-        done: true, id: '1'
+        done: true,
+        id: '1'
       };
 
   beforeEach(module('todos', 'components/todoComments/todo-comments.html'));
@@ -25,7 +26,7 @@ describe('todoComments', function () {
 
   it('should render a comment for each comment on a provided todo', function () {
     $rootScope.todo = sampleTodo;
-    var element = $compile('<td-todo-comments todo="todo"></td-todo-comments>')($rootScope);
+    var element = $compile('<td-todo-comments todo-id="todo.id"></td-todo-comments>')($rootScope);
     $rootScope.$digest();
     $httpBackend.flush();
 
@@ -35,7 +36,7 @@ describe('todoComments', function () {
 
   it('should sort the comments by most recent comments first', function () {
     $rootScope.todo = sampleTodo;
-    var element = $compile('<td-todo-comments todo="todo"></td-todo-comments>')($rootScope);
+    var element = $compile('<td-todo-comments todo-id="todo.id"></td-todo-comments>')($rootScope);
     $rootScope.$digest();
     $httpBackend.flush();
 

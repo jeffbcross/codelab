@@ -7,9 +7,8 @@ angular.module('todos')
 
 
     $scope.$watch('todo.done', function (newVal, oldVal) {
-      console.log('todo', newVal, oldVal);
-      if (typeof oldVal === 'boolean' && newVal !== oldVal) Todo.update({id: $scope.todo.id}, $scope.todo);
-
-
+      if (typeof oldVal === 'boolean' && newVal !== oldVal) {
+        Todo.update({id: $scope.todo.id}, $scope.todo);
+      }
     });
   }]);

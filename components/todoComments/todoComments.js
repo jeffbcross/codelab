@@ -5,8 +5,8 @@ angular.module('todos')
       scope: true,
       templateUrl: 'components/todoComments/todo-comments.html',
       link: function (scope, element, attrs) {
-        scope.todo = $parse(attrs.todo)(scope);
-        scope.comments = tdTodoCommentsStore.getCommentsForTodo(scope.todo.id);
+        var todoId = $parse(attrs.todoId)(scope);
+        scope.comments = tdTodoCommentsStore.getCommentsForTodo(todoId);
       }
     }
   }]);
