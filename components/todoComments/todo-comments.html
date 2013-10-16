@@ -1,9 +1,8 @@
 <h3>Todo Comments</h3>
-<ul>
+<ul class="unstyled">
   <li ng-repeat="comment in comments | orderBy:'date':true">
     {{comment.text}}
     <br>
-    <em> Added on </em> {{comment.date | date}}
+    <em> Added on {{comment.date | date}}</em>
   </li>
-
 </ul>

@@ -3,6 +3,10 @@ angular.module('todos')
     return {
       restrict: 'E',
       templateUrl: 'components/addComment/add-comment.html',
-      controller: 'AddCommentController'
+      controller: 'AddCommentController',
+      scope: true,
+      link: function (scope, element, attrs) {
+        scope.todo = $parse(attrs.todo)(scope);
+      }
     }
   }]);

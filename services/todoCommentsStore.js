@@ -5,7 +5,7 @@ angular.module('todos')
     this.getCommentsForTodo = function (id) {
       this.mapTodoComments[id] = this.mapTodoComments[id] || Comments.query({todoid: id});
       return this.mapTodoComments[id];
-    }
+    };
 
     this.addCommentToTodo = function (id, comment) {
       if (!comment.date) comment.date = new Date().getTime();
@@ -16,5 +16,5 @@ angular.module('todos')
 
       this.mapTodoComments[id] = this.mapTodoComments[id] || [];
       this.mapTodoComments[id].push(comment);
-    }
+    };
   }]);
