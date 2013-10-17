@@ -33,8 +33,9 @@ describe('todoCommentsStore', function () {
     it('should POST a new comment when called', function () {
       var responseComment = angular.copy(comment);
       responseComment.id = 'foo';
-      $httpBackend.whenPOST('/comments?todoid=1').respond(responseComment);
-      tdTodoCommentsStore.addCommentToTodo('1', comment);
+      responseComment.todoid = '1';
+      $httpBackend.whenPOST('/comments').respond(responseComment);
+      tdTodoCommentsStore.addCommentToTodo(responseComment.todoid, comment);
       $httpBackend.flush();
 
       expect(tdTodoCommentsStore.getCommentsForTodo('1')).toEqual([responseComment])

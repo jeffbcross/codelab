@@ -16,7 +16,8 @@ describe('createTodo', function () {
     var scope = elem.scope();
     $httpBackend.flush();
 
-    var textInput = angular.element(elem.find('form').children().find('input')[1]);
+    var textInput = elem.find('form').find('input');
+
     expect(textInput.val()).toBe('');
 
     scope.newTodo.text = 'Do the thing';
