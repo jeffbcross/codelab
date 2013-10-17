@@ -23,6 +23,11 @@ describe('TodoListController', function () {
   });
 
 
+  it('should have an array of todos on the scope', function () {
+    expect(angular.isArray(scope.todos)).toBeTruthy();
+  });
+
+
   describe('.updateChangedTodo()', function () {
     it('should exist', function () {
       expect(typeof scope.updateChangedTodo).toBe('function');
