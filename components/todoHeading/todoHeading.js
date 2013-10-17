@@ -1,5 +1,5 @@
 angular.module('todos')
-  .directive('tdTodoHeading', ['$parse', function ($parse) {
+  .directive('tdTodoHeading', ['$parse', 'Todo', function ($parse, Todo) {
     return {
       restrict: 'E',
       scope: true,
@@ -7,6 +7,7 @@ angular.module('todos')
       controller: 'TodoHeadingController',
       link: function (scope, element, attrs) {
         scope.todoId = $parse(attrs.todoId)(scope);
+        scope.todo = Todo.get({id: scope.todoId});
       }
     };
   }]);

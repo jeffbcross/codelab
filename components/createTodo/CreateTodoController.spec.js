@@ -23,7 +23,6 @@ describe('CreateTodoController', function () {
 
 
     it('should call tdTodosStore.add()', function () {
-      console.log(tdTodosStore)
       var spy = spyOn(tdTodosStore, 'add');
       var todo = {
         text: 'Do this',
