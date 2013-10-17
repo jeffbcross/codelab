@@ -11,7 +11,7 @@ angular.module('todos')
 
         $scope.$watch('todo.done', function (newVal, oldVal) {
           if (typeof oldVal === 'boolean' && newVal !== oldVal) {
-            Todo.update({id: $scope.todoId}, $scope.todo);
+            tdTodosStore.updateById($scope.todoId, $scope.todo);
           }
         });
       }]);
