@@ -2,34 +2,3 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 24px;
 }
-
-
-
-.todoDetail .todoHeading {
-  border-bottom: 1px solid #ccc;
-  padding: 24px;
-}
-
-.todoDetail td-todo-heading form {
-  margin-bottom: 5px;
-}
-
-.todoDetail h1.todo-edit-heading {
-  width: 398px;
-  padding: 1px;
-}
-
-.todoDetail h1.todo-edit-heading:hover {
-  border: 1px solid #ccc;
-  padding: 0;
-}
-
-.todoDetail input.todo-edit-heading {
-  font-size: 36px;
-  margin-top: 16px;
-  margin-left: -3px;
-  margin-bottom: 0;
-  font-weight: 500;
-  padding: 1px 2px;
-  line-height: 1.1;
-}

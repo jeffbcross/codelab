@@ -1,0 +1,28 @@
+td-todo-heading .todoHeading {
+  border-bottom: 1px solid #ccc;
+  padding: 0;
+}
+
+td-todo-heading .todoDetail td-todo-heading form {
+  margin-bottom: 5px;
+}
+
+td-todo-heading .todoDetail h1.todo-edit-heading {
+  width: 398px;
+  padding: 1px;
+}
+
+td-todo-heading .todoDetail h1.todo-edit-heading:hover {
+  border: 1px solid #ccc;
+  padding: 0;
+}
+
+td-todo-heading .todoDetail input.todo-edit-heading {
+  font-size: 36px;
+  margin-top: 16px;
+  margin-left: -3px;
+  margin-bottom: 0;
+  font-weight: 500;
+  padding: 1px 2px;
+  line-height: 1.1;
+}
