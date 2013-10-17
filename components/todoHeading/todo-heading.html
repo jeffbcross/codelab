@@ -1,15 +1,12 @@
 <div class="todoHeading">
-  <h1 class="todo-edit-heading" ng-hide="editingText" ng-click="editingText = todo.text || true" ng-bind="todo.text"></h1>
-  <form ng-show="editingText" ng-submit="updateHeading(todo)">
-    <input class="todo-edit-heading" ng-model="todo.text">
-
-    <a ng-click="editingText = !(todo.text = editingText)">
-      Cancel
+  <h1 ng-class="{'not-editing':!editingText, 'editing':editingText}" contenteditable="edi">
+    <a ng-click="todo.done = !todo.done" class="checkbox">
+      <span ng-show="todo.done">&#x2611;</span>
+      <span ng-hide="todo.done">&#x2610;</span>
     </a>
-  </form>
 
-  <p>
-    <input type="checkbox" ng-model="todo.done">
-    This todo is <strong ng-hide="todo.done">not</strong> complete.
-  </p>
+    <form ng-submit="updateHeading(todo)">
+      <input class="todo-edit-heading" ng-model="todo.text" ng-focus="editingText = true" ng-blur="updateHeading(todo, (editingText = false))">
+    </form>
+  </h1>
 </div>
