@@ -1,5 +1,5 @@
 angular.module('todos')
-  .directive('addComment', ['$parse', function ($parse) {
+  .directive('tdAddComment', ['$parse', function ($parse) {
     return {
       restrict: 'E',
       templateUrl: 'components/addComment/add-comment.html',
