@@ -10,8 +10,9 @@ angular.module('todos')
 
     this.addCommentToTodo = function (id, comment) {
       if (!comment.date) comment.date = new Date().getTime();
+      if (!comment.todoid) comment.todoid = id;
 
-      Comments.save({todoid: id}, comment, function (value) {
+      Comments.save(comment, function (value) {
         comment.id = value.id
       });
 
