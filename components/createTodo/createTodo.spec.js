@@ -1,3 +1,5 @@
+'use strict';
+
 describe('createTodo', function () {
   var $compile, $rootScope, $httpBackend;
 

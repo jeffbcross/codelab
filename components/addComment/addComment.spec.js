@@ -1,3 +1,5 @@
+'use strict';
+
 describe('addComment', function () {
   var $compile, $rootScope, scope;
 

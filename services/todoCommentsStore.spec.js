@@ -1,3 +1,5 @@
+'use strict';
+
 describe('todoCommentsStore', function () {
   var tdTodoCommentsStore, $httpBackend,
       comment = {text: 'A comment', date: 1};

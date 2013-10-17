@@ -1,3 +1,5 @@
+'use strict';
+
 describe('AddCommentController', function () {
   var $controller, $rootScope, scope, tdTodoCommentsStore;
 

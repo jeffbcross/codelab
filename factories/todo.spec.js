@@ -1,3 +1,5 @@
+'use strict';
+
 describe('Todo', function () {
   var Todo, $httpBackend, TODOS_PATH;
 

@@ -1,3 +1,5 @@
+'use strict';
+
 describe('Comments', function () {
   var Comments, $httpBackend;
 

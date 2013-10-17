@@ -1,3 +1,5 @@
+'use strict';
+
 describe('todoComments', function () {
   var $rootScope, $compile, $httpBackend,
       comments = [{

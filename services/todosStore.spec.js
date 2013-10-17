@@ -1,3 +1,5 @@
+'use strict';
+
 describe('TodosStore', function () {
   var tdTodosStore,
       resourceSpy;

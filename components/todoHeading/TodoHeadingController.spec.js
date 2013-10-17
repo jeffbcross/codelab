@@ -1,3 +1,5 @@
+'use strict';
+
 describe('TodoHeadingController', function () {
   var $controller, $rootScope, scope, tdTodosStore;
 

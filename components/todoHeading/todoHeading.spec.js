@@ -1,3 +1,5 @@
+'use strict';
+
 describe('todoHeading', function () {
   var $compile, $rootScope, $httpBackend;
 
