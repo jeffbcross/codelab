@@ -23,23 +23,23 @@ describe('TodoListController', function () {
   });
 
 
-  it('should call updateChangedTodo when a todo\'s done is toggled', function () {
-    var spy = spyOn(Todo, 'update');
-    var todo = {done: false, text: 'Do it', id: '0'};
-    scope.todos.push(todo);
-    scope.$digest();
-
-    expect(scope.todos.length).toBe(1);
-    todo.done = true;
-    scope.$digest();
-
-    expect(spy).toHaveBeenCalledWith({id: '0'}, todo);
-  });
-
-
   describe('.updateChangedTodo()', function () {
     it('should exist', function () {
       expect(typeof scope.updateChangedTodo).toBe('function');
+    });
+
+
+    it('should call updateChangedTodo when a todo\'s done is toggled', function () {
+      var spy = spyOn(Todo, 'update');
+      var todo = {done: false, text: 'Do it', id: '0'};
+      scope.todos.push(todo);
+      scope.$digest();
+
+      expect(scope.todos.length).toBe(1);
+      todo.done = true;
+      scope.$digest();
+
+      expect(spy).toHaveBeenCalledWith({id: '0'}, todo);
     });
 
 
