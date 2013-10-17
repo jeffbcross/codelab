@@ -39,7 +39,7 @@ describe('TodoListController', function () {
 
   describe('.updateChangedTodo()', function () {
     it('should exist', function () {
-      expect(typeof TodoListController.updateChangedTodo).toBe('function');
+      expect(typeof scope.updateChangedTodo).toBe('function');
     });
 
 
@@ -53,7 +53,7 @@ describe('TodoListController', function () {
       expect(todo1.done).toBe(false);
       expect(todo1Done.done).toBe(true);
 
-      TodoListController.updateChangedTodo([todo1Done, todo2], [todo1, todo2]);
+      scope.updateChangedTodo([todo1Done, todo2], [todo1, todo2]);
 
       expect(spy).toHaveBeenCalledWith({id: '0'}, todo1Done);
     });
