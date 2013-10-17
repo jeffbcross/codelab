@@ -13,7 +13,7 @@ describe('addComment', function () {
   it('should provide a form', function () {
     var element = $compile('<td-add-comment todo-id="1"></td-add-comment>')($rootScope);
     scope.$digest();
-    console.log(element);
+
     expect(element.find('form').length).toBe(1);
   });
 });
