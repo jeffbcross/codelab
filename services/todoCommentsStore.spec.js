@@ -43,4 +43,25 @@ describe('todoCommentsStore', function () {
       expect(tdTodoCommentsStore.getCommentsForTodo('1')).toEqual([responseComment])
     });
   });
+
+
+  describe('Comments Resource', function () {
+    var Comments;
+
+    beforeEach(inject(function (_$httpBackend_, _Comments_) {
+      Comments = _Comments_;
+    }));
+
+
+    it('should load comments for a given todo', function () {
+      var response = [{text: 'Comment one', date: 1}];
+      $httpBackend.whenGET('/comments?todoid=1').respond(response);
+
+      var comments = Comments.query({todoid: 1});
+      $httpBackend.flush();
+
+      expect(comments[0].text).toEqual(response[0].text);
+    });
+  });
+
 });
