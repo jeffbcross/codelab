@@ -8,7 +8,10 @@ angular.module('todoApp')
 
       this.saveTerm = function () {
         tdTermsStore.add({
-          name: $scope.newTerm.name
+          name: $scope.newTerm.name,
+          definition: $scope.newTerm.definition,
+          creatorEmail: this.currentUser.email,
+          createdAt: new Date().getTime()
         });
 
         //Reset the model
