@@ -1,0 +1,34 @@
+<div class="termsList">
+  <h1>Terms</h1>
+
+  <ul>
+    <li ng-repeat="term in termsList.terms | orderBy:'text' track by term.id">
+      <a ng-href="/#/terms/{{term.id}}">{{term.text}}</a>
+      <span ng-bind-html="term.definition"></span>
+    </li>
+  </ul>
+
+  <div class="createTermForm">
+    <h2>Add a Term</h2>
+
+    <form
+      name="newTermForm"
+      ng-submit="termsList.saveTerm()">
+
+      <label for="newTerm.text">
+        Term to be Defined:
+      </label>
+
+      <input
+        type="text"
+        ng-model="newTerm.text"
+        required>
+
+      <button
+        ng-disabled="!newTermForm.$valid"
+        ng-click="newTermForm.submit()">
+        Add Term
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 'use strict';
 
-describe('TodoListController', function () {
-  var todoListController, Todo, scope, tdTodosStore;
+describe('TermsListController', function () {
+  var termsListController, Todo, scope, tdTodosStore;
 
   beforeEach(module('todoApp'));
 
@@ -9,7 +9,7 @@ describe('TodoListController', function () {
     scope = $rootScope.$new();
     Todo = _Todo_;
     tdTodosStore = _tdTodosStore_;
-    todoListController = $controller('TodoListController', {
+    termsListController = $controller('TermsListController', {
       $scope: scope
     });
 
@@ -20,11 +20,11 @@ describe('TodoListController', function () {
 
 
   it('should have an array of todos on the scope', function () {
-    expect(angular.isArray(todoListController.todos)).toBeTruthy();
+    expect(angular.isArray(termsListController.terms)).toBeTruthy();
   });
 
 
-  describe('.saveTodo()', function () {
+  describe('.saveTerm()', function () {
     it('should call tdTodosStore.add()', function () {
       var spy = spyOn(tdTodosStore, 'add');
       var todo = {
@@ -32,9 +32,9 @@ describe('TodoListController', function () {
         done: false
       };
 
-      scope.newTodo = angular.copy(todo);
+      scope.newTerm = angular.copy(todo);
 
-      todoListController.saveTodo();
+      termsListController.saveTerm();
 
       expect(spy).toHaveBeenCalledWith(todo);
     });
@@ -42,24 +42,12 @@ describe('TodoListController', function () {
 
     it('should reset the form model when saving a todo', function () {
       var originalModel = {done: false, text: 'Do the thing', id: 1};
-      scope.newTodo = originalModel;
+      scope.newTerm = originalModel;
 
-      expect(scope.newTodo).toEqual(originalModel);
-      todoListController.saveTodo();
+      expect(scope.newTerm).toEqual(originalModel);
+      termsListController.saveTerm();
 
-      expect(scope.newTodo).toEqual({});
-    });
-  });
-
-
-  describe('.todoChanged()', function () {
-    it('should call Todo.update with the correct todo', function () {
-      var spy = spyOn(Todo, 'update');
-      var todo = {done: false, text: 'Do it once', id: '0'};
-
-      todoListController.todoChanged(todo);
-
-      expect(spy).toHaveBeenCalledWith({id: '0'}, todo);
+      expect(scope.newTerm).toEqual({});
     });
   });
 });

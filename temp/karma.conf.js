@@ -21,8 +21,8 @@ module.exports = function (config) {
       'services/*.js',
       '*.js',
       'components/**/*.html',
-      'todo_detail/*.js',
-      'todo_list/*.js'
+      'terms/detail/*.js',
+      'terms/*.js'
     ],
     preprocessors: {
       'components/**/*.html': ['ng-html2js']

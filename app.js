@@ -1,9 +1,9 @@
 angular.module('todoApp', ['ngRoute', 'ngResource'])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/todos', {
-      controller: 'TodoListController',
-      templateUrl: 'terms/todo-list.html',
-      controllerAs: 'todoList'
+      controller: 'TermsListController',
+      templateUrl: 'terms/terms-list.html',
+      controllerAs: 'termsList'
     })
     .when('/todos/:id', {
       controller: 'TodoDetailController',
