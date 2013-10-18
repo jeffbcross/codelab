@@ -24,6 +24,14 @@
 			"required": false,
 			"id": "termid",
 			"order": 2
+		},
+		"creatorEmail": {
+			"name": "creatorEmail",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "creatorEmail",
+			"order": 3
 		}
 	}
 }

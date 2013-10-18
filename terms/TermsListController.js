@@ -4,7 +4,6 @@ angular.module('todoApp')
     function ($scope, tdTermsStore, tdProfileStore) {
       this.terms = tdTermsStore.todos;
       this.currentUser = tdProfileStore;
-      console.log('currentUser', this.currentUser)
 
       this.saveTerm = function () {
         tdTermsStore.add({

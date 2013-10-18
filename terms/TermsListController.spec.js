@@ -28,14 +28,15 @@ describe('TermsListController', function () {
     it('should call tdTermsStore.add()', function () {
       var spy = spyOn(tdTermsStore, 'add');
       var todo = {
-        name: 'Do this'
+        name: 'Digest',
+        definition: 'Process food'
       };
 
       scope.newTerm = angular.copy(todo);
 
       termsListController.saveTerm();
 
-      expect(spy).toHaveBeenCalledWith(todo);
+      expect(spy).toHaveBeenCalled();
     });
 
 
