@@ -1,13 +1,13 @@
 <div class="container">
   <h3>Your Profile</h3>
   <em class="no-picture" ng-hide="user.picture">
-    No Picture Yet
+    Enter a valid gravatar email to see your picture.
   </em>
   <img ng-src="{{user.picture}}" ng-show="user.picture">
   <br>
-  <form name="userForm" ng-submit="user.save()">
-    <input ng-model="user.email" placeholder="No Email Set">
-    <br>
-    <button ng-disabled="userForm.$invalid" type="submit">Save Changes</button>
-  </form>
+  <label for="user.email">
+    Email Address:
+  </label>
+  <br>
+  <input type="email" ng-model="user.email" placeholder="No Email Set" ng-change="user.save()">
 </div>
