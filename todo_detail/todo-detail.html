@@ -19,8 +19,17 @@
     </form>
   </div>
 
-  <td-todo-comments todo-id="todoDetail.todoId"></td-todo-comments>
+  <div class="todoComments">
+    <h3>Todo Comments</h3>
+    <ul>
+      <li ng-repeat="comment in todoDetail.comments | orderBy:'date':true">
+        <span class="text" ng-bind="comment.text"></span>
+        <em class="date"> Added on {{comment.date | date}}</em>
+      </li>
+    </ul>
+  </div>
+
   <footer>
-    <a href="/#/">&laquo; All Todos</a>
+    <a href="/#/todos">&laquo; All Todos</a>
   </footer>
 </div>

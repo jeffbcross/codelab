@@ -66,3 +66,25 @@
 .todoDetail .addComment form:after {
   clear: both;
 }
+
+.todoDetail .todoComments ul {
+  padding: 0;
+  margin: 0;
+}
+
+.todoDetail .todoComments ul li {
+  list-style-type: none;
+  margin: 12px 0;
+  padding: 12px 6px;
+  border-bottom: 1px solid #eee;
+}
+
+.todoDetail .todoComments ul li .text {
+  font-size: 1.25em;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.todoDetail .todoComments ul li .date {
+  color: #666;
+}
