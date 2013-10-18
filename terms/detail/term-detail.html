@@ -17,6 +17,18 @@
       </p>
     </div>
 
+    <div class="termComments">
+      <h3>Comments</h3>
+      <em ng-hide="termDetail.comments.$resolved">Loading Comments</em>
+      <em ng-show="termDetail.comments.$resolved && termDetail.comments.length === 0">No Comments Yet</em>
+      <ul>
+        <li ng-repeat="comment in termDetail.comments | orderBy:'date':true">
+          <span class="text" ng-bind="comment.text"></span>
+          <em class="date"> Added by {{comment.creatorEmail | personalize}} on {{comment.date | date}}</em>
+        </li>
+      </ul>
+    </div>
+
     <div class="addComment">
       <form ng-submit="termDetail.addComment(termDetail.newComment)" name="newCommentForm">
         <label for="termDetail.currentUser.email">
@@ -37,18 +49,6 @@
         <br>
         <button ng-disabled="newCommentForm.$invalid" type="submit">Add Comment</button>
       </form>
-    </div>
-
-    <div class="termComments">
-      <h3>Term Comments</h3>
-      <em ng-hide="termDetail.comments.$resolved">Loading Comments</em>
-      <em ng-show="termDetail.comments.$resolved && termDetail.comments.length === 0">No Comments Yet</em>
-      <ul>
-        <li ng-repeat="comment in termDetail.comments | orderBy:'date':true">
-          <span class="text" ng-bind="comment.text"></span>
-          <em class="date"> Added by {{comment.creatorEmail | personalize}} on {{comment.date | date}}</em>
-        </li>
-      </ul>
     </div>
   </div>
 
