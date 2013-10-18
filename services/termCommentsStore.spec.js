@@ -1,6 +1,6 @@
 'use strict';
 
-describe('todoCommentsStore', function () {
+describe('termCommentsStore', function () {
   var tdTermCommentsStore, $httpBackend,
       comment = {text: 'A comment', date: 1};
 
@@ -17,8 +17,8 @@ describe('todoCommentsStore', function () {
 
 
   describe('.getCommentsForTerm()', function () {
-    it('should return the comments for a given todo', function () {
-      tdTermCommentsStore.mapTodoComments['foo'] = [comment];
+    it('should return the comments for a given term', function () {
+      tdTermCommentsStore.mapTermComments['foo'] = [comment];
 
       var comments = tdTermCommentsStore.getCommentsForTerm('foo');
       expect(comments).toEqual([comment]);
@@ -53,7 +53,7 @@ describe('todoCommentsStore', function () {
     }));
 
 
-    it('should load comments for a given todo', function () {
+    it('should load comments for a given term', function () {
       var response = [{text: 'Comment one', date: 1}];
       $httpBackend.whenGET('/comments?todoid=1').respond(response);
 
@@ -63,5 +63,4 @@ describe('todoCommentsStore', function () {
       expect(comments[0].text).toEqual(response[0].text);
     });
   });
-
 });

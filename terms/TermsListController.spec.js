@@ -1,14 +1,14 @@
 'use strict';
 
 describe('TermsListController', function () {
-  var termsListController, Todo, scope, tdTodosStore;
+  var termsListController, scope, tdTermsStore;
 
   beforeEach(module('todoApp'));
 
-  beforeEach(inject(function ($controller, $rootScope, _Todo_, $httpBackend, TODOS_PATH, _tdTodosStore_) {
+  beforeEach(inject(function ($controller, $rootScope, $httpBackend, TODOS_PATH, _tdTermsStore_) {
     scope = $rootScope.$new();
-    Todo = _Todo_;
-    tdTodosStore = _tdTodosStore_;
+
+    tdTermsStore = _tdTermsStore_;
     termsListController = $controller('TermsListController', {
       $scope: scope
     });
@@ -25,8 +25,8 @@ describe('TermsListController', function () {
 
 
   describe('.saveTerm()', function () {
-    it('should call tdTodosStore.add()', function () {
-      var spy = spyOn(tdTodosStore, 'add');
+    it('should call tdTermsStore.add()', function () {
+      var spy = spyOn(tdTermsStore, 'add');
       var todo = {
         text: 'Do this',
         done: false

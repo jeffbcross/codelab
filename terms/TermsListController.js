@@ -1,13 +1,11 @@
 angular.module('todoApp')
   .controller('TermsListController',
-    ['$scope', 'tdTodosStore', 'Todo',
-    function ($scope, tdTodosStore, Todo) {
-      var self = this;
-
-      this.terms = tdTodosStore.todos;
+    ['$scope', 'tdTermsStore',
+    function ($scope, tdTermsStore) {
+      this.terms = tdTermsStore.todos;
 
       this.saveTerm = function () {
-        tdTodosStore.add({
+        tdTermsStore.add({
           text: $scope.newTerm.text,
           done: $scope.newTerm.done || false
         });

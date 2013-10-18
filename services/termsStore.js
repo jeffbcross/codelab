@@ -10,7 +10,7 @@ angular.module('todoApp')
       return mapped;
     }
   })
-  .factory('Todo', ['$resource', 'TODOS_PATH',
+  .factory('Term', ['$resource', 'TODOS_PATH',
     function ($resource, TODOS_PATH) {
       return $resource(TODOS_PATH + '/:id', null, {
         update: {
@@ -18,7 +18,7 @@ angular.module('todoApp')
           method: 'PUT'
         }});
     }])
-  .service('tdTodosStore', ['$filter', 'Todo', '$q', function ($filter, Todo, $q) {
+  .service('tdTermsStore', ['$filter', 'Term', '$q', function ($filter, Term, $q) {
     var self = this, queryResult;
     mapById = $filter('tdMapById');
     this.todos = [];
@@ -27,17 +27,17 @@ angular.module('todoApp')
       var prev;
 
       this.todos.push(todo);
-      Todo.save(todo);
+      Term.save(todo);
     };
 
     this.updateById = function (id, todo) {
       var mapped = mapById(this.todos);
       mapped[id].text = todo.text;
       mapped[id].done = todo.done;
-      Todo.update({id: id}, todo);
+      Term.update({id: id}, todo);
     };
 
-    queryResult = Todo.query(function (todos) {
+    queryResult = Term.query(function (todos) {
       angular.forEach(todos, function (todo) {
         self.todos.push(todo);
       });

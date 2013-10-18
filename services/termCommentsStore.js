@@ -3,12 +3,12 @@ angular.module('todoApp')
     return $resource(COMMENTS_PATH);
   }])
   .service('tdTermCommentsStore', ['Comments', function (Comments) {
-    this.mapTodoComments = {};
+    this.mapTermComments = {};
 
     this.getCommentsForTerm = function (id) {
-      this.mapTodoComments[id] = this.mapTodoComments[id] || Comments.query({todoid: id});
+      this.mapTermComments[id] = this.mapTermComments[id] || Comments.query({todoid: id});
 
-      return this.mapTodoComments[id];
+      return this.mapTermComments[id];
     };
 
     this.addCommentToTerm = function (id, comment) {
@@ -19,7 +19,7 @@ angular.module('todoApp')
         comment.id = value.id
       });
 
-      this.mapTodoComments[id] = this.mapTodoComments[id] || [];
-      this.mapTodoComments[id].push(comment);
+      this.mapTermComments[id] = this.mapTermComments[id] || [];
+      this.mapTermComments[id].push(comment);
     };
   }]);

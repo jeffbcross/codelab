@@ -1,10 +1,10 @@
 describe('TermDetailController', function () {
-  var scope, tdTodosStore, tdTermCommentsStore, termDetailController;
+  var scope, tdTermsStore, tdTermCommentsStore, termDetailController;
 
   beforeEach(module('todoApp'));
 
-  beforeEach(inject(function ($rootScope, $controller, _tdTodosStore_, _tdTermCommentsStore_) {
-    tdTodosStore = _tdTodosStore_;
+  beforeEach(inject(function ($rootScope, $controller, _tdTermsStore_, _tdTermCommentsStore_) {
+    tdTermsStore = _tdTermsStore_;
     tdTermCommentsStore = _tdTermCommentsStore_;
     scope = $rootScope.$new();
 
@@ -40,9 +40,9 @@ describe('TermDetailController', function () {
 
 
   describe('.updateHeading()', function () {
-    it('should call tdTodosStore.updateById', function () {
+    it('should call tdTermsStore.updateById', function () {
       var term = {text: 'Do This', done: false, id: '1'};
-      var spy = spyOn(tdTodosStore, 'updateById');
+      var spy = spyOn(tdTermsStore, 'updateById');
 
       termDetailController.updateHeading(term);
       expect(spy).toHaveBeenCalledWith('1', term);

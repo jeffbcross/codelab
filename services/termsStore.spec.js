@@ -1,45 +1,45 @@
 'use strict';
 
 describe('todosStore', function () {
-  var tdTodosStore,
+  var tdTermsStore,
       resourceSpy,
       $httpBackend,
-      Todo;
+      Term;
 
   beforeEach(module('todoApp'));
 
-  beforeEach(inject(function (_tdTodosStore_, _$httpBackend_, _Todo_) {
-    tdTodosStore = _tdTodosStore_;
+  beforeEach(inject(function (_tdTermsStore_, _$httpBackend_, _Term_) {
+    tdTermsStore = _tdTermsStore_;
     $httpBackend = _$httpBackend_;
     $httpBackend.whenGET('/todos').respond(200);
-    Todo = _Todo_;
+    Term = _Term_;
   }));
 
 
   it('should exist', function () {
-    expect(!!tdTodosStore).toBe(true);
+    expect(!!tdTermsStore).toBe(true);
   });
 
 
   it('should have an array of todos', function () {
-    expect(angular.isArray(tdTodosStore.todos)).toBe(true);
+    expect(angular.isArray(tdTermsStore.todos)).toBe(true);
   });
 
 
   describe('.add()', function () {
     it('should provide a method to add a single todo',
       function () {
-        expect(typeof tdTodosStore.add).toBe('function');
+        expect(typeof tdTermsStore.add).toBe('function');
       });
 
 
     it('should add the todo to the service\'s todos array',
       function () {
-        var newTodo = {done: true, text: 'Do it', id: 0};
-        var spy = spyOn(tdTodosStore.todos, 'push');
-        tdTodosStore.add(newTodo);
+        var newTerm = {done: true, text: 'Do it', id: 0};
+        var spy = spyOn(tdTermsStore.todos, 'push');
+        tdTermsStore.add(newTerm);
 
-        expect(spy).toHaveBeenCalledWith(newTodo);
+        expect(spy).toHaveBeenCalledWith(newTerm);
       });
   });
 
@@ -50,7 +50,7 @@ describe('todosStore', function () {
     beforeEach(function () {
       todo = {id: '1', done: false, text: 'Do it'};
       $httpBackend.whenPUT('/todos/1').respond(200);
-      tdTodosStore.todos = [todo];
+      tdTermsStore.todos = [todo];
 
       todoCopy = angular.copy(todo);
       todoCopy.done = !todoCopy.done;
@@ -59,44 +59,44 @@ describe('todosStore', function () {
 
     it('should update the todo in the list', function () {
 
-      tdTodosStore.updateById('1', todoCopy);
+      tdTermsStore.updateById('1', todoCopy);
       $httpBackend.flush();
 
-      expect(tdTodosStore.todos[0]).toEqual(todoCopy);
+      expect(tdTermsStore.todos[0]).toEqual(todoCopy);
     });
 
 
     it('should save the todo to the server', function () {
-      var spy = spyOn(Todo, 'update');
+      var spy = spyOn(Term, 'update');
 
-      tdTodosStore.updateById('1', todoCopy);
+      tdTermsStore.updateById('1', todoCopy);
 
       expect(spy).toHaveBeenCalled();
     });
   });
 
 
-  describe('Todo', function () {
-    var Todo, TODOS_PATH;
+  describe('Term', function () {
+    var Term, TODOS_PATH;
 
-    beforeEach(inject(function (_$httpBackend_, _Todo_, _TODOS_PATH_) {
+    beforeEach(inject(function (_$httpBackend_, _Term_, _TODOS_PATH_) {
       TODOS_PATH = _TODOS_PATH_;
-      Todo = _Todo_;
+      Term = _Term_;
     }));
 
 
     it('should exist', function () {
-      expect(!!Todo).toBe(true);
+      expect(!!Term).toBe(true);
     });
 
 
     it('should have a query method', function () {
-      expect(typeof Todo.query).toBe('function');
+      expect(typeof Term.query).toBe('function');
     });
 
 
     it('should have an update method', function () {
-      expect(typeof Todo.update).toBe('function');
+      expect(typeof Term.update).toBe('function');
     });
 
 
@@ -108,7 +108,7 @@ describe('todosStore', function () {
 
       $httpBackend.whenPUT(TODOS_PATH + '/1').respond(200);
 
-      Todo.update({id: 1}, {done: true, text: 'Do it'}, spyable.success);
+      Term.update({id: 1}, {done: true, text: 'Do it'}, spyable.success);
       $httpBackend.flush();
 
       expect(spy).toHaveBeenCalled();
