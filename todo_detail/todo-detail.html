@@ -12,7 +12,13 @@
     </h1>
   </div>
 
-  <td-add-comment todo-id="todoDetail.todoId"></td-add-comment>
+  <div class="addComment">
+    <form ng-submit="todoDetail.addComment(todoDetail.newComment)" name="newCommentForm">
+      <input type="text" ng-model="todoDetail.newComment.text" required>
+      <button ng-disabled="newCommentForm.$invalid" type="submit">Add Comment</button>
+    </form>
+  </div>
+
   <td-todo-comments todo-id="todoDetail.todoId"></td-todo-comments>
   <footer>
     <a href="/#/">&laquo; All Todos</a>
