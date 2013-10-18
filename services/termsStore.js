@@ -23,11 +23,11 @@ angular.module('glossaryApp')
     mapById = $filter('tdMapById');
     this.terms = [];
 
-    this.add = function (todo) {
+    this.add = function (term) {
       var prev;
 
-      this.terms.push(todo);
-      Term.save(todo);
+      this.terms.push(term);
+      Term.save(term);
     };
 
     this.updateById = function (id, term) {
@@ -36,9 +36,9 @@ angular.module('glossaryApp')
       Term.update({id: id}, term);
     };
 
-    queryResult = Term.query(function (todos) {
-      angular.forEach(todos, function (todo) {
-        self.todos.push(todo);
+    queryResult = Term.query(function (terms) {
+      angular.forEach(terms, function (term) {
+        self.terms.push(term);
       });
     });
   }]);
