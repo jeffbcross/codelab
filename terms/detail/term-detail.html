@@ -23,7 +23,9 @@
           <span ng-hide="termDetail.currentUser.email">You must enter your email to submit a defnition</span>
           <span ng-show="termDetail.currentUser.email">Posting as:</span>
         </label>
+
         <br>
+
         <input ng-change="termDetail.currentUser.save()" type="email" required ng-model="termDetail.currentUser.email">
 
         <br>

@@ -11,48 +11,16 @@
 .termsList .createTermForm {
   display: block;
   background: #eee;
-  font-size: 1.5em;
-  padding: 0 12px 24px;
+  padding: 12px;
 }
 
 .termsList .createTermForm h2 {
   margin: 0;
-  line-height: 2.5em;
-  font-size: 2.0em;
-}
-
-.termsList .createTermForm label {
-  font-size: 1.5em;
-  line-height: 2.0em;
-}
-
-.termsList .createTermForm input[type=text], .termsList .createTermForm input[type=email] {
-  font-size: 1.5em;
-  line-height: 2.0em;
-  height: 2.0em;
-  padding: 0 12px;
-  display: block;
-}
-
-.termsList .createTermForm button {
-  font-size: 1.5em;
-  line-height: 2.0em;
-  height: 2.0em;
-}
-
-.termsList .createTermForm form:before, .createTermForm form:after {
-  content: " ";
-  display: table;
-}
-
-.termsList .createTermForm form:after {
-  clear: both;
 }
 
 .termsList ul {
   padding-left: 0;
   width: 100%;
-  font-size: 2em;
 }
 
 .termsList ul li {
@@ -64,8 +32,11 @@
   cursor: pointer;
 }
 
-.termsList ul li .definition {
-  font-size: 0.5em;
+.termsList ul li .meta {
+  color: #666;
+  display: block;
+  margin-top: 6px;
+  font-size: 0.9em;
 }
 
 .termsList ul li:hover {
@@ -84,8 +55,4 @@
 
 .termsList ul li a.checkbox {
   cursor: pointer;
-}
-
-.termsList ul li .meta {
-  font-size: 0.4em;
 }
