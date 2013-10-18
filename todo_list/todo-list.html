@@ -4,7 +4,7 @@
   <ul>
     <li ng-repeat="todo in todoList.todos | orderBy:'done':true track by todo.id" ng-class="{done: todo.done}">
       <input type="checkbox" ng-change="todoList.todoChanged(todo)" ng-model="todo.done">
-      <a ng-href="/#/todo/{{todo.id}}">{{todo.text}}</a>
+      <a ng-href="/#/todos/{{todo.id}}">{{todo.text}}</a>
     </li>
   </ul>
 

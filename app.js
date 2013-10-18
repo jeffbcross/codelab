@@ -7,7 +7,8 @@ angular.module('todos', ['ngRoute', 'ngResource'])
     })
     .when('/todos/:id', {
       controller: 'TodoDetailController',
-      templateUrl: 'todo_detail/todo-detail.html'
+      templateUrl: 'todo_detail/todo-detail.html',
+      controllerAs: 'todoDetail'
     })
     .otherwise({
       redirectTo: '/todos'

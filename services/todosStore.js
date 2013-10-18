@@ -6,7 +6,7 @@ angular.module('todos')
 
     this.add = function (todo) {
       var prev;
-      console.log('todo', todo);
+
       this.todos.push(todo);
       Todo.save(todo);
     };

@@ -1,3 +1,25 @@
 .todoDetail footer {
   padding: 24px 0;
 }
+
+.todoDetail .todoHeading {
+  padding: 0;
+}
+
+.todoDetail .checkbox {
+  font-size: 1.0em;
+  line-height: 1.0em;
+  float: left;
+}
+
+.todoDetail form {
+  margin-bottom: 0;
+}
+
+.todoDetail input.todo-edit-heading {
+  display: inline-block;
+  font-size: 1.0em;
+  line-height: 1.0em;
+  padding: 0;
+  border: 0;
+}

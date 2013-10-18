@@ -21,6 +21,7 @@ module.exports = function (config) {
       'services/*.js',
       '*.js',
       'components/**/*.html',
+      'todo_detail/*.js',
       'todo_list/*.js'
     ],
     preprocessors: {
