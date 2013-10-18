@@ -3,8 +3,11 @@
 
   <ul>
     <li ng-repeat="term in termsList.terms | orderBy:'name' track by term.id">
-      <a ng-href="/#/terms/{{term.id}}">{{term.name}}</a>
-      <span ng-bind-html="term.definition"></span>
+      <a ng-href="/#/terms/{{term.id}}">
+        {{term.name}}
+        <br>
+        <span class="definition" ng-bind="term.definition"></span>
+      </a>
     </li>
   </ul>
 

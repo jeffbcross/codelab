@@ -1,21 +1,13 @@
 {
 	"type": "Collection",
 	"properties": {
-		"text": {
-			"name": "text",
+		"name": {
+			"name": "name",
 			"type": "string",
 			"typeLabel": "string",
 			"required": false,
-			"id": "text",
+			"id": "name",
 			"order": 0
-		},
-		"done": {
-			"name": "done",
-			"type": "boolean",
-			"typeLabel": "boolean",
-			"required": false,
-			"id": "done",
-			"order": 1
 		},
 		"comments": {
 			"name": "comments",
@@ -23,6 +15,14 @@
 			"typeLabel": "array",
 			"required": false,
 			"id": "comments",
+			"order": 1
+		},
+		"definition": {
+			"name": "definition",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "definition",
 			"order": 2
 		}
 	}

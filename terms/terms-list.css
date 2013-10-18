@@ -55,6 +55,11 @@
   padding-left: 0;
   margin: 0;
   padding: 12px;
+  cursor: pointer;
+}
+
+.termsList ul li .definition {
+  font-size: 0.5em;
 }
 
 .termsList ul li:hover {
@@ -62,6 +67,7 @@
 }
 
 .termsList ul li a {
+  display: block;
   color: #333;
   text-decoration: none;
 }

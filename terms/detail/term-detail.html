@@ -5,6 +5,8 @@
         <input class="term-edit-heading" ng-model="termDetail.term.name" ng-focus="editingText = true" ng-blur="updateHeading(termDetail.term, (editingText = false))">
       </form>
     </h1>
+    <strong>Definition</strong>
+    <p class="definition" ng-bind="termDetail.term.definition"></p>
   </div>
 
   <div class="addComment">
@@ -16,6 +18,8 @@
 
   <div class="termComments">
     <h3>Term Comments</h3>
+    <em ng-hide="termDetail.comments.$resolved">Loading Comments</em>
+    <em ng-show="termDetail.comments.$resolved && termDetail.comments.length === 0">No Comments Yet</em>
     <ul>
       <li ng-repeat="comment in termDetail.comments | orderBy:'date':true">
         <span class="text" ng-bind="comment.text"></span>
