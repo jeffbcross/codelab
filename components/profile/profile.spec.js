@@ -13,6 +13,7 @@ describe('tdProfile', function () {
 
   it('should create an isolate scope', function () {
     expect(scope.user).toBeFalsy();
+    expect(element.scope().user).toBeTruthy();
   });
 
 
