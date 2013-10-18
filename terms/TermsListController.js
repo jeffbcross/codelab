@@ -6,8 +6,7 @@ angular.module('todoApp')
 
       this.saveTerm = function () {
         tdTermsStore.add({
-          text: $scope.newTerm.text,
-          done: $scope.newTerm.done || false
+          text: $scope.newTerm.text
         });
 
         //Reset the model

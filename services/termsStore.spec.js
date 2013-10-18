@@ -35,7 +35,7 @@ describe('todosStore', function () {
 
     it('should add the todo to the service\'s todos array',
       function () {
-        var newTerm = {done: true, text: 'Do it', id: 0};
+        var newTerm = {text: 'Do it', id: 0};
         var spy = spyOn(tdTermsStore.todos, 'push');
         tdTermsStore.add(newTerm);
 
@@ -48,12 +48,11 @@ describe('todosStore', function () {
     var todo, todoCopy;
 
     beforeEach(function () {
-      todo = {id: '1', done: false, text: 'Do it'};
+      todo = {id: '1', text: 'Do it'};
       $httpBackend.whenPUT('/todos/1').respond(200);
       tdTermsStore.todos = [todo];
 
       todoCopy = angular.copy(todo);
-      todoCopy.done = !todoCopy.done;
     });
 
 
@@ -108,7 +107,7 @@ describe('todosStore', function () {
 
       $httpBackend.whenPUT(TODOS_PATH + '/1').respond(200);
 
-      Term.update({id: 1}, {done: true, text: 'Do it'}, spyable.success);
+      Term.update({id: 1}, {text: 'Do it'}, spyable.success);
       $httpBackend.flush();
 
       expect(spy).toHaveBeenCalled();
@@ -126,19 +125,17 @@ describe('todosStore', function () {
 
     describe('.map()', function () {
       it('should return a map of ids to todos', function () {
-        var todo1 = {
-          done: false,
+        var term1 = {
           text: 'Do it',
-          id: 0
+          id: '0'
         };
-        var todo2 = {
-          done: true,
+        var term2 = {
           text: 'Done',
-          id: 1
+          id: '1'
         };
-        var todoArray = [todo1, todo2];
+        var todoArray = [term1, term2];
 
-        expect(mapById(todoArray)).toEqual({0: todo1, 1: todo2});
+        expect(mapById(todoArray)).toEqual({0: term1, 1: term2});
       });
     });
   });

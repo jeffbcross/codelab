@@ -33,7 +33,6 @@ angular.module('todoApp')
     this.updateById = function (id, todo) {
       var mapped = mapById(this.todos);
       mapped[id].text = todo.text;
-      mapped[id].done = todo.done;
       Term.update({id: id}, todo);
     };
 

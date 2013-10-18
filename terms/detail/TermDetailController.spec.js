@@ -41,7 +41,7 @@ describe('TermDetailController', function () {
 
   describe('.updateHeading()', function () {
     it('should call tdTermsStore.updateById', function () {
-      var term = {text: 'Do This', done: false, id: '1'};
+      var term = {text: 'Do This', id: '1'};
       var spy = spyOn(tdTermsStore, 'updateById');
 
       termDetailController.updateHeading(term);

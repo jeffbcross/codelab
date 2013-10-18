@@ -70,12 +70,6 @@
   color: #333;
 }
 
-.termsList ul li.done {
-  text-decoration: line-through;
-  color: gray;
-  font-style: oblique;
-}
-
 .termsList ul li a.checkbox {
   cursor: pointer;
 }

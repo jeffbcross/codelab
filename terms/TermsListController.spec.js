@@ -13,7 +13,7 @@ describe('TermsListController', function () {
       $scope: scope
     });
 
-    $httpBackend.whenGET(TODOS_PATH).respond([{done: false, id: 1, text: 'Do it'}]);
+    $httpBackend.whenGET(TODOS_PATH).respond([{id: 1, text: 'Do it'}]);
     var exp = new RegExp(TODOS_PATH + '\/[0-9]*');
     $httpBackend.whenPUT(exp).respond(200);
   }));
@@ -28,8 +28,7 @@ describe('TermsListController', function () {
     it('should call tdTermsStore.add()', function () {
       var spy = spyOn(tdTermsStore, 'add');
       var todo = {
-        text: 'Do this',
-        done: false
+        text: 'Do this'
       };
 
       scope.newTerm = angular.copy(todo);
@@ -41,7 +40,7 @@ describe('TermsListController', function () {
 
 
     it('should reset the form model when saving a todo', function () {
-      var originalModel = {done: false, text: 'Do the thing', id: 1};
+      var originalModel = {text: 'Do the thing', id: 1};
       scope.newTerm = originalModel;
 
       expect(scope.newTerm).toEqual(originalModel);
