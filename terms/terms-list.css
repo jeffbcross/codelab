@@ -89,3 +89,7 @@
 .termsList ul li a.checkbox {
   cursor: pointer;
 }
+
+.termsList ul li .meta {
+  font-size: 0.4em;
+}

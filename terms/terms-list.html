@@ -11,6 +11,13 @@
           {{term.name}}
           <br>
           <span class="definition" ng-bind="term.definition"></span>
+          <br>
+          <span class="meta">
+            Created by
+              <strong ng-show="term.creatorEmail === termsList.currentUser.email">You</strong>
+              <strong ng-hide="term.creatorEmail === termsList.currentUser.email">{{term.creatorEmail}}</strong>
+            at <span ng-bind="term.createdAt | date"></span>
+          </span>
         </a>
       </li>
     </ul>

@@ -9,21 +9,29 @@
 			"id": "name",
 			"order": 0
 		},
-		"comments": {
-			"name": "comments",
-			"type": "array",
-			"typeLabel": "array",
-			"required": false,
-			"id": "comments",
-			"order": 1
-		},
 		"definition": {
 			"name": "definition",
 			"type": "string",
 			"typeLabel": "string",
 			"required": false,
 			"id": "definition",
+			"order": 1
+		},
+		"creatorEmail": {
+			"name": "creatorEmail",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "creatorEmail",
 			"order": 2
+		},
+		"createdAt": {
+			"name": "createdAt",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "createdAt",
+			"order": 3
 		}
 	}
 }
