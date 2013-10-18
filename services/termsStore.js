@@ -1,4 +1,4 @@
-angular.module('todoApp')
+angular.module('glossaryApp')
   .filter('tdMapById', function () {
     return function (todos) {
       var mapped = {};
@@ -21,17 +21,17 @@ angular.module('todoApp')
   .service('tdTermsStore', ['$filter', 'Term', '$q', function ($filter, Term, $q) {
     var self = this, queryResult;
     mapById = $filter('tdMapById');
-    this.todos = [];
+    this.terms = [];
 
     this.add = function (todo) {
       var prev;
 
-      this.todos.push(todo);
+      this.terms.push(todo);
       Term.save(todo);
     };
 
     this.updateById = function (id, term) {
-      var mapped = mapById(this.todos);
+      var mapped = mapById(this.terms);
       mapped[id].name = term.name;
       Term.update({id: id}, term);
     };

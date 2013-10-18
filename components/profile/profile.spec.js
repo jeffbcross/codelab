@@ -1,7 +1,7 @@
 describe('tdProfile', function () {
   var getItemSpy, tdProfileStore, scope, element;
 
-  beforeEach(module('todoApp', 'components/profile/profile.html'));
+  beforeEach(module('glossaryApp', 'components/profile/profile.html'));
 
   beforeEach(inject(function ($rootScope, $compile, _tdProfileStore_, _LOCALSTORAGE_PROFILE_KEY_) {
     scope = $rootScope.$new();

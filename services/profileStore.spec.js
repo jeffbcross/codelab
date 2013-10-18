@@ -3,7 +3,7 @@
 describe('profileStore', function () {
   var getItemSpy, tdProfileStore, LOCALSTORAGE_PROFILE_KEY;
 
-  beforeEach(module('todoApp'));
+  beforeEach(module('glossaryApp'));
 
   beforeEach(inject(function ($window) {
     getItemSpy = spyOn($window.localStorage, 'getItem');

@@ -1,7 +1,7 @@
 describe('personalize', function () {
   var filter, tdProfileStore;
 
-  beforeEach(module('todoApp'));
+  beforeEach(module('glossaryApp'));
 
   beforeEach(inject(function ($filter, _tdProfileStore_) {
     filter = $filter('personalize');

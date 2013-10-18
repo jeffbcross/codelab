@@ -1,4 +1,4 @@
-angular.module('todoApp')
+angular.module('glossaryApp')
   .controller('ProfileController', ['$scope', 'tdProfileStore', function ($scope, tdProfileStore) {
     $scope.user = tdProfileStore;
   }])

@@ -3,7 +3,7 @@
 describe('TermsListController', function () {
   var termsListController, scope, tdTermsStore;
 
-  beforeEach(module('todoApp'));
+  beforeEach(module('glossaryApp'));
 
   beforeEach(inject(function ($controller, $rootScope, $httpBackend, TODOS_PATH, _tdTermsStore_) {
     scope = $rootScope.$new();

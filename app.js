@@ -1,4 +1,4 @@
-angular.module('todoApp', ['ngRoute', 'ngResource'])
+angular.module('glossaryApp', ['ngRoute', 'ngResource'])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/terms', {
       controller: 'TermsListController',
@@ -16,4 +16,4 @@ angular.module('todoApp', ['ngRoute', 'ngResource'])
   }])
   .constant('TODOS_PATH', '/termsapi')
   .constant('COMMENTS_PATH', '/comments')
-  .constant('LOCALSTORAGE_PROFILE_KEY', 'todoApp.profile');
+  .constant('LOCALSTORAGE_PROFILE_KEY', 'glossaryApp.profile');

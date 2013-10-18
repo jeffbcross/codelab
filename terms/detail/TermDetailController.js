@@ -1,4 +1,4 @@
-angular.module('todoApp')
+angular.module('glossaryApp')
   .controller('TermDetailController',
     ['$scope', '$routeParams', 'tdTermsStore', 'tdTermCommentsStore', 'tdProfileStore', 'Term',
       function ($scope, $routeParams, tdTermsStore, tdTermCommentsStore, tdProfileStore, Term) {

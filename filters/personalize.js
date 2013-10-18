@@ -1,4 +1,4 @@
-angular.module('todoApp')
+angular.module('glossaryApp')
   .filter('personalize', function (tdProfileStore) {
     return function (email) {
       if (angular.isString(tdProfileStore.email) && tdProfileStore.email === email) {

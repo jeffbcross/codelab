@@ -1,8 +1,8 @@
-angular.module('todoApp')
+angular.module('glossaryApp')
   .controller('TermsListController',
     ['$scope', 'tdTermsStore', 'tdProfileStore',
     function ($scope, tdTermsStore, tdProfileStore) {
-      this.terms = tdTermsStore.todos;
+      this.terms = tdTermsStore.terms;
       this.currentUser = tdProfileStore;
 
       this.saveTerm = function () {

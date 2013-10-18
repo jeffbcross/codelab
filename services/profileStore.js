@@ -1,4 +1,4 @@
-angular.module('todoApp')
+angular.module('glossaryApp')
   .factory('tdGravatarEmail', function () {
     return function (email) {
       if (!angular.isString(email)) return;

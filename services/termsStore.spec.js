@@ -6,7 +6,7 @@ describe('todosStore', function () {
       $httpBackend,
       Term;
 
-  beforeEach(module('todoApp'));
+  beforeEach(module('glossaryApp'));
 
   beforeEach(inject(function (_tdTermsStore_, _$httpBackend_, _Term_, TODOS_PATH) {
     tdTermsStore = _tdTermsStore_;
@@ -22,8 +22,8 @@ describe('todosStore', function () {
   });
 
 
-  it('should have an array of todos', function () {
-    expect(angular.isArray(tdTermsStore.todos)).toBe(true);
+  it('should have an array of terms', function () {
+    expect(angular.isArray(tdTermsStore.terms)).toBe(true);
   });
 
 
@@ -34,10 +34,10 @@ describe('todosStore', function () {
       });
 
 
-    it('should add the todo to the service\'s todos array',
+    it('should add the term to the service\'s terms array',
       function () {
         var newTerm = {name: 'Do it', id: 0};
-        var spy = spyOn(tdTermsStore.todos, 'push');
+        var spy = spyOn(tdTermsStore.terms, 'push');
         tdTermsStore.add(newTerm);
 
         expect(spy).toHaveBeenCalledWith(newTerm);
@@ -46,29 +46,29 @@ describe('todosStore', function () {
 
 
   describe('.updateById()', function () {
-    var todo, todoCopy;
+    var term, termCopy;
 
     beforeEach(function () {
-      todo = {id: '1', text: 'Do it'};
-      tdTermsStore.todos = [todo];
+      term = {id: '1', text: 'Do it'};
+      tdTermsStore.terms = [term];
 
-      todoCopy = angular.copy(todo);
+      termCopy = angular.copy(term);
     });
 
 
-    it('should update the todo in the list', function () {
+    it('should update the term in the list', function () {
 
-      tdTermsStore.updateById('1', todoCopy);
+      tdTermsStore.updateById('1', termCopy);
       $httpBackend.flush();
 
-      expect(tdTermsStore.todos[0]).toEqual(todoCopy);
+      expect(tdTermsStore.terms[0]).toEqual(termCopy);
     });
 
 
-    it('should save the todo to the server', function () {
+    it('should save the term to the server', function () {
       var spy = spyOn(Term, 'update');
 
-      tdTermsStore.updateById('1', todoCopy);
+      tdTermsStore.updateById('1', termCopy);
 
       expect(spy).toHaveBeenCalled();
     });

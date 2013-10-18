@@ -1,7 +1,7 @@
 describe('TermDetailController', function () {
   var scope, tdTermsStore, tdTermCommentsStore, termDetailController;
 
-  beforeEach(module('todoApp'));
+  beforeEach(module('glossaryApp'));
 
   beforeEach(inject(function ($rootScope, $controller, _tdTermsStore_, _tdTermCommentsStore_) {
     tdTermsStore = _tdTermsStore_;

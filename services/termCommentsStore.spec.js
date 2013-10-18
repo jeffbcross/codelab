@@ -4,7 +4,7 @@ describe('termCommentsStore', function () {
   var tdTermCommentsStore, $httpBackend,
       comment = {text: 'A comment', date: 1};
 
-  beforeEach(module('todoApp'));
+  beforeEach(module('glossaryApp'));
 
   beforeEach(inject(function (_tdTermCommentsStore_, _$httpBackend_) {
     tdTermCommentsStore = _tdTermCommentsStore_;
