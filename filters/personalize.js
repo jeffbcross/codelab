@@ -1,7 +1,7 @@
 angular.module('glossaryApp')
-  .filter('personalize', function (tdProfileStore) {
+  .filter('personalize', function (glProfileStore) {
     return function (email) {
-      if (angular.isString(tdProfileStore.email) && tdProfileStore.email === email) {
+      if (angular.isString(glProfileStore.email) && glProfileStore.email === email) {
         return "You"
       }
       else {

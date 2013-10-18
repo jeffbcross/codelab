@@ -1,12 +1,12 @@
-describe('tdProfile', function () {
-  var getItemSpy, tdProfileStore, scope, element;
+describe('glProfile', function () {
+  var getItemSpy, glProfileStore, scope, element;
 
   beforeEach(module('glossaryApp', 'components/profile/profile.html'));
 
-  beforeEach(inject(function ($rootScope, $compile, _tdProfileStore_, _LOCALSTORAGE_PROFILE_KEY_) {
+  beforeEach(inject(function ($rootScope, $compile, _glProfileStore_, _LOCALSTORAGE_PROFILE_KEY_) {
     scope = $rootScope.$new();
-    tdProfileStore = _tdProfileStore_;
-    element = $compile('<td-profile></td-profile>')(scope);
+    glProfileStore = _glProfileStore_;
+    element = $compile('<gl-profile></gl-profile>')(scope);
     scope.$digest();
   }));
 
@@ -19,7 +19,7 @@ describe('tdProfile', function () {
 
   describe('ProfileController', function () {
     it('should add a user to the scope', function () {
-      tdProfileStore.email = 'foo@bar';
+      glProfileStore.email = 'foo@bar';
       expect(element.scope().user.email).toBe('foo@bar');
     });
   });

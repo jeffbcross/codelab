@@ -1,9 +1,9 @@
 angular.module('glossaryApp')
-  .filter('tdMapById', function () {
-    return function (todos) {
+  .filter('glMapById', function () {
+    return function (terms) {
       var mapped = {};
 
-      todos.forEach(function (item) {
+      terms.forEach(function (item) {
         mapped[item.id] = item;
       });
 
@@ -18,9 +18,9 @@ angular.module('glossaryApp')
           method: 'PUT'
         }});
     }])
-  .service('tdTermsStore', ['$filter', 'Term', '$q', function ($filter, Term, $q) {
+  .service('glTermsStore', ['$filter', 'Term', '$q', function ($filter, Term, $q) {
     var self = this, queryResult;
-    mapById = $filter('tdMapById');
+    mapById = $filter('glMapById');
     this.terms = [];
 
     this.add = function (term) {

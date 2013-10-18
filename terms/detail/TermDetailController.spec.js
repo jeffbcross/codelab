@@ -1,11 +1,11 @@
 describe('TermDetailController', function () {
-  var scope, tdTermsStore, tdTermCommentsStore, termDetailController;
+  var scope, glTermsStore, glTermCommentsStore, termDetailController;
 
   beforeEach(module('glossaryApp'));
 
-  beforeEach(inject(function ($rootScope, $controller, _tdTermsStore_, _tdTermCommentsStore_) {
-    tdTermsStore = _tdTermsStore_;
-    tdTermCommentsStore = _tdTermCommentsStore_;
+  beforeEach(inject(function ($rootScope, $controller, _glTermsStore_, _glTermCommentsStore_) {
+    glTermsStore = _glTermsStore_;
+    glTermCommentsStore = _glTermCommentsStore_;
     scope = $rootScope.$new();
 
     termDetailController = $controller('TermDetailController', {
@@ -18,8 +18,8 @@ describe('TermDetailController', function () {
 
 
   describe('.addComment()', function () {
-    it('should add the comment to tdTermCommentsStore', function () {
-      var spy = spyOn(tdTermCommentsStore, 'addCommentToTerm');
+    it('should add the comment to glTermCommentsStore', function () {
+      var spy = spyOn(glTermCommentsStore, 'addCommentToTerm');
       var comment = {text: 'A comment'};
 
       termDetailController.addComment(comment);
@@ -40,9 +40,9 @@ describe('TermDetailController', function () {
 
 
   describe('.updateHeading()', function () {
-    it('should call tdTermsStore.updateById', function () {
+    it('should call glTermsStore.updateById', function () {
       var term = {text: 'Do This', id: '1'};
-      var spy = spyOn(tdTermsStore, 'updateById');
+      var spy = spyOn(glTermsStore, 'updateById');
 
       termDetailController.updateHeading(term);
       expect(spy).toHaveBeenCalledWith('1', term);

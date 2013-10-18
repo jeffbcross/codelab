@@ -1,8 +1,8 @@
 angular.module('glossaryApp')
-  .controller('ProfileController', ['$scope', 'tdProfileStore', function ($scope, tdProfileStore) {
-    $scope.user = tdProfileStore;
+  .controller('ProfileController', ['$scope', 'glProfileStore', function ($scope, glProfileStore) {
+    $scope.user = glProfileStore;
   }])
-  .directive('tdProfile', function () {
+  .directive('glProfile', function () {
     return {
       scope: {},
       restrict: 'E',

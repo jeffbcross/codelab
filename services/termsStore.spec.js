@@ -1,15 +1,15 @@
 'use strict';
 
-describe('todosStore', function () {
-  var tdTermsStore,
+describe('termsStore', function () {
+  var glTermsStore,
       resourceSpy,
       $httpBackend,
       Term;
 
   beforeEach(module('glossaryApp'));
 
-  beforeEach(inject(function (_tdTermsStore_, _$httpBackend_, _Term_, TERMS_PATH) {
-    tdTermsStore = _tdTermsStore_;
+  beforeEach(inject(function (_glTermsStore_, _$httpBackend_, _Term_, TERMS_PATH) {
+    glTermsStore = _glTermsStore_;
     $httpBackend = _$httpBackend_;
     $httpBackend.whenGET(TERMS_PATH).respond(200);
     $httpBackend.whenPUT(TERMS_PATH + '/1').respond(200);
@@ -18,27 +18,27 @@ describe('todosStore', function () {
 
 
   it('should exist', function () {
-    expect(!!tdTermsStore).toBe(true);
+    expect(!!glTermsStore).toBe(true);
   });
 
 
   it('should have an array of terms', function () {
-    expect(angular.isArray(tdTermsStore.terms)).toBe(true);
+    expect(angular.isArray(glTermsStore.terms)).toBe(true);
   });
 
 
   describe('.add()', function () {
-    it('should provide a method to add a single todo',
+    it('should provide a method to add a single term',
       function () {
-        expect(typeof tdTermsStore.add).toBe('function');
+        expect(typeof glTermsStore.add).toBe('function');
       });
 
 
     it('should add the term to the service\'s terms array',
       function () {
         var newTerm = {name: 'Do it', id: 0};
-        var spy = spyOn(tdTermsStore.terms, 'push');
-        tdTermsStore.add(newTerm);
+        var spy = spyOn(glTermsStore.terms, 'push');
+        glTermsStore.add(newTerm);
 
         expect(spy).toHaveBeenCalledWith(newTerm);
       });
@@ -50,7 +50,7 @@ describe('todosStore', function () {
 
     beforeEach(function () {
       term = {id: '1', text: 'Do it'};
-      tdTermsStore.terms = [term];
+      glTermsStore.terms = [term];
 
       termCopy = angular.copy(term);
     });
@@ -58,17 +58,17 @@ describe('todosStore', function () {
 
     it('should update the term in the list', function () {
 
-      tdTermsStore.updateById('1', termCopy);
+      glTermsStore.updateById('1', termCopy);
       $httpBackend.flush();
 
-      expect(tdTermsStore.terms[0]).toEqual(termCopy);
+      expect(glTermsStore.terms[0]).toEqual(termCopy);
     });
 
 
     it('should save the term to the server', function () {
       var spy = spyOn(Term, 'update');
 
-      tdTermsStore.updateById('1', termCopy);
+      glTermsStore.updateById('1', termCopy);
 
       expect(spy).toHaveBeenCalled();
     });
@@ -119,23 +119,25 @@ describe('todosStore', function () {
     var mapById;
 
     beforeEach(inject(function ($filter) {
-      mapById = $filter('tdMapById');
+      mapById = $filter('glMapById');
     }));
 
 
     describe('.map()', function () {
-      it('should return a map of ids to todos', function () {
+      it('should return a map of ids to terms', function () {
         var term1 = {
-          text: 'Do it',
+          name: 'Digest',
+          definition: 'It processes food',
           id: '0'
         };
         var term2 = {
-          text: 'Done',
+          name: 'Transclusion',
+          definition: 'It is magical',
           id: '1'
         };
-        var todoArray = [term1, term2];
+        var termArray = [term1, term2];
 
-        expect(mapById(todoArray)).toEqual({0: term1, 1: term2});
+        expect(mapById(termArray)).toEqual({0: term1, 1: term2});
       });
     });
   });

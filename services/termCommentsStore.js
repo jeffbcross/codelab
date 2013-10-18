@@ -2,7 +2,7 @@ angular.module('glossaryApp')
   .factory('Comments', ['$resource', 'COMMENTS_PATH', function ($resource, COMMENTS_PATH) {
     return $resource(COMMENTS_PATH);
   }])
-  .service('tdTermCommentsStore', ['Comments', function (Comments) {
+  .service('glTermCommentsStore', ['Comments', function (Comments) {
     this.mapTermComments = {};
 
     this.getCommentsForTerm = function (id) {
