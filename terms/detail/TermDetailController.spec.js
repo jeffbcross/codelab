@@ -1,11 +1,11 @@
 describe('TermDetailController', function () {
-  var scope, tdTodosStore, tdTodoCommentsStore, termDetailController;
+  var scope, tdTodosStore, tdTermCommentsStore, termDetailController;
 
   beforeEach(module('todoApp'));
 
-  beforeEach(inject(function ($rootScope, $controller, _tdTodosStore_, _tdTodoCommentsStore_) {
+  beforeEach(inject(function ($rootScope, $controller, _tdTodosStore_, _tdTermCommentsStore_) {
     tdTodosStore = _tdTodosStore_;
-    tdTodoCommentsStore = _tdTodoCommentsStore_;
+    tdTermCommentsStore = _tdTermCommentsStore_;
     scope = $rootScope.$new();
 
     termDetailController = $controller('TermDetailController', {
@@ -14,14 +14,12 @@ describe('TermDetailController', function () {
         id: '1'
       }
     });
-
-
   }));
 
 
   describe('.addComment()', function () {
-    it('should add the comment to tdTodoCommentsStore', function () {
-      var spy = spyOn(tdTodoCommentsStore, 'addCommentToTodo');
+    it('should add the comment to tdTermCommentsStore', function () {
+      var spy = spyOn(tdTermCommentsStore, 'addCommentToTerm');
       var comment = {text: 'A comment'};
 
       termDetailController.addComment(comment);

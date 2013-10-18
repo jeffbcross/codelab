@@ -2,16 +2,16 @@ angular.module('todoApp')
   .factory('Comments', ['$resource', 'COMMENTS_PATH', function ($resource, COMMENTS_PATH) {
     return $resource(COMMENTS_PATH);
   }])
-  .service('tdTodoCommentsStore', ['Comments', function (Comments) {
+  .service('tdTermCommentsStore', ['Comments', function (Comments) {
     this.mapTodoComments = {};
 
-    this.getCommentsForTodo = function (id) {
+    this.getCommentsForTerm = function (id) {
       this.mapTodoComments[id] = this.mapTodoComments[id] || Comments.query({todoid: id});
 
       return this.mapTodoComments[id];
     };
 
-    this.addCommentToTodo = function (id, comment) {
+    this.addCommentToTerm = function (id, comment) {
       if (!comment.date) comment.date = new Date().getTime();
       if (!comment.todoid) comment.todoid = id;
 

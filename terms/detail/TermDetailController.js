@@ -1,9 +1,9 @@
 angular.module('todoApp')
   .controller('TermDetailController',
-    ['$scope', '$routeParams', 'tdTodosStore', 'tdTodoCommentsStore', 'Todo',
-      function ($scope, $routeParams, tdTodosStore, tdTodoCommentsStore, Todo) {
+    ['$scope', '$routeParams', 'tdTodosStore', 'tdTermCommentsStore', 'Todo',
+      function ($scope, $routeParams, tdTodosStore, tdTermCommentsStore, Todo) {
         this.term = Todo.get({id: $routeParams.id});
-        this.comments = tdTodoCommentsStore.getCommentsForTodo($routeParams.id);
+        this.comments = tdTermCommentsStore.getCommentsForTerm($routeParams.id);
 
         this.updateHeading = function (term) {
           tdTodosStore.updateById($routeParams.id, term);
@@ -11,7 +11,7 @@ angular.module('todoApp')
         };
 
         this.addComment = function (comment) {
-          tdTodoCommentsStore.addCommentToTodo($routeParams.id, comment);
+          tdTermCommentsStore.addCommentToTerm($routeParams.id, comment);
           this.newComment = {};
         };
     }]);

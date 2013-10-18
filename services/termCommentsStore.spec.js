@@ -1,34 +1,34 @@
 'use strict';
 
 describe('todoCommentsStore', function () {
-  var tdTodoCommentsStore, $httpBackend,
+  var tdTermCommentsStore, $httpBackend,
       comment = {text: 'A comment', date: 1};
 
   beforeEach(module('todoApp'));
 
-  beforeEach(inject(function (_tdTodoCommentsStore_, _$httpBackend_) {
-    tdTodoCommentsStore = _tdTodoCommentsStore_;
+  beforeEach(inject(function (_tdTermCommentsStore_, _$httpBackend_) {
+    tdTermCommentsStore = _tdTermCommentsStore_;
     $httpBackend = _$httpBackend_;
   }));
 
   it('should exist', function () {
-    expect(!!tdTodoCommentsStore).toBe(true);
+    expect(!!tdTermCommentsStore).toBe(true);
   });
 
 
-  describe('.getCommentsForTodo()', function () {
+  describe('.getCommentsForTerm()', function () {
     it('should return the comments for a given todo', function () {
-      tdTodoCommentsStore.mapTodoComments['foo'] = [comment];
+      tdTermCommentsStore.mapTodoComments['foo'] = [comment];
 
-      var comments = tdTodoCommentsStore.getCommentsForTodo('foo');
+      var comments = tdTermCommentsStore.getCommentsForTerm('foo');
       expect(comments).toEqual([comment]);
     });
   });
 
 
-  describe('.addCommentToTodo()', function () {
+  describe('.addCommentToTerm()', function () {
     it('should be a function', function () {
-      expect(typeof tdTodoCommentsStore.addCommentToTodo).toBe('function');
+      expect(typeof tdTermCommentsStore.addCommentToTerm).toBe('function');
     });
 
 
@@ -37,10 +37,10 @@ describe('todoCommentsStore', function () {
       responseComment.id = 'foo';
       responseComment.todoid = '1';
       $httpBackend.whenPOST('/comments').respond(responseComment);
-      tdTodoCommentsStore.addCommentToTodo(responseComment.todoid, comment);
+      tdTermCommentsStore.addCommentToTerm(responseComment.todoid, comment);
       $httpBackend.flush();
 
-      expect(tdTodoCommentsStore.getCommentsForTodo('1')).toEqual([responseComment])
+      expect(tdTermCommentsStore.getCommentsForTerm('1')).toEqual([responseComment])
     });
   });
 
