@@ -1,0 +1,30 @@
+<div class="termDetail">
+  <div class="termHeading">
+    <h1 ng-class="{'not-editing':!editingText, 'editing':editingText}">
+      <form ng-submit="termDetail.updateHeading(termDetail.term)">
+        <input class="term-edit-heading" ng-model="termDetail.term.text" ng-focus="editingText = true" ng-blur="updateHeading(termDetail.term, (editingText = false))">
+      </form>
+    </h1>
+  </div>
+
+  <div class="addComment">
+    <form ng-submit="termDetail.addComment(termDetail.newComment)" name="newCommentForm">
+      <input type="text" ng-model="termDetail.newComment.text" required>
+      <button ng-disabled="newCommentForm.$invalid" type="submit">Add Comment</button>
+    </form>
+  </div>
+
+  <div class="termComments">
+    <h3>Term Comments</h3>
+    <ul>
+      <li ng-repeat="comment in termDetail.comments | orderBy:'date':true">
+        <span class="text" ng-bind="comment.text"></span>
+        <em class="date"> Added on {{comment.date | date}}</em>
+      </li>
+    </ul>
+  </div>
+
+  <footer>
+    <a href="/#/terms">&laquo; All Terms</a>
+  </footer>
+</div>

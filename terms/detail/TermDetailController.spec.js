@@ -1,5 +1,5 @@
-describe('TodoDetailController', function () {
-  var scope, tdTodosStore, tdTodoCommentsStore, todoDetailController;
+describe('TermDetailController', function () {
+  var scope, tdTodosStore, tdTodoCommentsStore, termDetailController;
 
   beforeEach(module('todoApp'));
 
@@ -7,7 +7,8 @@ describe('TodoDetailController', function () {
     tdTodosStore = _tdTodosStore_;
     tdTodoCommentsStore = _tdTodoCommentsStore_;
     scope = $rootScope.$new();
-    todoDetailController = $controller('TodoDetailController', {
+
+    termDetailController = $controller('TermDetailController', {
       $scope: scope,
       $routeParams: {
         id: '1'
@@ -23,32 +24,30 @@ describe('TodoDetailController', function () {
       var spy = spyOn(tdTodoCommentsStore, 'addCommentToTodo');
       var comment = {text: 'A comment'};
 
-      todoDetailController.addComment(comment);
+      termDetailController.addComment(comment);
 
       expect(spy).toHaveBeenCalledWith('1', comment);
     });
 
 
     it('should reset scope.newComment to an empty object', function () {
-      var comment = todoDetailController.newComment = {text: 'A comment'};
+      var comment = termDetailController.newComment = {text: 'A comment'};
 
-      expect(todoDetailController.newComment).toBe(comment);
-      todoDetailController.addComment(comment);
+      expect(termDetailController.newComment).toBe(comment);
+      termDetailController.addComment(comment);
 
-      expect(todoDetailController.newComment).toEqual({});
+      expect(termDetailController.newComment).toEqual({});
     });
   });
 
 
   describe('.updateHeading()', function () {
     it('should call tdTodosStore.updateById', function () {
-      var todo = {text: 'Do This', done: false, id: '1'};
+      var term = {text: 'Do This', done: false, id: '1'};
       var spy = spyOn(tdTodosStore, 'updateById');
-      scope.todoId = '1';
 
-
-      todoDetailController.updateHeading(todo);
-      expect(spy).toHaveBeenCalledWith('1', todo);
+      termDetailController.updateHeading(term);
+      expect(spy).toHaveBeenCalledWith('1', term);
     });
   });
 });

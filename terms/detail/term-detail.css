@@ -1,22 +1,22 @@
-.todoDetail footer {
+.termDetail footer {
   padding: 24px 0;
 }
 
-.todoDetail .todoHeading {
+.termDetail .termHeading {
   padding: 0;
 }
 
-.todoDetail .checkbox {
+.termDetail .checkbox {
   font-size: 1.0em;
   line-height: 1.0em;
   float: left;
 }
 
-.todoDetail form {
+.termDetail form {
   margin-bottom: 0;
 }
 
-.todoDetail input.todo-edit-heading {
+.termDetail input.term-edit-heading {
   display: inline-block;
   font-size: 1.0em;
   line-height: 1.0em;
@@ -24,25 +24,25 @@
   border: 0;
 }
 
-.todoDetail .addComment {
+.termDetail .addComment {
   padding: 24px;
   display: block;
   background: #eee;
   font-size: 1.5em;
 }
 
-.todoDetail .addComment form {
+.termDetail .addComment form {
   margin-bottom: 0;
 }
 
-.todoDetail .addComment label {
+.termDetail .addComment label {
   float: left;
   padding-right: 12px;
   font-size: 1.5em;
   line-height: 2.0em;
 }
 
-.todoDetail .addComment input[type=text] {
+.termDetail .addComment input[type=text] {
   font-size: 1.5em;
   line-height: 2.0em;
   height: 2.0em;
@@ -51,40 +51,40 @@
   float: left;
 }
 
-.todoDetail .addComment button {
+.termDetail .addComment button {
   float: left;
   font-size: 1.5em;
   line-height: 2.0em;
   height: 2.0em;
 }
 
-.todoDetail .addComment form:before, .todoDetail .addComment form:after {
+.termDetail .addComment form:before, .termDetail .addComment form:after {
   content: " ";
   display: table;
 }
 
-.todoDetail .addComment form:after {
+.termDetail .addComment form:after {
   clear: both;
 }
 
-.todoDetail .todoComments ul {
+.termDetail .termComments ul {
   padding: 0;
   margin: 0;
 }
 
-.todoDetail .todoComments ul li {
+.termDetail .termComments ul li {
   list-style-type: none;
   margin: 12px 0;
   padding: 12px 6px;
   border-bottom: 1px solid #eee;
 }
 
-.todoDetail .todoComments ul li .text {
+.termDetail .termComments ul li .text {
   font-size: 1.25em;
   display: block;
   margin-bottom: 6px;
 }
 
-.todoDetail .todoComments ul li .date {
+.termDetail .termComments ul li .date {
   color: #666;
 }

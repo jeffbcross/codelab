@@ -1,17 +1,17 @@
 angular.module('todoApp', ['ngRoute', 'ngResource'])
   .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/todos', {
+    $routeProvider.when('/terms', {
       controller: 'TermsListController',
       templateUrl: 'terms/terms-list.html',
       controllerAs: 'termsList'
     })
-    .when('/todos/:id', {
-      controller: 'TodoDetailController',
-      templateUrl: 'terms/detail/todo-detail.html',
-      controllerAs: 'todoDetail'
+    .when('/terms/:id', {
+      controller: 'TermDetailController',
+      templateUrl: 'terms/detail/term-detail.html',
+      controllerAs: 'termDetail'
     })
     .otherwise({
-      redirectTo: '/todos'
+      redirectTo: '/terms'
     })
   }])
   .constant('TODOS_PATH', '/todos')
