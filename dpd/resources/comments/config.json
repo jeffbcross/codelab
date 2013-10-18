@@ -17,12 +17,12 @@
 			"id": "date",
 			"order": 1
 		},
-		"todoid": {
-			"name": "todoid",
+		"termid": {
+			"name": "termid",
 			"type": "string",
 			"typeLabel": "string",
 			"required": false,
-			"id": "todoid",
+			"id": "termid",
 			"order": 2
 		}
 	}

@@ -8,10 +8,11 @@ describe('todosStore', function () {
 
   beforeEach(module('todoApp'));
 
-  beforeEach(inject(function (_tdTermsStore_, _$httpBackend_, _Term_) {
+  beforeEach(inject(function (_tdTermsStore_, _$httpBackend_, _Term_, TODOS_PATH) {
     tdTermsStore = _tdTermsStore_;
     $httpBackend = _$httpBackend_;
-    $httpBackend.whenGET('/todos').respond(200);
+    $httpBackend.whenGET(TODOS_PATH).respond(200);
+    $httpBackend.whenPUT(TODOS_PATH + '/1').respond(200);
     Term = _Term_;
   }));
 
@@ -35,7 +36,7 @@ describe('todosStore', function () {
 
     it('should add the todo to the service\'s todos array',
       function () {
-        var newTerm = {text: 'Do it', id: 0};
+        var newTerm = {name: 'Do it', id: 0};
         var spy = spyOn(tdTermsStore.todos, 'push');
         tdTermsStore.add(newTerm);
 
@@ -49,7 +50,6 @@ describe('todosStore', function () {
 
     beforeEach(function () {
       todo = {id: '1', text: 'Do it'};
-      $httpBackend.whenPUT('/todos/1').respond(200);
       tdTermsStore.todos = [todo];
 
       todoCopy = angular.copy(todo);

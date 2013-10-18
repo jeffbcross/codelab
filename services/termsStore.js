@@ -30,10 +30,10 @@ angular.module('todoApp')
       Term.save(todo);
     };
 
-    this.updateById = function (id, todo) {
+    this.updateById = function (id, term) {
       var mapped = mapById(this.todos);
-      mapped[id].text = todo.text;
-      Term.update({id: id}, todo);
+      mapped[id].name = term.name;
+      Term.update({id: id}, term);
     };
 
     queryResult = Term.query(function (todos) {

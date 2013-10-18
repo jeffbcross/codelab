@@ -14,5 +14,5 @@ angular.module('todoApp', ['ngRoute', 'ngResource'])
       redirectTo: '/terms'
     })
   }])
-  .constant('TODOS_PATH', '/todos')
+  .constant('TODOS_PATH', '/termsapi')
   .constant('COMMENTS_PATH', '/comments');

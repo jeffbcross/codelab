@@ -6,14 +6,14 @@ angular.module('todoApp')
     this.mapTermComments = {};
 
     this.getCommentsForTerm = function (id) {
-      this.mapTermComments[id] = this.mapTermComments[id] || Comments.query({todoid: id});
+      this.mapTermComments[id] = this.mapTermComments[id] || Comments.query({termid: id});
 
       return this.mapTermComments[id];
     };
 
     this.addCommentToTerm = function (id, comment) {
       if (!comment.date) comment.date = new Date().getTime();
-      if (!comment.todoid) comment.todoid = id;
+      if (!comment.termid) comment.termid = id;
 
       Comments.save(comment, function (value) {
         comment.id = value.id

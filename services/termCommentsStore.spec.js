@@ -35,9 +35,9 @@ describe('termCommentsStore', function () {
     it('should POST a new comment when called', function () {
       var responseComment = angular.copy(comment);
       responseComment.id = 'foo';
-      responseComment.todoid = '1';
+      responseComment.termid = '1';
       $httpBackend.whenPOST('/comments').respond(responseComment);
-      tdTermCommentsStore.addCommentToTerm(responseComment.todoid, comment);
+      tdTermCommentsStore.addCommentToTerm(responseComment.termid, comment);
       $httpBackend.flush();
 
       expect(tdTermCommentsStore.getCommentsForTerm('1')).toEqual([responseComment])
@@ -55,9 +55,9 @@ describe('termCommentsStore', function () {
 
     it('should load comments for a given term', function () {
       var response = [{text: 'Comment one', date: 1}];
-      $httpBackend.whenGET('/comments?todoid=1').respond(response);
+      $httpBackend.whenGET('/comments?termid=1').respond(response);
 
-      var comments = Comments.query({todoid: 1});
+      var comments = Comments.query({termid: 1});
       $httpBackend.flush();
 
       expect(comments[0].text).toEqual(response[0].text);
