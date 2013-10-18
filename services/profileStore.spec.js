@@ -37,5 +37,10 @@ describe('profileStore', function () {
     it('should lowercase an email address', function () {
       expect(tdGravatarEmail('FOOBAR@GMAIL.COM')).toBe('http://gravatar.com/avatar/' + hashedEmail);
     });
-  })
+
+
+    it('should return undefined if the input is not a string', function () {
+      expect(tdGravatarEmail(function () {})).toBeUndefined();
+    });
+  });
 });
