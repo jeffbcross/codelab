@@ -8,11 +8,11 @@ describe('todosStore', function () {
 
   beforeEach(module('glossaryApp'));
 
-  beforeEach(inject(function (_tdTermsStore_, _$httpBackend_, _Term_, TODOS_PATH) {
+  beforeEach(inject(function (_tdTermsStore_, _$httpBackend_, _Term_, TERMS_PATH) {
     tdTermsStore = _tdTermsStore_;
     $httpBackend = _$httpBackend_;
-    $httpBackend.whenGET(TODOS_PATH).respond(200);
-    $httpBackend.whenPUT(TODOS_PATH + '/1').respond(200);
+    $httpBackend.whenGET(TERMS_PATH).respond(200);
+    $httpBackend.whenPUT(TERMS_PATH + '/1').respond(200);
     Term = _Term_;
   }));
 
@@ -76,10 +76,10 @@ describe('todosStore', function () {
 
 
   describe('Term', function () {
-    var Term, TODOS_PATH;
+    var Term, TERMS_PATH;
 
-    beforeEach(inject(function (_$httpBackend_, _Term_, _TODOS_PATH_) {
-      TODOS_PATH = _TODOS_PATH_;
+    beforeEach(inject(function (_$httpBackend_, _Term_, _TERMS_PATH_) {
+      TERMS_PATH = _TERMS_PATH_;
       Term = _Term_;
     }));
 
@@ -105,7 +105,7 @@ describe('todosStore', function () {
       };
       var spy = spyOn(spyable, 'success');
 
-      $httpBackend.whenPUT(TODOS_PATH + '/1').respond(200);
+      $httpBackend.whenPUT(TERMS_PATH + '/1').respond(200);
 
       Term.update({id: 1}, {text: 'Do it'}, spyable.success);
       $httpBackend.flush();

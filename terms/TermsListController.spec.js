@@ -5,7 +5,7 @@ describe('TermsListController', function () {
 
   beforeEach(module('glossaryApp'));
 
-  beforeEach(inject(function ($controller, $rootScope, $httpBackend, TODOS_PATH, _tdTermsStore_) {
+  beforeEach(inject(function ($controller, $rootScope, $httpBackend, TERMS_PATH, _tdTermsStore_) {
     scope = $rootScope.$new();
 
     tdTermsStore = _tdTermsStore_;
@@ -13,8 +13,8 @@ describe('TermsListController', function () {
       $scope: scope
     });
 
-    $httpBackend.whenGET(TODOS_PATH).respond([{id: 1, name: 'Do it'}]);
-    var exp = new RegExp(TODOS_PATH + '\/[0-9]*');
+    $httpBackend.whenGET(TERMS_PATH).respond([{id: 1, name: 'Do it'}]);
+    var exp = new RegExp(TERMS_PATH + '\/[0-9]*');
     $httpBackend.whenPUT(exp).respond(200);
   }));
 

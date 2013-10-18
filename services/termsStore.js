@@ -10,11 +10,11 @@ angular.module('glossaryApp')
       return mapped;
     }
   })
-  .factory('Term', ['$resource', 'TODOS_PATH',
-    function ($resource, TODOS_PATH) {
-      return $resource(TODOS_PATH + '/:id', null, {
+  .factory('Term', ['$resource', 'TERMS_PATH',
+    function ($resource, TERMS_PATH) {
+      return $resource(TERMS_PATH + '/:id', null, {
         update: {
-          url: TODOS_PATH + '/:id',
+          url: TERMS_PATH + '/:id',
           method: 'PUT'
         }});
     }])

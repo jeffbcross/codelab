@@ -14,6 +14,6 @@ angular.module('glossaryApp', ['ngRoute', 'ngResource'])
       redirectTo: '/terms'
     })
   }])
-  .constant('TODOS_PATH', '/termsapi')
+  .constant('TERMS_PATH', '/termsapi')
   .constant('COMMENTS_PATH', '/comments')
   .constant('LOCALSTORAGE_PROFILE_KEY', 'glossaryApp.profile');
