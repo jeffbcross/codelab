@@ -1,31 +1,37 @@
 <div class="termDetail">
-  <div class="termHeading">
-    <h1 ng-class="{'not-editing':!editingText, 'editing':editingText}">
-      <form ng-submit="termDetail.updateHeading(termDetail.term)">
-        <input class="term-edit-heading" ng-model="termDetail.term.name" ng-focus="editingText = true" ng-blur="updateHeading(termDetail.term, (editingText = false))">
+  <div class="metaContent">
+    <td-profile></td-profile>
+  </div>
+
+  <div class="termContent">
+    <div class="termHeading">
+      <h1 ng-class="{'not-editing':!editingText, 'editing':editingText}">
+        <form ng-submit="termDetail.updateHeading(termDetail.term)">
+          <input class="term-edit-heading" ng-model="termDetail.term.name" ng-focus="editingText = true" ng-blur="updateHeading(termDetail.term, (editingText = false))">
+        </form>
+      </h1>
+      <strong>Definition</strong>
+      <p class="definition" ng-bind="termDetail.term.definition"></p>
+    </div>
+
+    <div class="addComment">
+      <form ng-submit="termDetail.addComment(termDetail.newComment)" name="newCommentForm">
+        <input type="text" ng-model="termDetail.newComment.name" required>
+        <button ng-disabled="newCommentForm.$invalid" type="submit">Add Comment</button>
       </form>
-    </h1>
-    <strong>Definition</strong>
-    <p class="definition" ng-bind="termDetail.term.definition"></p>
-  </div>
+    </div>
 
-  <div class="addComment">
-    <form ng-submit="termDetail.addComment(termDetail.newComment)" name="newCommentForm">
-      <input type="text" ng-model="termDetail.newComment.name" required>
-      <button ng-disabled="newCommentForm.$invalid" type="submit">Add Comment</button>
-    </form>
-  </div>
-
-  <div class="termComments">
-    <h3>Term Comments</h3>
-    <em ng-hide="termDetail.comments.$resolved">Loading Comments</em>
-    <em ng-show="termDetail.comments.$resolved && termDetail.comments.length === 0">No Comments Yet</em>
-    <ul>
-      <li ng-repeat="comment in termDetail.comments | orderBy:'date':true">
-        <span class="text" ng-bind="comment.text"></span>
-        <em class="date"> Added on {{comment.date | date}}</em>
-      </li>
-    </ul>
+    <div class="termComments">
+      <h3>Term Comments</h3>
+      <em ng-hide="termDetail.comments.$resolved">Loading Comments</em>
+      <em ng-show="termDetail.comments.$resolved && termDetail.comments.length === 0">No Comments Yet</em>
+      <ul>
+        <li ng-repeat="comment in termDetail.comments | orderBy:'date':true">
+          <span class="text" ng-bind="comment.text"></span>
+          <em class="date"> Added on {{comment.date | date}}</em>
+        </li>
+      </ul>
+    </div>
   </div>
 
   <footer>

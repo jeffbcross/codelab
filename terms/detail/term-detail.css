@@ -89,3 +89,16 @@
 .termDetail .termComments ul li .date {
   color: #666;
 }
+
+.termDetail .termContent {
+  float: left;
+  width: 75%;
+}
+.termDetail .metaContent {
+  float: right;
+  width: 25%;
+}
+
+footer {
+  clear: both;
+}

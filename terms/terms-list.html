@@ -1,37 +1,42 @@
 <div class="termsList">
-  <h1>Terms</h1>
+  <div class="meta">
+    <td-profile></td-profile>
+  </div>
+  <div class="content">
+    <h1>Terms</h1>
 
-  <ul>
-    <li ng-repeat="term in termsList.terms | orderBy:'name' track by term.id">
-      <a ng-href="/#/terms/{{term.id}}">
-        {{term.name}}
-        <br>
-        <span class="definition" ng-bind="term.definition"></span>
-      </a>
-    </li>
-  </ul>
+    <ul>
+      <li ng-repeat="term in termsList.terms | orderBy:'name' track by term.id">
+        <a ng-href="/#/terms/{{term.id}}">
+          {{term.name}}
+          <br>
+          <span class="definition" ng-bind="term.definition"></span>
+        </a>
+      </li>
+    </ul>
 
-  <div class="createTermForm">
-    <h2>Add a Term</h2>
+    <div class="createTermForm">
+      <h2>Add a Term</h2>
 
-    <form
-      name="newTermForm"
-      ng-submit="termsList.saveTerm()">
+      <form
+        name="newTermForm"
+        ng-submit="termsList.saveTerm()">
 
-      <label for="newTerm.name">
-        Term to be Defined:
-      </label>
+        <label for="newTerm.name">
+          Term to be Defined:
+        </label>
 
-      <input
-        type="text"
-        ng-model="newTerm.name"
-        required>
+        <input
+          type="text"
+          ng-model="newTerm.name"
+          required>
 
-      <button
-        ng-disabled="!newTermForm.$valid"
-        ng-click="newTermForm.submit()">
-        Add Term
-      </button>
-    </form>
+        <button
+          ng-disabled="!newTermForm.$valid"
+          ng-click="newTermForm.submit()">
+          Add Term
+        </button>
+      </form>
+    </div>
   </div>
 </div>

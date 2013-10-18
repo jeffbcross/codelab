@@ -1,3 +1,13 @@
+.termsList > .meta {
+  float: right;
+  width: 25%;
+}
+
+.termsList > .content {
+  float: left;
+  width: 75%;
+}
+
 .termsList .createTermForm {
   display: block;
   background: #eee;

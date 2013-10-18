@@ -15,4 +15,5 @@ angular.module('todoApp', ['ngRoute', 'ngResource'])
     })
   }])
   .constant('TODOS_PATH', '/termsapi')
-  .constant('COMMENTS_PATH', '/comments');
+  .constant('COMMENTS_PATH', '/comments')
+  .constant('LOCALSTORAGE_PROFILE_KEY', 'todoApp.profile');

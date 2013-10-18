@@ -14,6 +14,7 @@ module.exports = function (config) {
     files: [
       'temp/angular.js',
       'temp/angular-*.js',
+      'temp/md5.js',
       'app.js',
       'components/**/*.js',
       'factories/*.js',
