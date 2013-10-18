@@ -1,4 +1,4 @@
-angular.module('todos')
+angular.module('todoApp')
   .controller('TodoListController',
     ['$scope', '$filter', 'tdTodosStore', 'Todo',
     function ($scope, $filter, tdTodosStore, Todo) {

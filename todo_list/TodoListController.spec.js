@@ -3,7 +3,7 @@
 describe('TodoListController', function () {
   var todoListController, Todo, scope, tdTodosStore;
 
-  beforeEach(module('todos'));
+  beforeEach(module('todoApp'));
 
   beforeEach(inject(function ($controller, $rootScope, _Todo_, $httpBackend, TODOS_PATH, _tdTodosStore_) {
     scope = $rootScope.$new();

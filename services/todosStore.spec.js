@@ -6,7 +6,7 @@ describe('todosStore', function () {
       $httpBackend,
       Todo;
 
-  beforeEach(module('todos'));
+  beforeEach(module('todoApp'));
 
   beforeEach(inject(function (_tdTodosStore_, _$httpBackend_, _Todo_) {
     tdTodosStore = _tdTodosStore_;

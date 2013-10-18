@@ -3,7 +3,7 @@
 describe('Comments', function () {
   var Comments, $httpBackend;
 
-  beforeEach(module('todos'));
+  beforeEach(module('todoApp'));
 
   beforeEach(inject(function (_$httpBackend_, _Comments_) {
     $httpBackend = _$httpBackend_;

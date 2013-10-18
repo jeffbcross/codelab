@@ -1,4 +1,4 @@
-angular.module('todos')
+angular.module('todoApp')
   .service('tdTodoCommentsStore', ['Comments', function (Comments) {
     this.mapTodoComments = {};
 

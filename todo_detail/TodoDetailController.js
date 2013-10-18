@@ -1,4 +1,4 @@
-angular.module('todos')
+angular.module('todoApp')
   .controller('TodoDetailController',
     ['$scope', '$routeParams', 'tdTodosStore', 'tdTodoCommentsStore', 'Todo',
       function ($scope, $routeParams, tdTodosStore, tdTodoCommentsStore, Todo) {

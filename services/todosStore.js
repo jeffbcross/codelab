@@ -1,4 +1,4 @@
-angular.module('todos')
+angular.module('todoApp')
   .service('tdTodosStore', ['$filter', 'Todo', '$q', function ($filter, Todo, $q) {
     var self = this, queryResult;
     mapById = $filter('tdMapById');

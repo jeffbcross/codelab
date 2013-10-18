@@ -3,7 +3,7 @@
 describe('Todo', function () {
   var Todo, $httpBackend, TODOS_PATH;
 
-  beforeEach(module('todos'));
+  beforeEach(module('todoApp'));
 
   beforeEach(inject(function (_$httpBackend_, _Todo_, _TODOS_PATH_) {
     TODOS_PATH = _TODOS_PATH_;

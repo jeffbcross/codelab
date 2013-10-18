@@ -1,4 +1,4 @@
-angular.module('todos', ['ngRoute', 'ngResource'])
+angular.module('todoApp', ['ngRoute', 'ngResource'])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/todos', {
       controller: 'TodoListController',

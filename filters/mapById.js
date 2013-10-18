@@ -1,4 +1,4 @@
-angular.module('todos')
+angular.module('todoApp')
   .filter('tdMapById', function () {
     return function (todos) {
       var mapped = {};

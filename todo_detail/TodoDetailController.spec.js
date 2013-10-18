@@ -1,7 +1,7 @@
 describe('TodoDetailController', function () {
   var scope, tdTodosStore, tdTodoCommentsStore, todoDetailController;
 
-  beforeEach(module('todos'));
+  beforeEach(module('todoApp'));
 
   beforeEach(inject(function ($rootScope, $controller, _tdTodosStore_, _tdTodoCommentsStore_) {
     tdTodosStore = _tdTodosStore_;

@@ -3,7 +3,7 @@
 describe('mapById', function () {
   var mapById;
 
-  beforeEach(module('todos'));
+  beforeEach(module('todoApp'));
 
   beforeEach(inject(function ($filter) {
     mapById = $filter('tdMapById');
