@@ -10,13 +10,29 @@
           <input class="term-edit-heading" ng-model="termDetail.term.name" ng-focus="editingText = true" ng-blur="updateHeading(termDetail.term, (editingText = false))">
         </form>
       </h1>
-      <strong>Definition</strong>
-      <p class="definition" ng-bind="termDetail.term.definition"></p>
+
+      <p class="definition">
+        <strong>Definition: </strong>
+        {{termDetail.term.definition}}
+      </p>
     </div>
 
     <div class="addComment">
       <form ng-submit="termDetail.addComment(termDetail.newComment)" name="newCommentForm">
+        <label for="termDetail.currentUser.email">
+          <span ng-hide="termDetail.currentUser.email">You must enter your email to submit a defnition</span>
+          <span ng-show="termDetail.currentUser.email">Posting as:</span>
+        </label>
+        <br>
+        <input ng-change="termDetail.currentUser.save()" type="email" required ng-model="termDetail.currentUser.email">
+
+        <br>
+        <label for="termDetail.newComment.text">
+          Comment:
+        </label>
+        <br>
         <input type="text" ng-model="termDetail.newComment.text" required>
+        <br>
         <button ng-disabled="newCommentForm.$invalid" type="submit">Add Comment</button>
       </form>
     </div>

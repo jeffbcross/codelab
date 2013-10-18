@@ -6,12 +6,6 @@
   padding: 0;
 }
 
-.termDetail .checkbox {
-  font-size: 1.0em;
-  line-height: 1.0em;
-  float: left;
-}
-
 .termDetail form {
   margin-bottom: 0;
 }
@@ -29,43 +23,15 @@
   padding: 24px;
   display: block;
   background: #eee;
-  font-size: 1.5em;
 }
 
 .termDetail .addComment form {
   margin-bottom: 0;
 }
 
-.termDetail .addComment label {
-  float: left;
-  padding-right: 12px;
-  font-size: 1.5em;
-  line-height: 2.0em;
-}
 
-.termDetail .addComment input[type=text] {
-  font-size: 1.5em;
-  line-height: 2.0em;
-  height: 2.0em;
-  padding: 0 12px;
-  width: 50%;
-  float: left;
-}
-
-.termDetail .addComment button {
-  float: left;
-  font-size: 1.5em;
-  line-height: 2.0em;
-  height: 2.0em;
-}
-
-.termDetail .addComment form:before, .termDetail .addComment form:after {
-  content: " ";
-  display: table;
-}
-
-.termDetail .addComment form:after {
-  clear: both;
+.termDetail .addComment input[type=text], .termDetail .addComment input[type=email] {
+  display: block;
 }
 
 .termDetail .termComments ul {
@@ -81,7 +47,6 @@
 }
 
 .termDetail .termComments ul li .text {
-  font-size: 1.25em;
   display: block;
   margin-bottom: 6px;
 }
