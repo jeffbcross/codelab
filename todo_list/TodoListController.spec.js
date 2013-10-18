@@ -1,14 +1,15 @@
 'use strict';
 
 describe('TodoListController', function () {
-  var TodoListController, Todo, scope;
+  var todoListController, Todo, scope, tdTodosStore;
 
   beforeEach(module('todos'));
 
-  beforeEach(inject(function ($controller, $rootScope, _Todo_, $httpBackend, TODOS_PATH) {
+  beforeEach(inject(function ($controller, $rootScope, _Todo_, $httpBackend, TODOS_PATH, _tdTodosStore_) {
     scope = $rootScope.$new();
     Todo = _Todo_;
-    TodoListController = $controller('TodoListController', {
+    tdTodosStore = _tdTodosStore_;
+    todoListController = $controller('TodoListController', {
       $scope: scope
     });
 
@@ -18,49 +19,47 @@ describe('TodoListController', function () {
   }));
 
 
-  it('should exist', function () {
-    expect(!!TodoListController).toBe(true);
-  });
-
-
   it('should have an array of todos on the scope', function () {
-    expect(angular.isArray(scope.todos)).toBeTruthy();
+    expect(angular.isArray(todoListController.todos)).toBeTruthy();
   });
 
 
-  describe('.updateChangedTodo()', function () {
-    it('should exist', function () {
-      expect(typeof scope.updateChangedTodo).toBe('function');
+  describe('.saveTodo()', function () {
+    it('should call tdTodosStore.add()', function () {
+      var spy = spyOn(tdTodosStore, 'add');
+      var todo = {
+        text: 'Do this',
+        done: false
+      };
+
+      scope.newTodo = angular.copy(todo);
+
+      todoListController.saveTodo();
+
+      expect(spy).toHaveBeenCalledWith(todo);
     });
 
 
-    it('should call updateChangedTodo when a todo\'s done is toggled', function () {
-      var spy = spyOn(Todo, 'update');
-      var todo = {done: false, text: 'Do it', id: '0'};
-      scope.todos.push(todo);
-      scope.$digest();
+    it('should reset the form model when saving a todo', function () {
+      var originalModel = {done: false, text: 'Do the thing', id: 1};
+      scope.newTodo = originalModel;
 
-      expect(scope.todos.length).toBe(1);
-      todo.done = true;
-      scope.$digest();
+      expect(scope.newTodo).toEqual(originalModel);
+      todoListController.saveTodo();
 
-      expect(spy).toHaveBeenCalledWith({id: '0'}, todo);
+      expect(scope.newTodo).toEqual({});
     });
+  });
 
 
+  describe('.todoChanged()', function () {
     it('should call Todo.update with the correct todo', function () {
       var spy = spyOn(Todo, 'update');
-      var todo1 = {done: false, text: 'Do it once', id: '0'};
-      var todo2 = {done: true, text: 'Do it twice', id: '1'};
-      var todo1Done = angular.copy(todo1);
-      todo1Done.done = true;
+      var todo = {done: false, text: 'Do it once', id: '0'};
 
-      expect(todo1.done).toBe(false);
-      expect(todo1Done.done).toBe(true);
+      todoListController.todoChanged(todo);
 
-      scope.updateChangedTodo([todo1Done, todo2], [todo1, todo2]);
-
-      expect(spy).toHaveBeenCalledWith({id: '0'}, todo1Done);
+      expect(spy).toHaveBeenCalledWith({id: '0'}, todo);
     });
   });
 });

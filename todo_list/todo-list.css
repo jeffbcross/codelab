@@ -1,0 +1,81 @@
+.createTodoForm {
+  display: block;
+  background: #eee;
+  font-size: 1.5em;
+  padding: 0 12px 24px;
+}
+
+.createTodoForm h2 {
+  margin: 0;
+  line-height: 2.5em;
+  font-size: 2.0em;
+}
+
+.createTodoForm label {
+  float: left;
+  padding-right: 12px;
+  font-size: 1.5em;
+  line-height: 2.0em;
+}
+
+.createTodoForm input[type=text] {
+  font-size: 1.5em;
+  line-height: 2.0em;
+  height: 2.0em;
+  padding: 0 12px;
+  width: 50%;
+  float: left;
+}
+
+.createTodoForm button {
+  float: left;
+  font-size: 1.5em;
+  line-height: 2.0em;
+  height: 2.0em;
+}
+
+.createTodoForm form:before, .createTodoForm form:after {
+  content: " ";
+  display: table;
+}
+
+.createTodoForm form:after {
+  clear: both;
+}
+
+.todoList ul {
+  padding-left: 0;
+  width: 100%;
+  font-size: 2em;
+}
+
+.todoList ul li {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+  margin: 0;
+  padding: 12px;
+}
+
+.todoList ul li:hover {
+  background-color: #eee;
+}
+
+.todoList ul li a {
+  color: #333;
+  text-decoration: none;
+}
+
+.todoList ul li a:hover {
+  color: #333;
+}
+
+.todoList ul li.done {
+  text-decoration: line-through;
+  color: gray;
+  font-style: oblique;
+}
+
+.todoList ul li a.checkbox {
+  cursor: pointer;
+}

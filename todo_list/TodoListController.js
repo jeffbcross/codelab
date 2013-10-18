@@ -5,22 +5,19 @@ angular.module('todos')
       var self = this;
       var tdMapById = $filter('tdMapById');
 
-      $scope.todos = tdTodosStore.todos;
+      this.todos = tdTodosStore.todos;
 
-      $scope.updateChangedTodo = function updateChangedTodo (newVal, oldVal) {
-        //Something was added, we can ignore that.
-        if (newVal.length !== oldVal.length) return;
-
-        var mappedOldVal = tdMapById(oldVal);
-        var mappedNewVal = tdMapById(newVal);
-
-        for (var id in mappedOldVal) {
-          if (mappedOldVal.hasOwnProperty(id)
-            && mappedOldVal[id].done !== mappedNewVal[id].done) {
-              return Todo.update({id: id}, mappedNewVal[id]);
-          }
-        }
+      this.todoChanged = function todoChanged (todo) {
+        Todo.update({id: todo.id}, todo);
       };
 
-      $scope.$watch('todos', $scope.updateChangedTodo, true);
+      this.saveTodo = function () {
+        tdTodosStore.add({
+          text: $scope.newTodo.text,
+          done: $scope.newTodo.done || false
+        });
+
+        //Reset the model
+        $scope.newTodo = {};
+      };
     }]);

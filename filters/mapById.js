@@ -3,7 +3,7 @@ angular.module('todos')
     return function (todos) {
       var mapped = {};
 
-      angular.forEach(todos, function (item) {
+      todos.forEach(function (item) {
         mapped[item.id] = item;
       });
 
