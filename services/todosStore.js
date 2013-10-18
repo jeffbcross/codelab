@@ -1,4 +1,23 @@
 angular.module('todoApp')
+  .filter('tdMapById', function () {
+    return function (todos) {
+      var mapped = {};
+
+      todos.forEach(function (item) {
+        mapped[item.id] = item;
+      });
+
+      return mapped;
+    }
+  })
+  .factory('Todo', ['$resource', 'TODOS_PATH',
+    function ($resource, TODOS_PATH) {
+      return $resource(TODOS_PATH + '/:id', null, {
+        update: {
+          url: TODOS_PATH + '/:id',
+          method: 'PUT'
+        }});
+    }])
   .service('tdTodosStore', ['$filter', 'Todo', '$q', function ($filter, Todo, $q) {
     var self = this, queryResult;
     mapById = $filter('tdMapById');
