@@ -11,16 +11,8 @@ describe('glProfile', function () {
   }));
 
 
-  it('should create an isolate scope', function () {
-    expect(scope.user).toBeFalsy();
-    expect(element.scope().user).toBeTruthy();
-  });
-
-
-  describe('ProfileController', function () {
-    it('should add a user to the scope', function () {
-      glProfileStore.email = 'foo@bar';
-      expect(element.scope().user.email).toBe('foo@bar');
-    });
+  it('should add a user to the scope', function () {
+    glProfileStore.email = 'foo@bar';
+    expect(element.controller('glProfile').profileStore.email).toBe('foo@bar');
   });
 });
