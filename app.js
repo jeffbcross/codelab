@@ -12,7 +12,7 @@ angular.module('glossaryApp', ['ngRoute', 'ngResource'])
     })
     .otherwise({
       redirectTo: '/terms'
-    })
+    });
   }])
   .constant('TERMS_PATH', '/termsapi')
   .constant('COMMENTS_PATH', '/comments')
