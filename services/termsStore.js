@@ -33,6 +33,7 @@ angular.module('glossaryApp')
     this.updateById = function (id, term) {
       var mapped = mapById(this.terms);
       mapped[id].name = term.name;
+      mapped[id].definition = term.definition;
       Term.update({id: id}, term);
     };
 
