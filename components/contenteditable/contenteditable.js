@@ -20,7 +20,6 @@ angular.module('glossaryApp')
           if( attrs.stripBr && html == '<br>' ) {
             html = '';
           }
-          console.log('read', html);
           ngModel.$setViewValue(html);
         }
       }
