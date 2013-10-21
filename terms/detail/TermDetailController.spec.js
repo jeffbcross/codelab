@@ -37,15 +37,4 @@ describe('TermDetailController', function () {
       expect(termDetailController.newComment).toEqual({});
     });
   });
-
-
-  describe('.updateHeading()', function () {
-    it('should call glTermsStore.updateById', function () {
-      var term = {text: 'Do This', id: '1'};
-      var spy = spyOn(glTermsStore, 'updateById');
-
-      termDetailController.updateHeading(term);
-      expect(spy).toHaveBeenCalledWith('1', term);
-    });
-  });
 });
