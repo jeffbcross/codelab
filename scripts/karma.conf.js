@@ -12,9 +12,9 @@ module.exports = function (config) {
       'dpd/*'
     ],
     files: [
-      'temp/angular.js',
-      'temp/angular-*.js',
-      'temp/md5.js',
+      'scripts/angular.js',
+      'scripts/angular-*.js',
+      'scripts/md5.js',
       'app.js',
       'components/**/*.js',
       'factories/*.js',
