@@ -10,16 +10,6 @@ describe('Term', function () {
   }));
 
 
-  it('should exist', function () {
-    expect(!!Term).toBe(true);
-  });
-
-
-  it('should have a query method', function () {
-    expect(typeof Term.query).toBe('function');
-  });
-
-
   it('should have an update method', function () {
     expect(typeof Term.update).toBe('function');
   });
