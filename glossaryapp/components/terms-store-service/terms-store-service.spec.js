@@ -102,33 +102,4 @@ describe('termsStore', function () {
       expect(spy).toHaveBeenCalled();
     });
   });
-
-
-  describe('mapById', function () {
-    var mapById;
-
-    beforeEach(inject(function ($filter) {
-      mapById = $filter('glMapById');
-    }));
-
-
-    describe('.map()', function () {
-      it('should return a map of ids to terms', function () {
-        var term1 = {
-          name: 'Digest',
-          definition: 'It processes food',
-          id: '0'
-        };
-        var term2 = {
-          name: 'Transclusion',
-          definition: 'It is magical',
-          id: '1'
-        };
-        var termArray = [term1, term2];
-
-        expect(mapById(termArray)).toEqual({0: term1, 1: term2});
-      });
-    });
-  });
-
 });

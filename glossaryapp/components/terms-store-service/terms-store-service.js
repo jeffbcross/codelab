@@ -1,17 +1,4 @@
 angular.module('glossaryApp')
-  .filter('glMapById', function () {
-    'use strict';
-
-    return function (terms) {
-      var mapped = {};
-
-      terms.forEach(function (item) {
-        mapped[item.id] = item;
-      });
-
-      return mapped;
-    }
-  })
   .factory('Term', ['$resource', 'TERMS_PATH',
     function ($resource, TERMS_PATH) {
       'use strict';
@@ -26,7 +13,7 @@ angular.module('glossaryApp')
     'use strict';
 
     var self = this, queryResult;
-    var mapById = $filter('glMapById');
+
     this.terms = [];
 
     this.add = function (term) {
@@ -45,4 +32,14 @@ angular.module('glossaryApp')
         self.terms.push(term);
       });
     });
+
+    function mapById (terms) {
+      var mapped = {};
+
+      terms.forEach(function (item) {
+        mapped[item.id] = item;
+      });
+
+      return mapped;
+    }
   }]);
