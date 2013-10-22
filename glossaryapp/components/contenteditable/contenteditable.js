@@ -3,7 +3,6 @@ angular.module('glossaryApp')
     'use strict';
 
     return {
-      restrict: 'A',
       require: '?ngModel',
       link: function(scope, element, attrs, ngModel) {
         if(!ngModel) return;
