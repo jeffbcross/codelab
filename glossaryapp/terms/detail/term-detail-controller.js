@@ -1,11 +1,11 @@
 angular.module('glossaryApp')
   .controller('TermDetailController',
-    ['$scope', '$routeParams', '$timeout', 'glTermsStore', 'glTermCommentsStore', 'glProfileStore', 'glTerm',
-      function ($scope, $routeParams, $timeout, glTermsStore, glTermCommentsStore, glProfileStore, glTerm) {
+    ['$scope', '$routeParams', '$timeout', 'glTermsStore', 'glTermCommentsStore', 'glProfileStore', 'Term',
+      function ($scope, $routeParams, $timeout, glTermsStore, glTermCommentsStore, glProfileStore, Term) {
         'use strict';
 
         var self = this;
-        this.term = glTerm.get({id: $routeParams.id});
+        this.term = Term.get({id: $routeParams.id});
         this.currentUser = glProfileStore;
         this.comments = glTermCommentsStore.getCommentsForTerm($routeParams.id);
 
