@@ -6,7 +6,10 @@ angular.module('glossaryApp')
       return $resource(TERMS_PATH + '/:id', null, {
         update: {
           url: TERMS_PATH + '/:id',
-          method: 'PUT'
+          method: 'PUT',
+          transformResponse : function (data) {
+            return null;
+          }
         }});
     }])
   .service('glTermsStore', ['$filter', 'glTerm', '$q', function ($filter, glTerm, $q) {
@@ -21,7 +24,7 @@ angular.module('glossaryApp')
     };
 
     this.updateById = function (id, term) {
-      var mapped = mapById(this.terms);
+      var mapped = mapById(self.terms);
       mapped[id].name = term.name;
       mapped[id].definition = term.definition;
       glTerm.update({id: id}, term);
