@@ -40,24 +40,4 @@ describe('termCommentsStore', function () {
       expect(comments[0].createdTimestamp).toBeGreaterThan(0);
     });
   });
-
-
-  describe('glComment Resource', function () {
-    var glComment;
-
-    beforeEach(inject(function (_$httpBackend_, _glComment_) {
-      glComment = _glComment_;
-    }));
-
-
-    it('should load comments for a given term', function () {
-      var response = [{text: 'Comment one', date: 1}];
-      $httpBackend.whenGET('/api/terms/comments?termid=1').respond(response);
-
-      var comments = glComment.query({termid: 1});
-      $httpBackend.flush();
-
-      expect(comments[0].text).toEqual(response[0].text);
-    });
-  });
 });
