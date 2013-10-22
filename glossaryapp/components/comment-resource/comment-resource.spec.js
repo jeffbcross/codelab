@@ -1,23 +1,25 @@
-describe('Comment Resource', function () {
+describe('commentResource', function () {
   'use strict';
-
-  var Comment, $httpBackend;
 
   beforeEach(module('commentResource'));
 
-  beforeEach(inject(function (_$httpBackend_, _Comment_) {
-    $httpBackend = _$httpBackend_;
-    Comment = _Comment_;
-  }));
 
+  describe('Comment', function () {
+    var Comment, $httpBackend;
 
-  it('should load comments for a given term', function () {
-    var response = [{text: 'Comment one', date: 1}];
-    $httpBackend.whenGET('/api/terms/comments?termid=1').respond(response);
+    beforeEach(inject(function (_$httpBackend_, _Comment_) {
+      $httpBackend = _$httpBackend_;
+      Comment = _Comment_;
+    }));
 
-    var comments = Comment.query({termid: 1});
-    $httpBackend.flush();
+    it('should load comments for a given term', function () {
+      var response = [{text: 'Comment one', date: 1}];
+      $httpBackend.whenGET('/api/terms/comments?termid=1').respond(response);
 
-    expect(comments[0].text).toEqual(response[0].text);
+      var comments = Comment.query({termid: 1});
+      $httpBackend.flush();
+
+      expect(comments[0].text).toEqual(response[0].text);
+    });
   });
 });
