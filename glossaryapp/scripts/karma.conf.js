@@ -6,27 +6,24 @@ module.exports = function (config) {
       'karma-ng-html2js-preprocessor'
     ],
     frameworks: ['jasmine'],
-    basePath: '../',
+    basePath: '../../',
     exclude: [
       'dpd/',
       'dpd/*'
     ],
     files: [
-      'scripts/angular.js',
-      'scripts/angular-*.js',
-      'scripts/md5.js',
-      'app.js',
-      'components/**/*.js',
-      'factories/*.js',
-      'filters/*.js',
-      'services/*.js',
-      '*.js',
-      'components/**/*.html',
-      'terms/detail/*.js',
-      'terms/*.js'
+      'glossaryapp/scripts/angular.js',
+      'glossaryapp/scripts/angular-*.js',
+      'glossaryapp/scripts/md5.js',
+      'glossaryapp/app.js',
+      'glossaryapp/components/**/*.js',
+      'glossaryapp/*.js',
+      'glossaryapp/components/**/*.html',
+      'glossaryapp/terms/detail/*.js',
+      'glossaryapp/terms/*.js'
     ],
     preprocessors: {
-      'components/**/*.html': ['ng-html2js']
+      'glossaryapp/components/**/*.html': ['ng-html2js']
     },
     autoWatch: true,
     browsers: ['Chrome']
