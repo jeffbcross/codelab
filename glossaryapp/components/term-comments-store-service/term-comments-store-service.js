@@ -12,16 +12,16 @@ angular.module('glossaryApp')
       this.mapTermComments = {};
 
       this.getCommentsForTerm = function (id) {
-        this.mapTermComments[id] = this.mapTermComments[id] || glComment.query({termid: id});
+        this.mapTermComments[id] = this.mapTermComments[id] || glComment.query({termId: id});
 
         return this.mapTermComments[id];
       };
 
       this.addCommentToTerm = function (id, comment) {
         if (!comment.createdTimestamp) comment.createdTimestamp = Date.now();
-        if (!comment.termid) comment.termid = id;
+        if (!comment.termId) comment.termId = id;
 
-        glComment.save(comment, function (value) {
+        glComment.save({termId: id}, comment, function (value) {
           comment.id = value.id
         });
 

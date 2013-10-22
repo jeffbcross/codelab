@@ -30,7 +30,7 @@ describe('termCommentsStore', function () {
       var responseComment = angular.copy(comment);
       responseComment.id = 'foo';
       responseComment.termid = '1';
-      $httpBackend.whenPOST('/api/terms/comments').respond(responseComment);
+      $httpBackend.whenPOST('/api/terms/1/comments').respond(responseComment);
       glTermCommentsStore.addCommentToTerm(responseComment.termid, comment);
       $httpBackend.flush();
 
