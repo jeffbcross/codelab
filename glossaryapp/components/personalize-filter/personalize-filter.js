@@ -1,5 +1,5 @@
-angular.module('glossaryApp')
-  .filter('personalize', ['profileStore', function (profileStore) {
+angular.module('glossaryApp').
+  filter('personalize', ['profileStore', function (profileStore) {
     'use strict';
 
     return function (email) {

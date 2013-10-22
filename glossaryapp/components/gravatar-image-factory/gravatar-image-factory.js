@@ -1,5 +1,5 @@
-angular.module('glossaryApp')
-  .factory('gravatarImage', function () {
+angular.module('glossaryApp').
+  factory('gravatarImage', function () {
     'use strict';
 
     return function (email) {

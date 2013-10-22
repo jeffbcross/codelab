@@ -1,5 +1,5 @@
-angular.module('glossaryApp')
-  .factory('Comment',
+angular.module('glossaryApp').
+  factory('Comment',
     ['$resource', 'COMMENTS_PATH',
     function ($resource, COMMENTS_PATH) {
       'use strict';

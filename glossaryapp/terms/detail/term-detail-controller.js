@@ -1,5 +1,5 @@
-angular.module('glossaryApp')
-  .controller('TermDetailController',
+angular.module('glossaryApp').
+  controller('TermDetailController',
     ['$scope', '$routeParams', '$timeout', 'termsStore', 'termCommentsStore', 'profileStore', 'Term',
       function ($scope, $routeParams, $timeout, termsStore, termCommentsStore, profileStore, Term) {
         'use strict';

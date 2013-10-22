@@ -1,5 +1,5 @@
-angular.module('glossaryApp')
-  .directive('glProfile', function () {
+angular.module('glossaryApp').
+  directive('glProfile', function () {
     'use strict';
 
     return {

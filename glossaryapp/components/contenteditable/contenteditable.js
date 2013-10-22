@@ -1,5 +1,5 @@
-angular.module('glossaryApp')
-  .directive('contenteditable', function () {
+angular.module('glossaryApp').
+  directive('contenteditable', function () {
     'use strict';
 
     return {
