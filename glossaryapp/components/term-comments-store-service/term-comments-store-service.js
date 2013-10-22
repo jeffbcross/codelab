@@ -18,7 +18,7 @@ angular.module('glossaryApp')
       };
 
       this.addCommentToTerm = function (id, comment) {
-        if (!comment.createdTimestamp) comment.createdTimestamp = new Date().getTime();
+        if (!comment.createdTimestamp) comment.createdTimestamp = Date.now();
         if (!comment.termid) comment.termid = id;
 
         Comments.save(comment, function (value) {

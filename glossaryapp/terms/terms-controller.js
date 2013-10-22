@@ -12,7 +12,7 @@ angular.module('glossaryApp')
           name: $scope.newTerm.name,
           definition: $scope.newTerm.definition,
           creatorEmail: this.currentUser.email,
-          createdAt: new Date().getTime()
+          createdAt: Date.now()
         });
 
         //Reset the model
