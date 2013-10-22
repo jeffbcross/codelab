@@ -1,9 +1,9 @@
-.termsList > .meta {
+.termsList > .metaContent {
   float: right;
   width: 25%;
 }
 
-.termsList > .content {
+.termsList > .termContent {
   float: left;
   width: 75%;
 }
@@ -32,7 +32,7 @@
   cursor: pointer;
 }
 
-.termsList ul li .meta {
+.termsList ul li .metaContent {
   color: #666;
   display: block;
   margin-top: 6px;
