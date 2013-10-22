@@ -11,7 +11,7 @@ angular.module('glossaryApp')
           element.html(ngModel.$viewValue || '');
         };
 
-        element.on('blur keyup change', function() {
+        element.on('blur keyup', function() {
           scope.$apply(read);
         });
         read();

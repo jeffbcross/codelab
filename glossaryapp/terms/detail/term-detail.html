@@ -6,11 +6,13 @@
   <div class="termContent">
     <div class="termHeading">
       <h1 contenteditable="true"
+          ng-change="termDetail.updateTerm()"
           ng-model="termDetail.term.name"></h1>
 
       <div class="definition">
         <strong>Definition: </strong>
         <div  contenteditable="true"
+              ng-change="termDetail.updateTerm()"
               ng-model="termDetail.term.definition"></div>
       </div>
     </div>

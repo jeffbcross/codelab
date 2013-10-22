@@ -12,7 +12,7 @@ describe('termsStore', function () {
     glTermsStore = _glTermsStore_;
     $httpBackend = _$httpBackend_;
     $httpBackend.whenGET(TERMS_PATH).respond(200);
-    $httpBackend.whenPUT(TERMS_PATH + '/1').respond(200);
+    $httpBackend.whenPUT(TERMS_PATH + '/1').respond({name: 'Terminology', definition: 'The study of terms.' });
     glTerm = _glTerm_;
   }));
 
@@ -25,7 +25,7 @@ describe('termsStore', function () {
   describe('.add()', function () {
     it('should add the term to the service\'s terms array',
       function () {
-        var newTerm = {name: 'Do it', id: 0};
+        var newTerm = {name: 'Do it', definition: 'The doing of things', id: 0};
         var spy = spyOn(glTermsStore.terms, 'push');
         glTermsStore.add(newTerm);
 
@@ -46,7 +46,6 @@ describe('termsStore', function () {
 
 
     it('should update the term in the list', function () {
-
       glTermsStore.updateById('1', termCopy);
       $httpBackend.flush();
 
