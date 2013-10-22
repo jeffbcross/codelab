@@ -1,7 +1,7 @@
-describe('TermsListController', function () {
+describe('TermsController', function () {
   'use strict';
 
-  var termsListController, scope, termsStore;
+  var termsController, scope, termsStore;
 
   beforeEach(module('glossaryApp'));
 
@@ -9,7 +9,7 @@ describe('TermsListController', function () {
     scope = $rootScope.$new();
 
     termsStore = _termsStore_;
-    termsListController = $controller('TermsController', {
+    termsController = $controller('TermsController', {
       $scope: scope
     });
 
@@ -20,7 +20,7 @@ describe('TermsListController', function () {
 
 
   it('should have an array of terms on the scope', function () {
-    expect(angular.isArray(termsListController.terms)).toBeTruthy();
+    expect(angular.isArray(termsController.terms)).toBeTruthy();
   });
 
 
@@ -34,7 +34,7 @@ describe('TermsListController', function () {
 
       scope.newTerm = angular.copy(term);
 
-      termsListController.saveTerm();
+      termsController.saveTerm();
 
       expect(spy).toHaveBeenCalled();
     });
@@ -45,7 +45,7 @@ describe('TermsListController', function () {
       scope.newTerm = originalModel;
 
       expect(scope.newTerm).toEqual(originalModel);
-      termsListController.saveTerm();
+      termsController.saveTerm();
 
       expect(scope.newTerm).toEqual({});
     });
