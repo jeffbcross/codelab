@@ -4,10 +4,10 @@ angular.module('glossaryApp')
 
     return function (email) {
       if (angular.isString(glProfileStore.email) && glProfileStore.email === email) {
-        return "You"
+        return "You";
       }
       else {
         return email;
       }
-    }
+    };
   });
