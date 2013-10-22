@@ -3,9 +3,9 @@ angular.module('glossaryApp', ['ngRoute', 'ngResource'])
     'use strict';
 
     $routeProvider.when('/terms', {
-      controller: 'TermsListController',
+      controller: 'TermsController',
       templateUrl: 'terms/terms.html',
-      controllerAs: 'termsList'
+      controllerAs: 'terms'
     })
     .when('/terms/:id', {
       controller: 'TermDetailController',

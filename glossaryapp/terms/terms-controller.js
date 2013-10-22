@@ -1,5 +1,5 @@
 angular.module('glossaryApp')
-  .controller('TermsListController',
+  .controller('TermsController',
     ['$scope', 'termsStore', 'profileStore',
     function ($scope, termsStore, profileStore) {
       'use strict';

@@ -9,7 +9,7 @@ describe('TermsListController', function () {
     scope = $rootScope.$new();
 
     termsStore = _termsStore_;
-    termsListController = $controller('TermsListController', {
+    termsListController = $controller('TermsController', {
       $scope: scope
     });
 
