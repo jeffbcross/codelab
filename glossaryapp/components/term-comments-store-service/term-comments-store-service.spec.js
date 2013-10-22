@@ -1,25 +1,25 @@
 describe('termCommentsStore', function () {
   'use strict';
-  var glTermCommentsStore, $httpBackend,
+  var termCommentsStore, $httpBackend,
       comment = {text: 'A comment', date: 1};
 
   beforeEach(module('glossaryApp'));
 
-  beforeEach(inject(function (_glTermCommentsStore_, _$httpBackend_) {
-    glTermCommentsStore = _glTermCommentsStore_;
+  beforeEach(inject(function (_termCommentsStore_, _$httpBackend_) {
+    termCommentsStore = _termCommentsStore_;
     $httpBackend = _$httpBackend_;
   }));
 
   it('should exist', function () {
-    expect(!!glTermCommentsStore).toBe(true);
+    expect(!!termCommentsStore).toBe(true);
   });
 
 
   describe('.getCommentsForTerm()', function () {
     it('should return the comments for a given term', function () {
-      glTermCommentsStore.mapTermComments['foo'] = [comment];
+      termCommentsStore.mapTermComments['foo'] = [comment];
 
-      var comments = glTermCommentsStore.getCommentsForTerm('foo');
+      var comments = termCommentsStore.getCommentsForTerm('foo');
       expect(comments).toEqual([comment]);
     });
   });
@@ -31,10 +31,10 @@ describe('termCommentsStore', function () {
       responseComment.id = 'foo';
       responseComment.termid = '1';
       $httpBackend.whenPOST('/api/terms/1/comments').respond(responseComment);
-      glTermCommentsStore.addCommentToTerm(responseComment.termid, comment);
+      termCommentsStore.addCommentToTerm(responseComment.termid, comment);
       $httpBackend.flush();
 
-      var comments = glTermCommentsStore.getCommentsForTerm('1');
+      var comments = termCommentsStore.getCommentsForTerm('1');
 
       expect(comments[0].name).toBe(responseComment.name);
       expect(comments[0].createdTimestamp).toBeGreaterThan(0);

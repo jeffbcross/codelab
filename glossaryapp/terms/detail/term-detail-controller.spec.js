@@ -1,13 +1,13 @@
 describe('TermDetailController', function () {
   'use strict';
 
-  var scope, glTermsStore, glTermCommentsStore, termDetailController;
+  var scope, glTermsStore, termCommentsStore, termDetailController;
 
   beforeEach(module('glossaryApp'));
 
-  beforeEach(inject(function ($rootScope, $controller, _glTermsStore_, _glTermCommentsStore_) {
+  beforeEach(inject(function ($rootScope, $controller, _glTermsStore_, _termCommentsStore_) {
     glTermsStore = _glTermsStore_;
-    glTermCommentsStore = _glTermCommentsStore_;
+    termCommentsStore = _termCommentsStore_;
     scope = $rootScope.$new();
 
     termDetailController = $controller('TermDetailController', {
@@ -20,8 +20,8 @@ describe('TermDetailController', function () {
 
 
   describe('.addComment()', function () {
-    it('should add the comment to glTermCommentsStore', function () {
-      var spy = spyOn(glTermCommentsStore, 'addCommentToTerm');
+    it('should add the comment to termCommentsStore', function () {
+      var spy = spyOn(termCommentsStore, 'addCommentToTerm');
       var comment = {text: 'A comment'};
 
       termDetailController.addComment(comment);

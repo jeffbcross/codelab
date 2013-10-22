@@ -1,5 +1,5 @@
 angular.module('glossaryApp')
-  .service('glTermCommentsStore',
+  .service('termCommentsStore',
     ['Comment',
     function (Comment) {
       'use strict';
