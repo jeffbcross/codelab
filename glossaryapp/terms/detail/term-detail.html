@@ -5,32 +5,29 @@
 
   <div class="termContent">
     <div class="termHeading">
-      <h1
-        contenteditable="true"
-        ng-model="termDetail.term.name"></h1>
+      <h1 contenteditable="true"
+          ng-model="termDetail.term.name"></h1>
 
       <div class="definition">
         <strong>Definition: </strong>
-        <div
-          contenteditable="true"
-          ng-model="termDetail.term.definition"></div>
+        <div  contenteditable="true"
+              ng-model="termDetail.term.definition"></div>
       </div>
     </div>
 
     <div class="termComments">
       <h3>Comments</h3>
-      <em
-        ng-hide="termDetail.comments.$resolved">
+      <em ng-hide="termDetail.comments.$resolved">
           Loading Comments
       </em>
-      <em
-        ng-show="termDetail.comments.$resolved && termDetail.comments.length === 0">
+      <em ng-show="termDetail.comments.$resolved && termDetail.comments.length === 0">
           No Comments Yet
       </em>
       <ul>
         <li ng-repeat="comment in termDetail.comments | orderBy:'date':true">
           <span class="text"
-            ng-bind="comment.text"></span>
+                ng-bind="comment.text"></span>
+
           <em class="date">
             Added by
             {{comment.creatorEmail | personalize}}
@@ -42,44 +39,36 @@
     </div>
 
     <div class="addComment">
-      <form
-        ng-submit="termDetail.addComment(termDetail.newComment)"
-        name="newCommentForm">
-        <label
-          for="termDetail.currentUser.email">
-          <span
-            ng-hide="termDetail.currentUser.email">
-              You must enter your email to submit a definition
+      <form ng-submit="termDetail.addComment(termDetail.newComment)"
+            name="newCommentForm">
+        <label for="termDetail.currentUser.email">
+          <span ng-hide="termDetail.currentUser.email">
+            You must enter your email to submit a definition
           </span>
-          <span
-            ng-show="termDetail.currentUser.email">
-              Posting as:
+          <span ng-show="termDetail.currentUser.email">
+            Posting as:
           </span>
         </label>
 
         <br>
 
-        <input
-          ng-change="termDetail.currentUser.save()"
-          type="email"
-          required
-          ng-model="termDetail.currentUser.email">
+        <input  type="email"
+                required
+                ng-change="termDetail.currentUser.save()"
+                ng-model="termDetail.currentUser.email">
 
         <br>
-        <label
-          for="termDetail.newComment.text">
+        <label for="termDetail.newComment.text">
           Comment:
         </label>
         <br>
-        <input
-          type="text"
-          ng-model="termDetail.newComment.text"
-          required>
+        <input type="text"
+          required
+          ng-model="termDetail.newComment.text">
         <br>
-        <button
-          ng-disabled="newCommentForm.$invalid"
-          type="submit">
-            Add Comment
+        <button type="submit"
+                ng-disabled="newCommentForm.$invalid">
+          Add Comment
         </button>
       </form>
     </div>
