@@ -25,12 +25,12 @@ angular.module('glossaryApp')
           }
 
           // Wait 500ms after last change to update service
-          if (this.throttledChange) {
-            $timeout.cancel(this.throttledChange);
-            delete this.throttledChange;
+          if (self.throttledChange) {
+            $timeout.cancel(self.throttledChange);
+            delete self.throttledChange;
           }
 
-          this.throttledChange = $timeout(function () {
+          self.throttledChange = $timeout(function () {
             glTermsStore.updateById($routeParams.id, self.term);
           }, 250);
         }, true);
