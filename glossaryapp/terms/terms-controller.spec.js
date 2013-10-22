@@ -3,7 +3,7 @@ describe('TermsController', function () {
 
   var termsController, scope, termsStore;
 
-  beforeEach(module('glossaryApp'));
+  beforeEach(module('glossaryApp', 'termsStoreService'));
 
   beforeEach(inject(function ($controller, $rootScope, $httpBackend, TERMS_PATH, _termsStore_) {
     scope = $rootScope.$new();

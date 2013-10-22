@@ -1,7 +1,7 @@
 describe('Term', function () {
   var Term, TERMS_PATH, $httpBackend;
 
-  beforeEach(module('glossaryApp'));
+  beforeEach(module('termResource', 'glossaryApp'));
 
   beforeEach(inject(function (_Term_, _TERMS_PATH_, _$httpBackend_) {
     TERMS_PATH = _TERMS_PATH_;

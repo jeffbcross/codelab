@@ -6,7 +6,7 @@ describe('termsStore', function () {
       $httpBackend,
       Term;
 
-  beforeEach(module('glossaryApp'));
+  beforeEach(module('termsStoreService', 'glossaryApp', 'termResource'));
 
   beforeEach(inject(function (_termsStore_, _$httpBackend_, _Term_, TERMS_PATH) {
     termsStore = _termsStore_;

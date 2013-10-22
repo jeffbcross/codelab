@@ -1,4 +1,4 @@
-angular.module('glossaryApp').
+angular.module('profileStoreService', ['glossaryApp', 'gravatarImageFactory']).
   service('profileStore',
     ['$window', 'gravatarImage', 'LOCALSTORAGE_PROFILE_KEY',
     function ($window, gravatarImage, LOCALSTORAGE_PROFILE_KEY) {

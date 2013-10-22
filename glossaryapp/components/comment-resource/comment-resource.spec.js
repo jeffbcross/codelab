@@ -3,7 +3,7 @@ describe('Comment Resource', function () {
 
   var Comment, $httpBackend;
 
-  beforeEach(module('glossaryApp', 'glossaryComment'));
+  beforeEach(module('commentResource'));
 
   beforeEach(inject(function (_$httpBackend_, _Comment_) {
     $httpBackend = _$httpBackend_;

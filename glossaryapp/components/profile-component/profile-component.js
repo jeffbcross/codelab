@@ -1,4 +1,4 @@
-angular.module('glossaryApp').
+angular.module('profileComponent', ['profileStoreService']).
   directive('glProfile', function () {
     'use strict';
 

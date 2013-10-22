@@ -3,7 +3,7 @@ describe('personalize', function () {
 
   var filter, profileStore;
 
-  beforeEach(module('glossaryApp'));
+  beforeEach(module('personalizeFilter', 'profileStoreService'));
 
   beforeEach(inject(function ($filter, _profileStore_) {
     filter = $filter('personalize');

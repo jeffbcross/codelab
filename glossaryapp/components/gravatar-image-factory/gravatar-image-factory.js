@@ -1,4 +1,4 @@
-angular.module('glossaryApp').
+angular.module('gravatarImageFactory', []).
   factory('gravatarImage', function () {
     'use strict';
 

@@ -1,4 +1,4 @@
-angular.module('glossaryApp').
+angular.module('personalizeFilter', []).
   filter('personalize', ['profileStore', function (profileStore) {
     'use strict';
 

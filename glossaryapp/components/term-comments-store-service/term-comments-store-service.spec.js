@@ -3,7 +3,7 @@ describe('termCommentsStore', function () {
   var termCommentsStore, $httpBackend,
       comment = {text: 'A comment', date: 1};
 
-  beforeEach(module('glossaryApp', 'glossaryComment'));
+  beforeEach(module('termCommentsStoreService', 'commentResource'));
 
   beforeEach(inject(function (_termCommentsStore_, _$httpBackend_) {
     termCommentsStore = _termCommentsStore_;

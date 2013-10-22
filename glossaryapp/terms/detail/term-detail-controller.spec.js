@@ -3,7 +3,7 @@ describe('TermDetailController', function () {
 
   var scope, termsStore, termCommentsStore, termDetailController;
 
-  beforeEach(module('glossaryApp', 'glossaryComment'));
+  beforeEach(module('glossaryApp', 'termsStoreService', 'commentResource'));
 
   beforeEach(inject(function ($rootScope, $controller, _termsStore_, _termCommentsStore_) {
     termsStore = _termsStore_;

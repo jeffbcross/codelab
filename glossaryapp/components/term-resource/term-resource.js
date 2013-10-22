@@ -1,4 +1,4 @@
-angular.module('glossaryApp').
+angular.module('termResource', ['glossaryApp']).
   factory('Term', ['$resource', 'TERMS_PATH',
     function ($resource, TERMS_PATH) {
       'use strict';

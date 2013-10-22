@@ -1,7 +1,7 @@
 describe('gravatarEmail', function () {
   var gravatarImage, email, hashedEmail;
 
-  beforeEach(module('glossaryApp'));
+  beforeEach(module('gravatarImageFactory'));
 
   beforeEach(inject( function (_gravatarImage_) {
     email = 'foobar@gmail.com';

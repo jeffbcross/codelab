@@ -1,4 +1,4 @@
-angular.module('glossaryApp').
+angular.module('termsStoreService', ['termResource']).
   service('termsStore', ['Term', function (Term) {
     'use strict';
 

@@ -1,4 +1,4 @@
-angular.module('glossaryApp').
+angular.module('termCommentsStoreService', ['commentResource']).
   service('termCommentsStore', ['Comment', function (Comment) {
     'use strict';
 

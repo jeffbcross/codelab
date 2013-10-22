@@ -1,4 +1,4 @@
-angular.module('glossaryContenteditable', []).
+angular.module('contenteditableDirective', []).
   directive('contenteditable', function () {
     'use strict';
 

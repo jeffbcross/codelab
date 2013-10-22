@@ -3,7 +3,7 @@ describe('profileStore', function () {
 
   var getItemSpy, profileStore, LOCALSTORAGE_PROFILE_KEY;
 
-  beforeEach(module('glossaryApp'));
+  beforeEach(module('profileStoreService', 'glossaryApp'));
 
   beforeEach(inject(function ($window) {
     getItemSpy = spyOn($window.localStorage, 'getItem');

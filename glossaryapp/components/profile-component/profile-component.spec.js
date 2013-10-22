@@ -3,9 +3,9 @@ describe('glProfile', function () {
 
   var getItemSpy, profileStore, scope, element;
 
-  beforeEach(module('glossaryApp', 'components/profile-component/profile-component.html'));
+  beforeEach(module('profileComponent', 'glossaryApp', 'components/profile-component/profile-component.html'));
 
-  beforeEach(inject(function ($rootScope, $compile, _profileStore_, _LOCALSTORAGE_PROFILE_KEY_) {
+  beforeEach(inject(function ($rootScope, $compile, _profileStore_) {
     scope = $rootScope.$new();
     profileStore = _profileStore_;
     element = $compile('<gl-profile></gl-profile>')(scope);
