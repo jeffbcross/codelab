@@ -1,0 +1,75 @@
+<div class="termsList">
+  <div class="meta">
+    <gl-profile></gl-profile>
+  </div>
+  <div class="content">
+    <h1>Glossary</h1>
+
+    <ul>
+      <li ng-repeat="term in termsList.terms | orderBy:'name' track by term.id">
+        <a ng-href="/#/terms/{{term.id}}">
+          <strong>
+            {{term.name}}
+          </strong>
+          <br>
+
+          <span class="definition" ng-bind="term.definition"></span>
+          <br>
+
+          <span class="meta">
+            Created by
+            <strong>{{term.creatorEmail | personalize}}</strong>
+            on <span ng-bind="term.createdAt | date"></span>
+          </span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="createTermForm">
+      <h2>Add a Term</h2>
+
+      <form
+        name="newTermForm"
+        ng-submit="termsList.saveTerm()">
+
+        <label for="termsList.currentUser.email">
+          <span ng-hide="termsList.currentUser.email">You must enter your email to submit a defnition</span>
+          <span ng-show="termsList.currentUser.email">Posting as:</span>
+        </label>
+        <br>
+
+        <input ng-change="termsList.currentUser.save()" type="email" required ng-model="termsList.currentUser.email">
+        <br>
+
+        <label for="newTerm.name">
+          Term to be Defined:
+        </label>
+        <br>
+
+        <input
+          type="text"
+          ng-model="newTerm.name"
+          required>
+        <br>
+
+        <label for="newTerm.definition">
+          Definition
+        </label>
+        <br>
+
+        <input
+          type="text"
+          ng-model="newTerm.definition"
+          required>
+        <br>
+        <button
+          ng-disabled="!newTermForm.$valid"
+          ng-click="newTermForm.submit()">
+          Add Term
+        </button>
+
+
+      </form>
+    </div>
+  </div>
+</div>

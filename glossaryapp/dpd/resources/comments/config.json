@@ -1,0 +1,37 @@
+{
+	"type": "Collection",
+	"properties": {
+		"text": {
+			"name": "text",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "text",
+			"order": 0
+		},
+		"date": {
+			"name": "date",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "date",
+			"order": 1
+		},
+		"termid": {
+			"name": "termid",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "termid",
+			"order": 2
+		},
+		"creatorEmail": {
+			"name": "creatorEmail",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "creatorEmail",
+			"order": 3
+		}
+	}
+}

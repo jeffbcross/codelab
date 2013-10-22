@@ -1,0 +1,58 @@
+.termsList > .meta {
+  float: right;
+  width: 25%;
+}
+
+.termsList > .content {
+  float: left;
+  width: 75%;
+}
+
+.termsList .createTermForm {
+  display: block;
+  background: #eee;
+  padding: 12px;
+}
+
+.termsList .createTermForm h2 {
+  margin: 0;
+}
+
+.termsList ul {
+  padding-left: 0;
+  width: 100%;
+}
+
+.termsList ul li {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+  margin: 0;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.termsList ul li .meta {
+  color: #666;
+  display: block;
+  margin-top: 6px;
+  font-size: 0.9em;
+}
+
+.termsList ul li:hover {
+  background-color: #eee;
+}
+
+.termsList ul li a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+
+.termsList ul li a:hover {
+  color: #333;
+}
+
+.termsList ul li a.checkbox {
+  cursor: pointer;
+}

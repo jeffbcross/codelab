@@ -2,3 +2,49 @@ node_modules/
 .DS_Store
 dpd/.dpd/
 dpd/data/
+# Emacs byte-compiled files and desktop files, etc.
+*.elc
+emacs-desktop
+.emacs.desktop.lock
+# Emacs byte-compiled files and desktop files, etc.
+*.elc
+emacs-desktop
+.emacs.desktop.lock
+
+# Python byte-compiled files.
+*.pyc
+*.pyc-2.4
+*.pyc-2.5
+*.pyc-2.6
+*.pyc-2.7
+*.pyc-3.0
+
+# Backups.
+*.bak
+\#*#
+*.*~
+
+# Temp files.
+*.tmp
+*.swp
+
+# Mac related files.
+.DS_Store
+Desktop\ DB
+Desktop\ DF
+
+# VCS stuff.
+.svn
+
+# Tags.
+tags
+etags
+TAGS
+ETAGS
+PYSMELLTAGS
+GTAGS
+GRTAGS
+GPATH
+
+# Lock files
+.lock*

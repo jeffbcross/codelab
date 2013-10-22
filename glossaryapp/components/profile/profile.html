@@ -1,0 +1,16 @@
+<div class="container">
+  <h3>Your Profile</h3>
+
+  <em class="no-picture" ng-if="!profile.profileStore.picture">
+    Enter a valid gravatar email to see your picture.
+  </em>
+
+  <img ng-src="{{profile.profileStore.picture}}" ng-if="profile.profileStore.picture">
+  <br>
+  <label for="profile.profileStore.email">
+    Email Address:
+  </label>
+  <br>
+
+  <input type="email" ng-model="profile.profileStore.email" placeholder="No Email Set" ng-change="profile.profileStore.save()">
+</div>

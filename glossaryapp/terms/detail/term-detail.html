@@ -1,0 +1,56 @@
+<div class="termDetail">
+  <div class="metaContent">
+    <gl-profile></gl-profile>
+  </div>
+
+  <div class="termContent">
+    <div class="termHeading">
+      <h1 contenteditable="true" ng-model="termDetail.term.name">
+      </h1>
+
+      <p class="definition">
+        <strong>Definition: </strong>
+        <div contenteditable="true" ng-model="termDetail.term.definition"></div>
+
+      </p>
+    </div>
+
+    <div class="termComments">
+      <h3>Comments</h3>
+      <em ng-hide="termDetail.comments.$resolved">Loading Comments</em>
+      <em ng-show="termDetail.comments.$resolved && termDetail.comments.length === 0">No Comments Yet</em>
+      <ul>
+        <li ng-repeat="comment in termDetail.comments | orderBy:'date':true">
+          <span class="text" ng-bind="comment.text"></span>
+          <em class="date"> Added by {{comment.creatorEmail | personalize}} on {{comment.date | date}}</em>
+        </li>
+      </ul>
+    </div>
+
+    <div class="addComment">
+      <form ng-submit="termDetail.addComment(termDetail.newComment)" name="newCommentForm">
+        <label for="termDetail.currentUser.email">
+          <span ng-hide="termDetail.currentUser.email">You must enter your email to submit a defnition</span>
+          <span ng-show="termDetail.currentUser.email">Posting as:</span>
+        </label>
+
+        <br>
+
+        <input ng-change="termDetail.currentUser.save()" type="email" required ng-model="termDetail.currentUser.email">
+
+        <br>
+        <label for="termDetail.newComment.text">
+          Comment:
+        </label>
+        <br>
+        <input type="text" ng-model="termDetail.newComment.text" required>
+        <br>
+        <button ng-disabled="newCommentForm.$invalid" type="submit">Add Comment</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <a href="/#/terms">&laquo; All Terms</a>
+  </footer>
+</div>
