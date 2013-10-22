@@ -1,17 +1,7 @@
 angular.module('glossaryApp')
-  .factory('glGravatarEmail', function () {
-    'use strict';
-
-    return function (email) {
-      if (!angular.isString(email)) return;
-
-      var emailHash = md5(email.toLowerCase());
-      return 'http://gravatar.com/avatar/' + emailHash;
-    }
-  })
   .service('glProfileStore',
-    ['$window', 'glGravatarEmail', 'LOCALSTORAGE_PROFILE_KEY',
-    function ($window, glGravatarEmail, LOCALSTORAGE_PROFILE_KEY) {
+    ['$window', 'gravatarImage', 'LOCALSTORAGE_PROFILE_KEY',
+    function ($window, gravatarImage, LOCALSTORAGE_PROFILE_KEY) {
       'use strict';
 
       var user = $window.localStorage.getItem(LOCALSTORAGE_PROFILE_KEY);
@@ -20,7 +10,7 @@ angular.module('glossaryApp')
       this.email = user.email;
 
       this.save = function () {
-        this.picture = glGravatarEmail(this.email);
+        this.picture = gravatarImage(this.email);
 
         $window.localStorage.setItem(LOCALSTORAGE_PROFILE_KEY, JSON.stringify({
           email: this.email,

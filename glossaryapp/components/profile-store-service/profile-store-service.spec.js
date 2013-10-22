@@ -17,30 +17,4 @@ describe('profileStore', function () {
   it('should load the profile from localStorage', function () {
     expect(getItemSpy).toHaveBeenCalledWith(LOCALSTORAGE_PROFILE_KEY);
   });
-
-
-  describe('gravatarEmail', function () {
-    var glGravatarEmail, email, hashedEmail;
-
-    beforeEach(inject( function (_glGravatarEmail_) {
-      email = 'foobar@gmail.com';
-      hashedEmail = md5(email);
-      glGravatarEmail = _glGravatarEmail_;
-    }));
-
-
-    it('should return a fully qualified url with a hashed email', function () {
-      expect(glGravatarEmail(email)).toBe('http://gravatar.com/avatar/' + hashedEmail);
-    });
-
-
-    it('should lowercase an email address', function () {
-      expect(glGravatarEmail('FOOBAR@GMAIL.COM')).toBe('http://gravatar.com/avatar/' + hashedEmail);
-    });
-
-
-    it('should return undefined if the input is not a string', function () {
-      expect(glGravatarEmail(function () {})).toBeUndefined();
-    });
-  });
 });

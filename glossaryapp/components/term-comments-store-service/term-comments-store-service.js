@@ -3,6 +3,7 @@ angular.module('glossaryApp')
     ['Comment',
     function (Comment) {
       'use strict';
+
       this.mapTermComments = {};
 
       this.getCommentsForTerm = function (id) {
