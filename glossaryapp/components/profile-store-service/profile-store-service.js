@@ -1,5 +1,7 @@
 angular.module('glossaryApp')
   .factory('glGravatarEmail', function () {
+    'use strict';
+
     return function (email) {
       if (!angular.isString(email)) return;
 
@@ -10,6 +12,8 @@ angular.module('glossaryApp')
   .service('glProfileStore',
     ['$window', 'glGravatarEmail', 'LOCALSTORAGE_PROFILE_KEY',
     function ($window, glGravatarEmail, LOCALSTORAGE_PROFILE_KEY) {
+      'use strict';
+
       var user = $window.localStorage.getItem(LOCALSTORAGE_PROFILE_KEY);
       user = JSON.parse(user || '{}');
       this.picture = user.picture;

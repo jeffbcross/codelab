@@ -1,6 +1,6 @@
-'use strict';
-
 describe('profileStore', function () {
+  'use strict';
+
   var getItemSpy, glProfileStore, LOCALSTORAGE_PROFILE_KEY;
 
   beforeEach(module('glossaryApp'));

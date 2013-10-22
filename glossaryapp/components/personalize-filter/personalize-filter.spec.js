@@ -1,4 +1,6 @@
 describe('personalize', function () {
+  'use strict';
+
   var filter, glProfileStore;
 
   beforeEach(module('glossaryApp'));

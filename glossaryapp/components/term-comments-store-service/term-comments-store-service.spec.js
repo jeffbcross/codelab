@@ -1,6 +1,5 @@
-'use strict';
-
 describe('termCommentsStore', function () {
+  'use strict';
   var glTermCommentsStore, $httpBackend,
       comment = {text: 'A comment', date: 1};
 

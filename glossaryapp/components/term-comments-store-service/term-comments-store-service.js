@@ -2,11 +2,13 @@ angular.module('glossaryApp')
   .factory('Comments',
     ['$resource', 'COMMENTS_PATH',
     function ($resource, COMMENTS_PATH) {
+      'use strict';
       return $resource(COMMENTS_PATH);
     }])
   .service('glTermCommentsStore',
     ['Comments',
     function (Comments) {
+      'use strict';
       this.mapTermComments = {};
 
       this.getCommentsForTerm = function (id) {

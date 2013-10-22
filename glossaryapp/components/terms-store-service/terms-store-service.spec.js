@@ -1,6 +1,6 @@
-'use strict';
-
 describe('termsStore', function () {
+  'use strict';
+
   var glTermsStore,
       resourceSpy,
       $httpBackend,

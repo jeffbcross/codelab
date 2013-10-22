@@ -1,5 +1,7 @@
 angular.module('glossaryApp')
   .directive('glProfile', function () {
+    'use strict';
+
     return {
       scope: {},
       restrict: 'E',

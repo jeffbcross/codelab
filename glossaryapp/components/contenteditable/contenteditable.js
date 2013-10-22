@@ -1,5 +1,7 @@
 angular.module('glossaryApp')
   .directive('contenteditable', function () {
+    'use strict';
+
     return {
       restrict: 'A',
       require: '?ngModel',

@@ -1,6 +1,6 @@
-'use strict';
-
 describe('TermsListController', function () {
+  'use strict';
+
   var termsListController, scope, glTermsStore;
 
   beforeEach(module('glossaryApp'));

@@ -1,5 +1,7 @@
 angular.module('glossaryApp')
   .filter('glMapById', function () {
+    'use strict';
+
     return function (terms) {
       var mapped = {};
 
@@ -12,6 +14,8 @@ angular.module('glossaryApp')
   })
   .factory('Term', ['$resource', 'TERMS_PATH',
     function ($resource, TERMS_PATH) {
+      'use strict';
+
       return $resource(TERMS_PATH + '/:id', null, {
         update: {
           url: TERMS_PATH + '/:id',
@@ -19,6 +23,8 @@ angular.module('glossaryApp')
         }});
     }])
   .service('glTermsStore', ['$filter', 'Term', '$q', function ($filter, Term, $q) {
+    'use strict';
+
     var self = this, queryResult;
     mapById = $filter('glMapById');
     this.terms = [];

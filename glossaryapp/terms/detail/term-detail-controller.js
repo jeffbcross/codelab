@@ -2,6 +2,8 @@ angular.module('glossaryApp')
   .controller('TermDetailController',
     ['$scope', '$routeParams', '$timeout', 'glTermsStore', 'glTermCommentsStore', 'glProfileStore', 'Term',
       function ($scope, $routeParams, $timeout, glTermsStore, glTermCommentsStore, glProfileStore, Term) {
+        'use strict';
+
         var self = this;
         var postResolved = false;
         this.term = Term.get({id: $routeParams.id});

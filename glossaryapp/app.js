@@ -1,8 +1,10 @@
 angular.module('glossaryApp', ['ngRoute', 'ngResource'])
   .config(['$routeProvider', function ($routeProvider) {
+    'use strict';
+
     $routeProvider.when('/terms', {
       controller: 'TermsListController',
-      templateUrl: 'terms/terms-list.html',
+      templateUrl: 'terms/terms.html',
       controllerAs: 'termsList'
     })
     .when('/terms/:id', {

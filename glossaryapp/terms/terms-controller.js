@@ -2,6 +2,8 @@ angular.module('glossaryApp')
   .controller('TermsListController',
     ['$scope', 'glTermsStore', 'glProfileStore',
     function ($scope, glTermsStore, glProfileStore) {
+      'use strict';
+
       this.terms = glTermsStore.terms;
       this.currentUser = glProfileStore;
 

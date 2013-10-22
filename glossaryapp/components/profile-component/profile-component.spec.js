@@ -1,4 +1,6 @@
 describe('glProfile', function () {
+  'use strict';
+
   var getItemSpy, glProfileStore, scope, element;
 
   beforeEach(module('glossaryApp', 'components/profile-component/profile-component.html'));

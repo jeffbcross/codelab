@@ -1,4 +1,6 @@
 describe('TermDetailController', function () {
+  'use strict';
+
   var scope, glTermsStore, glTermCommentsStore, termDetailController;
 
   beforeEach(module('glossaryApp'));
