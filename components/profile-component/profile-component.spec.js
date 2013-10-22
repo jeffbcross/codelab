@@ -1,7 +1,7 @@
 describe('glProfile', function () {
   var getItemSpy, glProfileStore, scope, element;
 
-  beforeEach(module('glossaryApp', 'components/profile/profile.html'));
+  beforeEach(module('glossaryApp', 'components/profile-component/profile-component.html'));
 
   beforeEach(inject(function ($rootScope, $compile, _glProfileStore_, _LOCALSTORAGE_PROFILE_KEY_) {
     scope = $rootScope.$new();

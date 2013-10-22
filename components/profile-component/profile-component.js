@@ -3,7 +3,7 @@ angular.module('glossaryApp')
     return {
       scope: {},
       restrict: 'E',
-      templateUrl: 'components/profile/profile.html',
+      templateUrl: 'components/profile-component/profile-component.html',
       controller: ['glProfileStore', function (glProfileStore) {
         this.profileStore = glProfileStore;
       }],
