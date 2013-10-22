@@ -1,4 +1,4 @@
-angular.module('glossaryApp', ['ngRoute', 'ngResource'])
+angular.module('glossaryApp', ['ngRoute', 'ngResource', 'glossaryComment'])
   .config(['$routeProvider', function ($routeProvider) {
     'use strict';
 
