@@ -21,19 +21,19 @@ builtins:
 
 handlers:
 - url: /favicon.ico
-  static_files: ../glossaryapp/favicon.ico
-  upload: ../glossaryapp/favicon.ico
+  static_files: client/favicon.ico
+  upload: client/favicon.ico
 
 - url: (/|/index.html)
-  static_files: ../glossaryapp/index.html
-  upload: ../glossaryapp/index.html
+  static_files: client/index.html
+  upload: client/index.html
 
 - url: /api/.*
   script: app.wsgi_app
 
 - url: /(.*\.(js|css|html))
-  static_files: ../glossaryapp/\1
-  upload: ../glossaryapp/(.*\.(js|css|html))
+  static_files: client/\1
+  upload: client/(.*\.(js|css|html))
 
 skip_files:
 # Default patterns skipped by App Engine, which must be repeated since
@@ -49,4 +49,4 @@ skip_files:
 - ^(.*/)?.*/RCS/.*
 - ^(.*/)?\..*
 # Skip spec files
-- ^../glossaryapp/.*spec\.*js
+- ^client/.*spec\.*js
