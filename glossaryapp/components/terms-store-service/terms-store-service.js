@@ -1,5 +1,5 @@
 angular.module('glossaryApp')
-  .service('glTermsStore', ['$filter', 'Term', '$q', function ($filter, Term, $q) {
+  .service('termsStore', ['$filter', 'Term', '$q', function ($filter, Term, $q) {
     'use strict';
 
     var self = this, queryResult;

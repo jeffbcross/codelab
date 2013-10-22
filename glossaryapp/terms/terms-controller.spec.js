@@ -1,14 +1,14 @@
 describe('TermsListController', function () {
   'use strict';
 
-  var termsListController, scope, glTermsStore;
+  var termsListController, scope, termsStore;
 
   beforeEach(module('glossaryApp'));
 
-  beforeEach(inject(function ($controller, $rootScope, $httpBackend, TERMS_PATH, _glTermsStore_) {
+  beforeEach(inject(function ($controller, $rootScope, $httpBackend, TERMS_PATH, _termsStore_) {
     scope = $rootScope.$new();
 
-    glTermsStore = _glTermsStore_;
+    termsStore = _termsStore_;
     termsListController = $controller('TermsListController', {
       $scope: scope
     });
@@ -25,8 +25,8 @@ describe('TermsListController', function () {
 
 
   describe('.saveTerm()', function () {
-    it('should call glTermsStore.add()', function () {
-      var spy = spyOn(glTermsStore, 'add');
+    it('should call termsStore.add()', function () {
+      var spy = spyOn(termsStore, 'add');
       var term = {
         name: 'Digest',
         definition: 'Process food'

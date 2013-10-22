@@ -1,12 +1,12 @@
 describe('TermDetailController', function () {
   'use strict';
 
-  var scope, glTermsStore, termCommentsStore, termDetailController;
+  var scope, termsStore, termCommentsStore, termDetailController;
 
   beforeEach(module('glossaryApp'));
 
-  beforeEach(inject(function ($rootScope, $controller, _glTermsStore_, _termCommentsStore_) {
-    glTermsStore = _glTermsStore_;
+  beforeEach(inject(function ($rootScope, $controller, _termsStore_, _termCommentsStore_) {
+    termsStore = _termsStore_;
     termCommentsStore = _termCommentsStore_;
     scope = $rootScope.$new();
 

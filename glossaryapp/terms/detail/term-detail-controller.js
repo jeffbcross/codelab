@@ -1,7 +1,7 @@
 angular.module('glossaryApp')
   .controller('TermDetailController',
-    ['$scope', '$routeParams', '$timeout', 'glTermsStore', 'termCommentsStore', 'profileStore', 'Term',
-      function ($scope, $routeParams, $timeout, glTermsStore, termCommentsStore, profileStore, Term) {
+    ['$scope', '$routeParams', '$timeout', 'termsStore', 'termCommentsStore', 'profileStore', 'Term',
+      function ($scope, $routeParams, $timeout, termsStore, termCommentsStore, profileStore, Term) {
         'use strict';
 
         var self = this;
@@ -23,7 +23,7 @@ angular.module('glossaryApp')
           }
 
           self.throttledChange = $timeout(function () {
-            glTermsStore.updateById($routeParams.id, self.term);
+            termsStore.updateById($routeParams.id, self.term);
           }, 250);
         }
     }]);
