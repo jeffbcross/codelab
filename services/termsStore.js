@@ -24,10 +24,7 @@ angular.module('glossaryApp')
     this.terms = [];
 
     this.add = function (term) {
-      var prev;
-
-      this.terms.push(term);
-      Term.save(term);
+      this.terms.push(Term.save(term));
     };
 
     this.updateById = function (id, term) {
