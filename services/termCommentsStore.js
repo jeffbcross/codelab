@@ -6,14 +6,14 @@ angular.module('glossaryApp')
     this.mapTermComments = {};
 
     this.getCommentsForTerm = function (id) {
-      this.mapTermComments[id] = this.mapTermComments[id] || Comments.query({termid: id});
+      this.mapTermComments[id] = this.mapTermComments[id] || Comments.query({termId: id});
 
       return this.mapTermComments[id];
     };
 
     this.addCommentToTerm = function (id, comment) {
-      if (!comment.date) comment.date = new Date().getTime();
-      if (!comment.termid) comment.termid = id;
+      if (!comment.createdTimestamp) comment.createdTimestamp = new Date().getTime();
+      if (!comment.termId) comment.termId = id;
 
       Comments.save(comment, function (value) {
         comment.id = value.id

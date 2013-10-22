@@ -14,6 +14,6 @@ angular.module('glossaryApp', ['ngRoute', 'ngResource'])
       redirectTo: '/terms'
     });
   }])
-  .constant('TERMS_PATH', '/termsapi')
-  .constant('COMMENTS_PATH', '/comments')
+  .constant('TERMS_PATH', '/api/terms')
+  .constant('COMMENTS_PATH', '/api/terms/:termId/comments')
   .constant('LOCALSTORAGE_PROFILE_KEY', 'glossaryApp.profile');
