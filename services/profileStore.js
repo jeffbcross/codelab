@@ -23,4 +23,4 @@ angular.module('glossaryApp')
           picture: this.picture
         }));
       };
-    }])
+    }]);
