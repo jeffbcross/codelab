@@ -26,20 +26,18 @@ describe('termCommentsStore', function () {
 
 
   describe('.addCommentToTerm()', function () {
-    it('should be a function', function () {
-      expect(typeof glTermCommentsStore.addCommentToTerm).toBe('function');
-    });
-
-
     it('should POST a new comment when called', function () {
       var responseComment = angular.copy(comment);
       responseComment.id = 'foo';
       responseComment.termid = '1';
-      $httpBackend.whenPOST('/comments').respond(responseComment);
+      $httpBackend.whenPOST('/api/terms/comments').respond(responseComment);
       glTermCommentsStore.addCommentToTerm(responseComment.termid, comment);
       $httpBackend.flush();
 
-      expect(glTermCommentsStore.getCommentsForTerm('1')).toEqual([responseComment])
+      var comments = glTermCommentsStore.getCommentsForTerm('1');
+
+      expect(comments[0].name).toBe(responseComment.name);
+      expect(comments[0].createdTimestamp).toBeGreaterThan(0);
     });
   });
 
@@ -54,7 +52,7 @@ describe('termCommentsStore', function () {
 
     it('should load comments for a given term', function () {
       var response = [{text: 'Comment one', date: 1}];
-      $httpBackend.whenGET('/comments?termid=1').respond(response);
+      $httpBackend.whenGET('/api/terms/comments?termid=1').respond(response);
 
       var comments = Comments.query({termid: 1});
       $httpBackend.flush();

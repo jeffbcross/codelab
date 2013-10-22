@@ -26,7 +26,7 @@ angular.module('glossaryApp')
     'use strict';
 
     var self = this, queryResult;
-    mapById = $filter('glMapById');
+    var mapById = $filter('glMapById');
     this.terms = [];
 
     this.add = function (term) {

@@ -17,30 +17,19 @@ describe('termsStore', function () {
   }));
 
 
-  it('should exist', function () {
-    expect(!!glTermsStore).toBe(true);
-  });
-
-
   it('should have an array of terms', function () {
     expect(angular.isArray(glTermsStore.terms)).toBe(true);
   });
 
 
   describe('.add()', function () {
-    it('should provide a method to add a single term',
-      function () {
-        expect(typeof glTermsStore.add).toBe('function');
-      });
-
-
     it('should add the term to the service\'s terms array',
       function () {
         var newTerm = {name: 'Do it', id: 0};
         var spy = spyOn(glTermsStore.terms, 'push');
         glTermsStore.add(newTerm);
 
-        expect(spy).toHaveBeenCalledWith(newTerm);
+        expect(spy).toHaveBeenCalled();
       });
   });
 
