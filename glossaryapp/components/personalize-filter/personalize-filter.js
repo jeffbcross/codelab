@@ -5,8 +5,7 @@ angular.module('glossaryApp')
     return function (email) {
       if (angular.isString(glProfileStore.email) && glProfileStore.email === email) {
         return "You";
-      }
-      else {
+      } else {
         return email;
       }
     };

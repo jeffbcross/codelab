@@ -19,8 +19,7 @@ angular.module('glossaryApp')
         $scope.$watch('termDetail.term', function (newVal, oldVal) {
           if (!self.term.$resolved || newVal === oldVal) {
             return;
-          }
-          else if (self.term.$resolved && !postResolved) {
+          } else if (self.term.$resolved && !postResolved) {
             //Prevent update for first watch after model is resolved.
             return postResolved = true;
           }
