@@ -1,5 +1,5 @@
 angular.module('glossaryApp')
-  .service('glProfileStore',
+  .service('profileStore',
     ['$window', 'gravatarImage', 'LOCALSTORAGE_PROFILE_KEY',
     function ($window, gravatarImage, LOCALSTORAGE_PROFILE_KEY) {
       'use strict';

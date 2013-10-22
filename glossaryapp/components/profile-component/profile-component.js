@@ -6,8 +6,8 @@ angular.module('glossaryApp')
       scope: {},
       restrict: 'E',
       templateUrl: 'components/profile-component/profile-component.html',
-      controller: ['glProfileStore', function (glProfileStore) {
-        this.profileStore = glProfileStore;
+      controller: ['profileStore', function (profileStore) {
+        this.profileStore = profileStore;
       }],
       controllerAs: 'profile'
     }

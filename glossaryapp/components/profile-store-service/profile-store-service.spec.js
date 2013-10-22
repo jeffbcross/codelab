@@ -1,7 +1,7 @@
 describe('profileStore', function () {
   'use strict';
 
-  var getItemSpy, glProfileStore, LOCALSTORAGE_PROFILE_KEY;
+  var getItemSpy, profileStore, LOCALSTORAGE_PROFILE_KEY;
 
   beforeEach(module('glossaryApp'));
 
@@ -9,8 +9,8 @@ describe('profileStore', function () {
     getItemSpy = spyOn($window.localStorage, 'getItem');
   }));
 
-  beforeEach(inject(function (_glProfileStore_, _LOCALSTORAGE_PROFILE_KEY_) {
-    glProfileStore = _glProfileStore_;
+  beforeEach(inject(function (_profileStore_, _LOCALSTORAGE_PROFILE_KEY_) {
+    profileStore = _profileStore_;
     LOCALSTORAGE_PROFILE_KEY = _LOCALSTORAGE_PROFILE_KEY_;
   }));
 

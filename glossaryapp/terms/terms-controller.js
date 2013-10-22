@@ -1,11 +1,11 @@
 angular.module('glossaryApp')
   .controller('TermsListController',
-    ['$scope', 'glTermsStore', 'glProfileStore',
-    function ($scope, glTermsStore, glProfileStore) {
+    ['$scope', 'glTermsStore', 'profileStore',
+    function ($scope, glTermsStore, profileStore) {
       'use strict';
 
       this.terms = glTermsStore.terms;
-      this.currentUser = glProfileStore;
+      this.currentUser = profileStore;
 
       this.saveTerm = function () {
         glTermsStore.add({
