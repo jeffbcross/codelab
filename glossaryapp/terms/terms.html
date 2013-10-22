@@ -2,11 +2,11 @@
   <div class="metaContent">
     <gl-profile></gl-profile>
   </div>
-  <div class="content">
+  <div class="termContent">
     <h1>Glossary</h1>
 
     <ul>
-      <li ng-repeat="term in terms.terms | orderBy:'name' track by term.id">
+      <li ng-repeat="term in (terms.terms | orderBy:'name') track by term.id">
         <a ng-href="/#/terms/{{term.id}}">
           <strong>
             {{term.name}}
