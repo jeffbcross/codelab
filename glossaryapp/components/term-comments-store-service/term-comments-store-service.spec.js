@@ -42,11 +42,11 @@ describe('termCommentsStore', function () {
   });
 
 
-  describe('Comments Resource', function () {
-    var Comments;
+  describe('glComment Resource', function () {
+    var glComment;
 
-    beforeEach(inject(function (_$httpBackend_, _Comments_) {
-      Comments = _Comments_;
+    beforeEach(inject(function (_$httpBackend_, _glComment_) {
+      glComment = _glComment_;
     }));
 
 
@@ -54,7 +54,7 @@ describe('termCommentsStore', function () {
       var response = [{text: 'Comment one', date: 1}];
       $httpBackend.whenGET('/api/terms/comments?termid=1').respond(response);
 
-      var comments = Comments.query({termid: 1});
+      var comments = glComment.query({termid: 1});
       $httpBackend.flush();
 
       expect(comments[0].text).toEqual(response[0].text);

@@ -1,5 +1,5 @@
 angular.module('glossaryApp')
-  .factory('Term', ['$resource', 'TERMS_PATH',
+  .factory('glTerm', ['$resource', 'TERMS_PATH',
     function ($resource, TERMS_PATH) {
       'use strict';
 
@@ -9,7 +9,7 @@ angular.module('glossaryApp')
           method: 'PUT'
         }});
     }])
-  .service('glTermsStore', ['$filter', 'Term', '$q', function ($filter, Term, $q) {
+  .service('glTermsStore', ['$filter', 'glTerm', '$q', function ($filter, glTerm, $q) {
     'use strict';
 
     var self = this, queryResult;
@@ -17,17 +17,17 @@ angular.module('glossaryApp')
     this.terms = [];
 
     this.add = function (term) {
-      this.terms.push(Term.save(term));
+      this.terms.push(glTerm.save(term));
     };
 
     this.updateById = function (id, term) {
       var mapped = mapById(this.terms);
       mapped[id].name = term.name;
       mapped[id].definition = term.definition;
-      Term.update({id: id}, term);
+      glTerm.update({id: id}, term);
     };
 
-    queryResult = Term.query(function (terms) {
+    queryResult = glTerm.query(function (terms) {
       angular.forEach(terms, function (term) {
         self.terms.push(term);
       });

@@ -4,16 +4,16 @@ describe('termsStore', function () {
   var glTermsStore,
       resourceSpy,
       $httpBackend,
-      Term;
+      glTerm;
 
   beforeEach(module('glossaryApp'));
 
-  beforeEach(inject(function (_glTermsStore_, _$httpBackend_, _Term_, TERMS_PATH) {
+  beforeEach(inject(function (_glTermsStore_, _$httpBackend_, _glTerm_, TERMS_PATH) {
     glTermsStore = _glTermsStore_;
     $httpBackend = _$httpBackend_;
     $httpBackend.whenGET(TERMS_PATH).respond(200);
     $httpBackend.whenPUT(TERMS_PATH + '/1').respond(200);
-    Term = _Term_;
+    glTerm = _glTerm_;
   }));
 
 
@@ -55,7 +55,7 @@ describe('termsStore', function () {
 
 
     it('should save the term to the server', function () {
-      var spy = spyOn(Term, 'update');
+      var spy = spyOn(glTerm, 'update');
 
       glTermsStore.updateById('1', termCopy);
 
@@ -65,26 +65,26 @@ describe('termsStore', function () {
 
 
   describe('Term', function () {
-    var Term, TERMS_PATH;
+    var glTerm, TERMS_PATH;
 
-    beforeEach(inject(function (_$httpBackend_, _Term_, _TERMS_PATH_) {
+    beforeEach(inject(function (_glTerm_, _TERMS_PATH_) {
       TERMS_PATH = _TERMS_PATH_;
-      Term = _Term_;
+      glTerm = _glTerm_;
     }));
 
 
     it('should exist', function () {
-      expect(!!Term).toBe(true);
+      expect(!!glTerm).toBe(true);
     });
 
 
     it('should have a query method', function () {
-      expect(typeof Term.query).toBe('function');
+      expect(typeof glTerm.query).toBe('function');
     });
 
 
     it('should have an update method', function () {
-      expect(typeof Term.update).toBe('function');
+      expect(typeof glTerm.update).toBe('function');
     });
 
 
@@ -96,7 +96,7 @@ describe('termsStore', function () {
 
       $httpBackend.whenPUT(TERMS_PATH + '/1').respond(200);
 
-      Term.update({id: 1}, {text: 'Do it'}, spyable.success);
+      glTerm.update({id: 1}, {text: 'Do it'}, spyable.success);
       $httpBackend.flush();
 
       expect(spy).toHaveBeenCalled();

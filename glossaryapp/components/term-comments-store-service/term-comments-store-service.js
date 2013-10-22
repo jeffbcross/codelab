@@ -1,18 +1,18 @@
 angular.module('glossaryApp')
-  .factory('Comments',
+  .factory('glComment',
     ['$resource', 'COMMENTS_PATH',
     function ($resource, COMMENTS_PATH) {
       'use strict';
       return $resource(COMMENTS_PATH);
     }])
   .service('glTermCommentsStore',
-    ['Comments',
-    function (Comments) {
+    ['glComment',
+    function (glComment) {
       'use strict';
       this.mapTermComments = {};
 
       this.getCommentsForTerm = function (id) {
-        this.mapTermComments[id] = this.mapTermComments[id] || Comments.query({termid: id});
+        this.mapTermComments[id] = this.mapTermComments[id] || glComment.query({termid: id});
 
         return this.mapTermComments[id];
       };
@@ -21,7 +21,7 @@ angular.module('glossaryApp')
         if (!comment.createdTimestamp) comment.createdTimestamp = Date.now();
         if (!comment.termid) comment.termid = id;
 
-        Comments.save(comment, function (value) {
+        glComment.save(comment, function (value) {
           comment.id = value.id
         });
 
