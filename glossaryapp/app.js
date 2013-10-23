@@ -1,6 +1,6 @@
 angular.module('glossaryApp',
   ['ngRoute', 'ngResource', 'commentResource', 'contenteditableDirective', 'gravatarImageFactory',
-    'personalizeFilter', 'profileComponent', 'profileStoreService', 'termCommentsStoreService']).
+    'personalizeFilter', 'profileComponent', 'profileStoreService', 'termsStoreService', 'termCommentsStoreService']).
       config(['$routeProvider', function ($routeProvider) {
         'use strict';
 
