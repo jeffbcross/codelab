@@ -1,12 +1,15 @@
 describe('gravatarImageFactory', function () {
   'use strict';
 
+  var md5;
+
   beforeEach(module('gravatarImageFactory'));
 
 
   describe('gravatarImage', function () {
     var gravatarImage, email, hashedEmail;
-    beforeEach(inject( function (_gravatarImage_) {
+    beforeEach(inject( function (_gravatarImage_, _md5_) {
+      md5 = _md5_;
       email = 'foobar@gmail.com';
       hashedEmail = md5(email);
       gravatarImage = _gravatarImage_;

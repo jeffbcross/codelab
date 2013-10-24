@@ -1,5 +1,5 @@
-angular.module('gravatarImageFactory', []).
-  factory('gravatarImage', function () {
+angular.module('gravatarImageFactory', ['md5Factory']).
+  factory('gravatarImage', ['md5', function (md5) {
     'use strict';
 
     return function (email) {
@@ -8,4 +8,4 @@ angular.module('gravatarImageFactory', []).
       var emailHash = md5(email.toLowerCase());
       return 'http://gravatar.com/avatar/' + emailHash;
     }
-  });
+  }]);
