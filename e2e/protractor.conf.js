@@ -19,8 +19,8 @@ exports.config = {
     'browserName': 'chrome'
   },
   specs: [
-    'terms.spec.js',
-    'termDetail.spec.js'
+    'terms_test.js',
+    'term-detail_test.js'
   ],
   // Options to be passed to Jasmine-node.
   jasmineNodeOpts: {
