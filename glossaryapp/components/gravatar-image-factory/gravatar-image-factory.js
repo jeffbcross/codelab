@@ -1,11 +1,23 @@
-angular.module('gravatarImageFactory', ['md5Factory']).
-  factory('gravatarImage', ['md5', function (md5) {
-    'use strict';
+goog.provide('glosssaryApp.gravatarImageFactory.module');
+goog.provide('glosssaryApp.gravatarImageFactory.gravatarImageFactory');
 
-    return function (email) {
-      if (!angular.isString(email)) return;
+goog.require('goog.crypt.Md5');
 
-      var emailHash = md5(email.toLowerCase());
-      return 'http://gravatar.com/avatar/' + emailHash;
-    }
-  }]);
+/**
+ * Factory for generating gravatar image URLs
+ * @constructor
+ * @type {angular.factory}
+ */
+glossaryApp.gravatarImageFactory.gravatarImageFactory = function () {
+  return function (email) {
+    if (!angular.isString(email)) return;
+
+    var hash = new goog.crypt.Md5();
+    hash.update(email.toLowerCase());
+
+    return goog.Uri.resolve('http://gravatar.com/avatar/', hash.digest()).toString();
+  }
+};
+
+glossaryApp.gravatarImageFactory.module = angular.module('glossaryApp.gravatarImageFactory', []).
+factory('glossaryApp.gravatarImageFactory.gravatarImageFactory', glossaryApp.gravatarImageFactory.gravatarImageFactory);

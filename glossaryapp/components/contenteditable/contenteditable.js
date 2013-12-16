@@ -1,28 +1,36 @@
-angular.module('contenteditableDirective', []).
-  directive('contenteditable', function () {
-    'use strict';
+goog.provide('glossaryApp.contenteditableDirective.module');
+goog.provide('glossaryApp.contenteditableDirective.contenteditableDirective');
 
-    return {
-      require: '?ngModel',
-      link: function(scope, element, attrs, ngModel) {
-        if(!ngModel) return;
+/**
+ * Directive for contenteditable elements
+ * @constructor
+ * @type {angular.Directive}
+ */
+glossaryApp.contenteditableDirective.contenteditableDirective = function () {
+  return {
+    require: '?ngModel',
+    link: function(scope, element, attrs, ngModel) {
+      if(!ngModel) return;
 
-        ngModel.$render = function() {
-          element.html(ngModel.$viewValue || '');
-        };
+      ngModel.$render = function() {
+        element.html(ngModel.$viewValue || '');
+      };
 
-        element.on('blur keyup', function() {
-          scope.$apply(read);
-        });
-        read();
+      element.on('blur keyup', function() {
+        scope.$apply(read);
+      });
+      read();
 
-        function read() {
-          var html = element.html();
-          if( attrs.stripBr && html == '<br>' ) {
-            html = '';
-          }
-          ngModel.$setViewValue(html);
+      function read() {
+        var html = element.html();
+        if( attrs.stripBr && html == '<br>' ) {
+          html = '';
         }
+        ngModel.$setViewValue(html);
       }
-    };
-  });
+    }
+  };
+};
+
+glossaryApp.contenteditableDirective.module =  angular.module('glossaryApp.contenteditableDirective', []).
+directive('glossaryApp.contenteditableDirective.contenteditableDirective', glossaryApp.contenteditableDirective.contenteditableDirective);
