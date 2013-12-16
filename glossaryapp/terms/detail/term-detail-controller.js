@@ -2,10 +2,10 @@
 
 goog.provide('glossaryApp.terms.TermDetailController');
 
-// goog.require('glossaryApp.termsStore');
-// goog.require('glossaryApp.termCommentsStoreService.termCommentsStoreService');
-// goog.require('glossaryApp.profileStoreService.profileStoreService');
-// goog.require('glossaryApp.termResource.Term');
+goog.require('glossaryApp.termsStoreService.termsStoreService');
+goog.require('glossaryApp.termCommentsStoreService.termCommentsStoreService');
+goog.require('glossaryApp.profileStoreService.profileStoreService');
+goog.require('glossaryApp.termResource.Term');
 
 goog.scope(function () {
   /**
@@ -23,8 +23,6 @@ goog.scope(function () {
    */
   glossaryApp.terms.TermDetailController = function ($scope, $routeParams,
     $timeout, termsStore, termCommentsStore, profileStore, Term) {
-      var self = this;
-
       /**
        * @type {angular.Scope}
        * @private
@@ -37,9 +35,9 @@ goog.scope(function () {
       this.profileStore_ = profileStore;
       this.Term_ = Term;
 
-      self.term = Term.get({id: $routeParams.id});
-      self.currentUser = profileStore;
-      self.comments = termCommentsStore.getCommentsForTerm($routeParams.id);
+      this.term = Term.get({id: $routeParams.id});
+      this.currentUser = profileStore;
+      this.comments = termCommentsStore.getCommentsForTerm($routeParams.id);
     };
 
   glossaryApp.terms.TermDetailController.prototype.addComment = function (comment) {

@@ -1,33 +1,38 @@
-/**
- * Controller for Terms view of the
- * glossary application
- * @constructor
- * @param {Object} $scope
- * @param {Object} termsStore
- * @param {Object} profileStore
- */
+'use strict';
 
-function TermsController ($scope, termsStore, profileStore) {
-  'use strict';
+goog.require('glossaryApp.termsStore');
 
-  var self = this;
+goog.require('glossaryApp.termsStoreService.termsStoreService');
+goog.require('glossaryApp.profileStoreService.profileStoreService');
 
-  self.terms = termsStore.terms;
-  self.currentUser = profileStore;
+goog.scope(function () {
+  /**
+   * Controller for Terms view of the
+   * glossary application
+   * @param {angular.Scope} $scope
+   * @param {glossaryApp.termsStoreService.termsStoreService} termsStore
+   * @param {glossaryApp.profileStoreService.profileStoreService} profileStore
+   * @constructor
+   * @ngInject
+   */
 
-  self.saveTerm = function () {
-    termsStore.add({
-      name: $scope.newTerm.name,
-      definition: $scope.newTerm.definition,
-      creatorEmail: self.currentUser.email,
+  glossaryApp.terms.TermsController = function ($scope, termsStore, profileStore) {
+    this.scope_ = $scope;
+    this.termsStore = termsStore;
+
+    this.terms = termsStore.terms;
+    this.currentUser = profileStore;
+  }
+
+  glossaryApp.terms.TermsController.prototype.saveTerm = function () {
+    this.termsStore_.add({
+      name: this.scope_.newTerm.name,
+      definition: this.scope_.newTerm.definition,
+      creatorEmail: this.currentUser.email,
       createdAt: Date.now()
     });
 
     //Reset the model
-    $scope.newTerm = {};
+    this.scope_.newTerm = {};
   };
-}
-
-angular.module('glossaryApp').
-  controller('TermsController',
-    ['$scope', 'termsStore', 'profileStore', TermsController]);
+});

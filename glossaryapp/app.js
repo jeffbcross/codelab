@@ -62,4 +62,8 @@ glossaryApp.constant('TERMS_PATH', '/api/terms');
 glossaryApp.constant('COMMENTS_PATH', '/api/terms/:termId/comments');
 glossaryApp.constant('LOCALSTORAGE_PROFILE_KEY', 'glossaryApp.profile');
 
+/**
+ * Register top-level controllers
+ */
 glossaryApp.controller('TermDetailController', glossaryApp.terms.TermDetailController);
+glossaryApp.controller('TermsController', glossaryApp.terms.TermsController);
