@@ -34,7 +34,7 @@ var ProfileStoreService = glossaryApp.profileStoreService.profileStoreService =
       this.email = user.email;
     };
 
-ProfileStoreService.prototype.save = function () {
+ProfileStoreService.prototype.save = function() {
   this.picture = this.gravatarImage_(this.email);
 
   this.localStorage_.set(

@@ -22,7 +22,7 @@ goog.scope(function() {
  * @ngInject
  */
 var TermDetailController = glossaryApp.terms.detail.TermDetailController =
-    function (
+    function(
         $scope,
         $routeParams,
         $timeout,
@@ -47,20 +47,20 @@ var TermDetailController = glossaryApp.terms.detail.TermDetailController =
       this.comments = termCommentsStore.getCommentsForTerm($routeParams.id);
     };
 
-TermDetailController.prototype.addComment = function (comment) {
+TermDetailController.prototype.addComment = function(comment) {
   comment.creatorEmail = this.currentUser.email;
   this.termCommentsStore_.addCommentToTerm(this.routeParams_.id, comment);
   this.newComment = {};
 };
 
-TermDetailController.prototype.updateTerm = function () {
+TermDetailController.prototype.updateTerm = function() {
   // Wait 250ms after last change to update service
   if (this.throttledChange) {
     this.timeout_.cancel(this.throttledChange);
     this.throttledChange = null;
   }
 
-  this.throttledChange = this.timeout_(function () {
+  this.throttledChange = this.timeout_(function() {
     this.termsStore_.updateById(this.routeParams_.id, this.term);
   }, 250);
 };

@@ -9,12 +9,12 @@ glossaryApp.termResource.TERMS_PATH = '/api/terms';
  * @return {angular.Resource}
  * @param {angular.Resource} $resource
  */
-glossaryApp.termResource.Term = function ($resource) {
+glossaryApp.termResource.Term = function($resource) {
   return $resource(glossaryApp.termResource.TERMS_PATH + '/:id', null, {
     update: {
       url: glossaryApp.termResource.TERMS_PATH + '/:id',
       method: 'PUT',
-      transformResponse : function (data) {
+      transformResponse : function(data) {
         return null;
       }
     }});

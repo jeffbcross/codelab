@@ -6,7 +6,7 @@ goog.provide('glossaryApp.contenteditableDirective.contenteditableDirective');
  * @constructor
  * @type {angular.Directive}
  */
-glossaryApp.contenteditableDirective.contenteditableDirective = function () {
+glossaryApp.contenteditableDirective.contenteditableDirective = function() {
   return {
     require: '?ngModel',
     link: function(scope, element, attrs, ngModel) {

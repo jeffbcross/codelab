@@ -16,7 +16,7 @@ glossaryApp.profileComponent.CONTROLLER_AS_NAME = 'profile';
  * @param {glossaryApp.profileStoreService.profileStoreService} profileStore
  */
 glossaryApp.profileComponent.ProfileDirectiveController =
-    function (profileStore) {
+    function(profileStore) {
       this.profileStore = profileStore;
     };
 
@@ -24,7 +24,7 @@ glossaryApp.profileComponent.ProfileDirectiveController =
  * The component to show a user's profile (email and avatar)
  * @return {angular.Directive} Directive definition object.
  */
-glossaryApp.profileComponent.profileDirective = function () {
+glossaryApp.profileComponent.profileDirective = function() {
   return {
     scope: {},
     restrict: 'E',

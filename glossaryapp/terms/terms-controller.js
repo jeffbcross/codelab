@@ -5,7 +5,7 @@ goog.require('glossaryApp.termsStore');
 goog.require('glossaryApp.termsStoreService.termsStoreService');
 goog.require('glossaryApp.profileStoreService.profileStoreService');
 
-goog.scope(function () {
+goog.scope(function() {
 
 /**
  * Controller for Terms view of the
@@ -17,7 +17,7 @@ goog.scope(function () {
  * @ngInject
  */
 
-var TermsController = glossaryApp.terms.TermsController = function (
+var TermsController = glossaryApp.terms.TermsController = function(
     $scope,
     termsStore,
     profileStore) {
@@ -28,7 +28,7 @@ var TermsController = glossaryApp.terms.TermsController = function (
   this.currentUser = profileStore;
 }
 
-TermsController.prototype.saveTerm = function () {
+TermsController.prototype.saveTerm = function() {
   this.termsStore_.add({
     name: this.scope_.newTerm.name,
     definition: this.scope_.newTerm.definition,

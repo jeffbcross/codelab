@@ -7,8 +7,8 @@ goog.require('goog.crypt.Md5');
  * Factory for generating gravatar image URLs
  * @returns {angular.Module.factory}
  */
-glossaryApp.gravatarImageFactory.gravatarImageFactory = function () {
-  return function (email) {
+glossaryApp.gravatarImageFactory.gravatarImageFactory = function() {
+  return function(email) {
     if (!angular.isString(email)) return;
 
     var hash = new goog.crypt.Md5();

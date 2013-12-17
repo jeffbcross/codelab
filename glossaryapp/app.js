@@ -25,18 +25,18 @@ goog.require('glossaryApp.termCommentsStoreService.module');
  * @ngInject
  */
 
-glossaryApp.application.routeProvider = function ($routeProvider) {
+glossaryApp.application.routeProvider = function($routeProvider) {
   $routeProvider.when('/terms', {
     controller: 'TermsController',
     templateUrl: 'terms/terms.html',
     controllerAs: 'terms'
-  })
-  .when('/terms/:id', {
+  }).
+  when('/terms/:id', {
     controller: 'TermDetailController',
     templateUrl: 'terms/detail/term-detail.html',
     controllerAs: 'termDetail'
-  })
-  .otherwise({
+  }).
+  otherwise({
     redirectTo: '/terms'
   });
 };
