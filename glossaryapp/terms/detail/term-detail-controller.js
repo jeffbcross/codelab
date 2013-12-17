@@ -60,11 +60,11 @@ TermDetailController.prototype.updateTerm = function() {
     this.throttledChange = null;
   }
 
-  this.throttledChange = this.timeout_(function() {
+  var updateTermsStore = goog.bind(function() {
     this.termsStore_.updateById(this.routeParams_.id, this.term);
-  }, 250);
-};
+  }, this);
 
-glossaryApp.terms.detail.TermDetailController = TermDetailController;
+  this.throttledChange = this.timeout_(updateTermsStore, 250);
+};
 
 }); // goog.scope
