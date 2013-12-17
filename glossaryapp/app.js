@@ -46,17 +46,18 @@ glossaryApp.application.routeProvider = function ($routeProvider) {
  *
  * @type {angular.Module}
  */
-glossaryApp.application.module = angular.module('glossaryApp', [
-  'ngRoute',
-  'ngResource',
-  glossaryApp.commentResource.module.name,
-  glossaryApp.contenteditableDirective.module.name,
-  glossaryApp.gravatarImageFactory.module.name,
-  glossaryApp.personalizeFilter.module.name,
-  glossaryApp.profileComponent.module.name,
-  glossaryApp.profileStoreService.module.name,
-  glossaryApp.termsStoreService.module.name,
-  glossaryApp.termCommentsStoreService.module.name]);
+glossaryApp.application.module = angular.module(
+  'glossaryApp', [
+    'ngRoute',
+    'ngResource',
+    glossaryApp.commentResource.module.name,
+    glossaryApp.contenteditableDirective.module.name,
+    glossaryApp.gravatarImageFactory.module.name,
+    glossaryApp.personalizeFilter.module.name,
+    glossaryApp.profileComponent.module.name,
+    glossaryApp.profileStoreService.module.name,
+    glossaryApp.termsStoreService.module.name,
+    glossaryApp.termCommentsStoreService.module.name]);
 
 glossaryApp.config(glossaryApp.application.routeProvider);
 glossaryApp.constant('COMMENTS_PATH', '/api/terms/:termId/comments');
@@ -64,6 +65,7 @@ glossaryApp.constant('COMMENTS_PATH', '/api/terms/:termId/comments');
 /**
  * Register top-level controllers
  */
-glossaryApp.controller('TermDetailController',
+glossaryApp.controller(
+    'TermDetailController',
     glossaryApp.terms.detail.TermDetailController);
 glossaryApp.controller('TermsController', glossaryApp.terms.TermsController);

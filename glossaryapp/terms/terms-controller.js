@@ -17,7 +17,10 @@ goog.scope(function () {
  * @ngInject
  */
 
-var TermsController = function ($scope, termsStore, profileStore) {
+var TermsController = glossaryApp.terms.TermsController = function (
+    $scope,
+    termsStore,
+    profileStore) {
   this.scope_ = $scope;
   this.termsStore = termsStore;
 
@@ -36,7 +39,5 @@ TermsController.prototype.saveTerm = function () {
   //Reset the model
   this.scope_.newTerm = {};
 };
-
-glossaryApp.terms.TermsController = TermsController;
 
 });

@@ -34,5 +34,6 @@ glossaryApp.contenteditableDirective.contenteditableDirective = function () {
 
 glossaryApp.contenteditableDirective.module = angular.module(
     'glossaryApp.contenteditableDirective', []).
-directive('glossaryApp.contenteditableDirective.contenteditableDirective',
+directive(
+    'glossaryApp.contenteditableDirective.contenteditableDirective',
     glossaryApp.contenteditableDirective.contenteditableDirective);

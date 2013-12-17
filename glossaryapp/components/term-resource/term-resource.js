@@ -20,6 +20,6 @@ glossaryApp.termResource.Term = function ($resource) {
     }});
 };
 
-glossaryApp.termResource.module = angular.module('glossaryApp.termResource',
-    ['glossaryApp']).
+glossaryApp.termResource.module = angular.module(
+    'glossaryApp.termResource', ['glossaryApp']).
 factory('Term', glossaryApp.termResource.Term);

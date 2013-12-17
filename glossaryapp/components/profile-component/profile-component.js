@@ -7,5 +7,6 @@ goog.require('glossaryApp.profileComponent.DIRECTIVE_NAME');
 glossaryApp.profileComponent.module = angular.module(
     'glossaryApp.profileComponent',
     [glossaryApp.profileStoreService.module.name]).
-directive(glossaryApp.profileComponent.DIRECTIVE_NAME,
-  glossaryApp.profileComponent.profileDirective);
+directive(
+    glossaryApp.profileComponent.DIRECTIVE_NAME,
+    glossaryApp.profileComponent.profileDirective);

@@ -37,7 +37,8 @@ TermCommentsStoreService.prototype.addCommentToTerm = function (id, comment) {
 glossaryApp.termCommentsStoreService.module = angular.module(
       'termCommentsStoreService',
       [glossaryApp.commentResource.module.name]).
-service('glossaryApp.termCommentsStore',
+service(
+    'glossaryApp.termCommentsStore',
     glossaryApp.termCommentsStoreService.termCommentsStoreService);
 
 }); // goog.scope

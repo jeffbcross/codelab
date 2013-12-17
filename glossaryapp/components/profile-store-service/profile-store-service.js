@@ -48,7 +48,8 @@ ProfileStoreService.prototype.save = function () {
 glossaryApp.profileStoreService.module = angular.module(
     'glossaryApp.profileStoreService',
     [glossaryApp.gravatarImageFactory.module.name]).
-service('glossaryApp.profileStoreService',
+service(
+    'glossaryApp.profileStoreService',
     glossaryApp.profileStoreService.profileStoreService);
 
 }); //goog.scope

@@ -1,5 +1,5 @@
 goog.provide('glossaryApp.profileComponent.profileDirective');
-goog.provide('glossaryApp.profileComponent.profileDirectiveController');
+goog.provide('glossaryApp.profileComponent.ProfileDirectiveController');
 goog.provide('glossaryApp.profileComponent.DIRECTIVE_NAME');
 goog.provide('glossaryApp.profileComponent.CONTROLLER_AS_NAME');
 
@@ -15,7 +15,7 @@ glossaryApp.profileComponent.CONTROLLER_AS_NAME = 'profile';
  * @ngInject
  * @param {glossaryApp.profileStoreService.profileStoreService} profileStore
  */
-glossaryApp.profileComponent.profileDirectiveController =
+glossaryApp.profileComponent.ProfileDirectiveController =
     function (profileStore) {
       this.profileStore = profileStore;
     };
@@ -29,7 +29,7 @@ glossaryApp.profileComponent.profileDirective = function () {
     scope: {},
     restrict: 'E',
     templateUrl: 'components/profile-component/profile-component.html',
-    controller: glossaryApp.profileComponent.profileDirectiveController,
+    controller: glossaryApp.profileComponent.ProfileDirectiveController,
     controllerAs: glossaryApp.profileComponent.CONTROLLER_AS_NAME
   }
 };

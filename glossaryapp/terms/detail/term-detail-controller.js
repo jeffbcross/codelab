@@ -21,24 +21,31 @@ goog.scope(function() {
  * @constructor
  * @ngInject
  */
-var TermDetailController = function ($scope, $routeParams,
-  $timeout, termsStore, termCommentsStore, profileStore, Term) {
-    /**
-     * @type {angular.Scope}
-     * @private
-     */
-    this.scope_ = $scope;
-    this.routeParams_ = $routeParams;
-    this.timeout_ = $timeout;
-    this.termsStore_ = termsStore;
-    this.termCommentsStore_ = termCommentsStore;
-    this.profileStore_ = profileStore;
-    this.Term_ = Term;
+var TermDetailController = glossaryApp.terms.detail.TermDetailController =
+    function (
+        $scope,
+        $routeParams,
+        $timeout,
+        termsStore,
+        termCommentsStore,
+        profileStore,
+        Term) {
+      /**
+       * @type {angular.Scope}
+       * @private
+       */
+      this.scope_ = $scope;
+      this.routeParams_ = $routeParams;
+      this.timeout_ = $timeout;
+      this.termsStore_ = termsStore;
+      this.termCommentsStore_ = termCommentsStore;
+      this.profileStore_ = profileStore;
+      this.Term_ = Term;
 
-    this.term = Term.get({id: $routeParams.id});
-    this.currentUser = profileStore;
-    this.comments = termCommentsStore.getCommentsForTerm($routeParams.id);
-  };
+      this.term = Term.get({id: $routeParams.id});
+      this.currentUser = profileStore;
+      this.comments = termCommentsStore.getCommentsForTerm($routeParams.id);
+    };
 
 TermDetailController.prototype.addComment = function (comment) {
   comment.creatorEmail = this.currentUser.email;
