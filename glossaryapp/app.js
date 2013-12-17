@@ -7,8 +7,9 @@
 goog.provide('glossaryApp.application.module');
 goog.provide('glossaryApp.application.routeProvider');
 
-goog.require('glossaryApp.terms.termsController');
-goog.require('glossaryApp.terms.detail.termDetailController');
+goog.require('glossaryApp.terms.TermsController');
+goog.require('glossaryApp.terms.detail.TermDetailController');
+
 goog.require('glossaryApp.commentResource.module');
 goog.require('glossaryApp.contenteditableDirective.module');
 goog.require('glossaryApp.gravatarImageFactory.module');
@@ -48,22 +49,21 @@ glossaryApp.application.routeProvider = function ($routeProvider) {
 glossaryApp.application.module = angular.module('glossaryApp', [
   'ngRoute',
   'ngResource',
-  glossaryApp.commentResource.name,
-  glossaryApp.contenteditableDirective.name,
-  glossaryApp.gravatarImageFactory.name,
-  glossaryApp.personalizeFilter.name,
-  glossaryApp.profileComponent.name,
-  glossaryApp.profileStoreService.name,
-  glossaryApp.termsStoreService.name,
-  glossaryApp.termCommentsStoreService.name]);
+  glossaryApp.commentResource.module.name,
+  glossaryApp.contenteditableDirective.module.name,
+  glossaryApp.gravatarImageFactory.module.name,
+  glossaryApp.personalizeFilter.module.name,
+  glossaryApp.profileComponent.module.name,
+  glossaryApp.profileStoreService.module.name,
+  glossaryApp.termsStoreService.module.name,
+  glossaryApp.termCommentsStoreService.module.name]);
 
 glossaryApp.config(glossaryApp.application.routeProvider);
-glossaryApp.constant('TERMS_PATH', '/api/terms');
 glossaryApp.constant('COMMENTS_PATH', '/api/terms/:termId/comments');
-glossaryApp.constant('LOCALSTORAGE_PROFILE_KEY', 'glossaryApp.profile');
 
 /**
  * Register top-level controllers
  */
-glossaryApp.controller('TermDetailController', glossaryApp.terms.TermDetailController);
+glossaryApp.controller('TermDetailController',
+    glossaryApp.terms.detail.TermDetailController);
 glossaryApp.controller('TermsController', glossaryApp.terms.TermsController);

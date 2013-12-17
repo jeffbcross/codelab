@@ -9,7 +9,7 @@ goog.require('glossaryApp.profileStoreService.profileStoreService');
  * @type {angular.filter}
  * @param {glossaryApp.profileStoreService.profileStoreService} profileStore
  */
-glossaryApp.personalizeFilter.personalizeFilter = function (profileStore) {
+glossaryApp.personalizeFilter.personalizeFilter = function(profileStore) {
   return function (email) {
     if (angular.isString(profileStore.email) && profileStore.email === email) {
       return "You";

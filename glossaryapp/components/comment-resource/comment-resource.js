@@ -1,6 +1,11 @@
 goog.provide('glossaryApp.commentResource.module');
 goog.provide('glossaryApp.commentResource.Comment');
 
+goog.scope(function () {
+var moduleDependencies = [
+  glossaryApp.application.module,
+  'ngResource'];
+
 /**
  * Resource
  * @type {angular.Resource}
@@ -13,8 +18,10 @@ glossaryApp.commentResource.Comment = function ($resource, COMMENTS_PATH) {
   return $resource(COMMENTS_PATH);
 };
 
-glossaryApp.commentResource.module = angular.module('glossaryApp.commentResource', [
-  glossaryApp.application.module,
-  'ngResource'
-]).
-factory('glossaryApp.commentResource.Comment', glossaryApp.commentResource.Comment);
+glossaryApp.commentResource.module = angular.module(
+    'glossaryApp.commentResource',
+    moduleDependencies).
+factory('glossaryApp.commentResource.Comment',
+    glossaryApp.commentResource.Comment);
+
+}); // goog.scope
