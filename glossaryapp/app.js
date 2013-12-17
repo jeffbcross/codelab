@@ -5,7 +5,7 @@
  * for the angular glossary codelab app.
  */
 goog.provide('glossaryApp.application.module');
-goog.provide('glossaryApp.application.routeProvider');
+goog.provide('glossaryApp.application.routes');
 
 goog.require('glossaryApp.terms.TermsController');
 goog.require('glossaryApp.terms.detail.TermDetailController');
@@ -25,7 +25,7 @@ goog.require('glossaryApp.termCommentsStoreService.module');
  * @ngInject
  */
 
-glossaryApp.application.routeProvider = function($routeProvider) {
+glossaryApp.application.routes = function($routeProvider) {
   $routeProvider.when('/terms', {
     controller: 'TermsController',
     templateUrl: 'terms/terms.html',
@@ -59,7 +59,7 @@ glossaryApp.application.module = angular.module(
     glossaryApp.termsStoreService.module.name,
     glossaryApp.termCommentsStoreService.module.name]);
 
-glossaryApp.config(glossaryApp.application.routeProvider);
+glossaryApp.config(glossaryApp.application.routes);
 glossaryApp.constant('COMMENTS_PATH', '/api/terms/:termId/comments');
 
 /**
