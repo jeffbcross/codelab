@@ -27,12 +27,12 @@ goog.require('glossaryApp.termCommentsStoreService.module');
 
 glossaryApp.application.routes = function($routeProvider) {
   $routeProvider.when('/terms', {
-    controller: 'TermsController',
+    controller: glossaryApp.terms.TermsController,
     templateUrl: 'terms/terms.html',
     controllerAs: 'terms'
   }).
   when('/terms/:id', {
-    controller: 'TermDetailController',
+    controller: glossaryApp.terms.detail.TermDetailController,
     templateUrl: 'terms/detail/term-detail.html',
     controllerAs: 'termDetail'
   }).
@@ -61,11 +61,3 @@ glossaryApp.application.module = angular.module(
 
 glossaryApp.config(glossaryApp.application.routes);
 glossaryApp.constant('COMMENTS_PATH', '/api/terms/:termId/comments');
-
-/**
- * Register top-level controllers
- */
-glossaryApp.controller(
-    'TermDetailController',
-    glossaryApp.terms.detail.TermDetailController);
-glossaryApp.controller('TermsController', glossaryApp.terms.TermsController);
