@@ -5,8 +5,16 @@ goog.provide('glossaryApp.profileComponent.CONTROLLER_AS_NAME');
 
 goog.require('glossaryApp.profileStoreService.profileStoreService');
 
+/**
+ * Directive name to be used in templates
+ * @type {string}
+ */
 glossaryApp.profileComponent.DIRECTIVE_NAME = 'glProfile';
 
+/**
+ * Name for the controller to be provided inside template
+ * @type {string}
+ */
 glossaryApp.profileComponent.CONTROLLER_AS_NAME = 'profile';
 
 /**

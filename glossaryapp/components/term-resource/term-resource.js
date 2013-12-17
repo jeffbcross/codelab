@@ -2,6 +2,10 @@ goog.provide('glossaryApp.termResource.module');
 goog.provide('glossaryApp.termResource.Term');
 goog.provide('glossaryApp.termResource.TERMS_PATH');
 
+/**
+ * Path to terms data on server
+ * @type {string}
+ */
 glossaryApp.termResource.TERMS_PATH = '/api/terms';
 
 /**

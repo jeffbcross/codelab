@@ -60,4 +60,3 @@ glossaryApp.application.module = angular.module(
     glossaryApp.termCommentsStoreService.module.name]);
 
 glossaryApp.config(glossaryApp.application.routes);
-glossaryApp.constant('COMMENTS_PATH', '/api/terms/:termId/comments');
