@@ -41,6 +41,7 @@ var TermDetailController = glossaryApp.terms.detail.TermDetailController =
        * @private
        */
       this.routeParams_ = $routeParams;
+
       /**
        * @type {angular.$timeout}
        * @private

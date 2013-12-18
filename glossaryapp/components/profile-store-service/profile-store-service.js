@@ -25,11 +25,13 @@ var ProfileStoreService = glossaryApp.profileStoreService.profileStoreService =
     function(gravatarImage) {
       /*
        * @type {glossaryApp.gravatarImageFactory.gravatarImageFactory}
+       * @private
        */
       this.gravatarImage_ = gravatarImage;
 
       /*
        * @type {goog.storage.mechanism.HTML5WebStorage}
+       * @private
        */
       this.localStorage_ = new goog.storage.mechanism.HTML5WebStorage();
 
