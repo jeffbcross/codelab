@@ -11,7 +11,16 @@ goog.scope(function() {
 var TermCommentsStoreService =
     glossaryApp.termCommentsStoreService.termCommentsStoreService =
     function(Comment) {
+      /**
+       * Comment resource type used to fetch comments
+       * @type {angular.Resource}
+       * @private
+       */
       this.Comment_ = Comment;
+
+      /**
+       * @type {Object.<string, Array.<glossaryApp.commentResource.Comment>>}
+       **/
       this.mapTermComments = {};
     };
 
@@ -38,7 +47,7 @@ glossaryApp.termCommentsStoreService.module = angular.module(
       'termCommentsStoreService',
       [glossaryApp.commentResource.module.name]).
 service(
-    'glossaryApp.termCommentsStore',
+    'termCommentsStore',
     glossaryApp.termCommentsStoreService.termCommentsStoreService);
 
 }); // goog.scope

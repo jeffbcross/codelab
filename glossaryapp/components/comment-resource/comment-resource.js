@@ -34,7 +34,7 @@ glossaryApp.commentResource.Comment = function($resource, COMMENTS_PATH) {
 glossaryApp.commentResource.module = angular.module(
     'glossaryApp.commentResource',
     moduleDependencies).
-factory('glossaryApp.commentResource.Comment',
+factory('Comment',
     glossaryApp.commentResource.Comment);
 
 }); // goog.scope

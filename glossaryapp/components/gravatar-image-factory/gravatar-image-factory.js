@@ -24,5 +24,5 @@ glossaryApp.gravatarImageFactory.gravatarImageFactory = function() {
 glossaryApp.gravatarImageFactory.module = angular.module(
     'glossaryApp.gravatarImageFactory', []).
 factory(
-    'glossaryApp.gravatarImageFactory.gravatarImageFactory',
+    'gravatarImageFactory',
     glossaryApp.gravatarImageFactory.gravatarImageFactory);

@@ -25,6 +25,11 @@ glossaryApp.profileComponent.CONTROLLER_AS_NAME = 'profile';
  */
 glossaryApp.profileComponent.ProfileDirectiveController =
     function(profileStore) {
+      /**
+       * Makes profileStore available on controller to templates
+       * @export
+       * @type {glossaryApp.profileStoreService.profileStoreService}
+       */
       this.profileStore = profileStore;
     };
 

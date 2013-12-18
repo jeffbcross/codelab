@@ -23,18 +23,40 @@ goog.scope(function() {
 */
 var ProfileStoreService = glossaryApp.profileStoreService.profileStoreService =
     function(gravatarImage) {
+      /*
+       * @type {glossaryApp.gravatarImageFactory.gravatarImageFactory}
+       */
       this.gravatarImage_ = gravatarImage;
 
+      /*
+       * @type {goog.storage.mechanism.HTML5WebStorage}
+       */
       this.localStorage_ = new goog.storage.mechanism.HTML5WebStorage();
 
       var user = this.localStorage_.get(
           glossaryApp.profileStoreService.LOCALSTORAGE_PROFILE_KEY);
       user = goog.json.parse(user) || {};
+      /*
+       * URL to user's avatar image
+       * @export
+       * @type {string|undefined}
+       */
       this.picture = user.picture;
+
+      /*
+       * User's email address
+       * @export
+       * @type {string|undefined}
+       */
       this.email = user.email;
     };
 
 ProfileStoreService.prototype.save = function() {
+  /*
+   * URL to user's avatar image
+   * @export
+   * @type {string}
+   */
   this.picture = this.gravatarImage_(this.email);
 
   this.localStorage_.set(
@@ -49,7 +71,7 @@ glossaryApp.profileStoreService.module = angular.module(
     'glossaryApp.profileStoreService',
     [glossaryApp.gravatarImageFactory.module.name]).
 service(
-    'glossaryApp.profileStoreService',
+    'profileStoreService',
     glossaryApp.profileStoreService.profileStoreService);
 
 }); //goog.scope

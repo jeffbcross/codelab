@@ -35,36 +35,87 @@ var TermDetailController = glossaryApp.terms.detail.TermDetailController =
        * @private
        */
       this.scope_ = $scope;
+
+      /**
+       * @type {angular.$routeParams}
+       * @private
+       */
       this.routeParams_ = $routeParams;
+      /**
+       * @type {angular.$timeout}
+       * @private
+       */
       this.timeout_ = $timeout;
+
+      /**
+       * @type {glossaryApp.termsStoreService.termsStoreService}
+       * @private
+       */
       this.termsStore_ = termsStore;
+
+      /**
+       * @type {glossaryApp.termCommentsStoreService.termCommentsStoreService}
+       * @private
+       */
       this.termCommentsStore_ = termCommentsStore;
+
+      /**
+       * @type {glossaryApp.profileStoreService.profileStoreService}
+       * @private
+       */
       this.profileStore_ = profileStore;
+
+      /**
+       * @type {glossaryApp.termResource.Term}
+       * @private
+       */
       this.Term_ = Term;
 
+      /**
+       * @type {glossaryApp.termResource.Term}
+       */
       this.term = Term.get({id: $routeParams.id});
+
+      /**
+       * @type {glossaryApp.profileStoreService.profileStoreService}
+       */
       this.currentUser = profileStore;
+
+      /**
+       * @type
+       *  {Array.<glossaryApp.
+       *   termCommentsStoreService.
+       *   termCommentsStoreService}
+       */
       this.comments = termCommentsStore.getCommentsForTerm($routeParams.id);
     };
 
 TermDetailController.prototype.addComment = function(comment) {
   comment.creatorEmail = this.currentUser.email;
   this.termCommentsStore_.addCommentToTerm(this.routeParams_.id, comment);
+
+  /**
+   * @type {Object<string, string>}
+   */
   this.newComment = {};
 };
 
 TermDetailController.prototype.updateTerm = function() {
   // Wait 250ms after last change to update service
-  if (this.throttledChange) {
-    this.timeout_.cancel(this.throttledChange);
-    this.throttledChange = null;
+  if (this.throttledChange_) {
+    this.timeout_.cancel(this.throttledChange_);
+    this.throttledChange_ = null;
   }
 
   var updateTermsStore = goog.bind(function() {
     this.termsStore_.updateById(this.routeParams_.id, this.term);
   }, this);
 
-  this.throttledChange = this.timeout_(updateTermsStore, 250);
+  /**
+   * @type {angular.$timeout}
+   * @private
+   */
+  this.throttledChange_ = this.timeout_(updateTermsStore, 250);
 };
 
 }); // goog.scope
