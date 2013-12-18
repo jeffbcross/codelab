@@ -38,14 +38,14 @@ var ProfileStoreService = glossaryApp.profileStoreService.profileStoreService =
       user = goog.json.parse(user) || {};
       /*
        * URL to user's avatar image
-       * @export
+       * @expose
        * @type {string|undefined}
        */
       this.picture = user.picture;
 
       /*
        * User's email address
-       * @export
+       * @expose
        * @type {string|undefined}
        */
       this.email = user.email;
@@ -54,7 +54,7 @@ var ProfileStoreService = glossaryApp.profileStoreService.profileStoreService =
 ProfileStoreService.prototype.save = function() {
   /*
    * URL to user's avatar image
-   * @export
+   * @expose
    * @type {string}
    */
   this.picture = this.gravatarImage_(this.email);
