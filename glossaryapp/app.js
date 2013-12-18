@@ -2,8 +2,6 @@
  * @fileoverview Primary module
  * for the angular glossary codelab app.
  */
-goog.provide('glossaryApp');
-goog.provide('glossaryApp.application');
 goog.provide('glossaryApp.application.module');
 goog.provide('glossaryApp.application.routes');
 
@@ -19,12 +17,13 @@ goog.require('glossaryApp.profileStoreService.module');
 goog.require('glossaryApp.termsStoreService.module');
 goog.require('glossaryApp.termCommentsStoreService.module');
 
+goog.scope(function () {
+
 /**
  * @param {angular.$routeProvider} $routeProvider The Angular route provider
  *     service.
  * @ngInject
  */
-
 glossaryApp.application.routes = function($routeProvider) {
   $routeProvider.when('/terms', {
     controller: glossaryApp.terms.TermsController,
@@ -60,3 +59,5 @@ glossaryApp.application.module = angular.module(
     glossaryApp.termCommentsStoreService.module.name]);
 
 glossaryApp.config(glossaryApp.application.routes);
+
+}); //goog.scope

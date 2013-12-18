@@ -1,25 +1,22 @@
-goog.provide('glossaryApp.terms');
 goog.provide('glossaryApp.terms.TermsController');
 
 goog.require('glossaryApp.termsStoreService.termsStoreService');
 goog.require('glossaryApp.profileStoreService.profileStoreService');
 goog.require('glossaryApp.termResource.Term');
 
-goog.scope(function() {
-
-var TermsController =
-    /**
-     * Controller for Terms view of the
-     * glossary application
-     * @param {angular.Scope} $scope
-     * @param {glossaryApp.termsStoreService.termsStoreService} termsStore
-     * @param {glossaryApp.profileStoreService.profileStoreService} profileStore
-     * @constructor
-     */
-    glossaryApp.terms.TermsController = function(
+/**
+ * Controller for Terms view of the
+ * glossary application
+ * @param {angular.Scope} $scope
+ * @param {glossaryApp.termsStoreService.termsStoreService} termsStore
+ * @param {glossaryApp.profileStoreService.profileStoreService} profileStore
+ * @constructor
+ */
+glossaryApp.terms.TermsController = function(
     $scope,
     termsStore,
     profileStore) {
+
   /**
    * @private
    * @type {angular.Scope}
@@ -43,7 +40,7 @@ var TermsController =
   this.currentUser = profileStore;
 }
 
-TermsController.prototype.saveTerm = function() {
+glossaryApp.terms.TermsController.prototype.saveTerm = function() {
   this.termsStore_.add({
     name: this.scope_.newTerm.name,
     definition: this.scope_.newTerm.definition,
@@ -54,5 +51,3 @@ TermsController.prototype.saveTerm = function() {
   //Reset the model
   this.scope_.newTerm = {};
 };
-
-});
