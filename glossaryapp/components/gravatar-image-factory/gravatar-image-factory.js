@@ -1,5 +1,5 @@
-goog.provide('glosssaryApp.gravatarImageFactory.module');
-goog.provide('glosssaryApp.gravatarImageFactory.gravatarImageFactory');
+goog.provide('glossaryApp.gravatarImageFactory.module');
+goog.provide('glossaryApp.gravatarImageFactory.gravatarImageFactory');
 
 goog.require('goog.crypt.Md5');
 

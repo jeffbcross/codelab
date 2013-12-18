@@ -1,12 +1,36 @@
 #!/bin/bash
 java -jar compiler.jar \
   --compilation_level ADVANCED_OPTIMIZATIONS \
+  --angular_pass \
   --language_in=ECMASCRIPT5_STRICT \
   --js_output_file glossaryapp/app_compiled.js \
+  --js glossaryapp/scripts/closure/goog/base.js \
+  --js glossaryapp/scripts/closure/goog/asserts/asserts.js \
+  --js glossaryapp/scripts/closure/goog/iter/iter.js \
+  --js glossaryapp/scripts/closure/goog/crypt/hash.js \
+  --js glossaryapp/scripts/closure/goog/crypt/md5.js \
+  --js glossaryapp/scripts/closure/goog/json/json.js \
+  --js glossaryapp/scripts/closure/goog/array/array.js \
+  --js glossaryapp/scripts/closure/goog/math/math.js \
+  --js glossaryapp/scripts/closure/goog/functions/functions.js \
+  --js glossaryapp/scripts/closure/goog/dom/nodetype.js \
+  --js glossaryapp/scripts/closure/goog/debug/error.js \
+  --js glossaryapp/scripts/closure/goog/string/string.js \
+  --js glossaryapp/scripts/closure/goog/storage/mechanism/html5webstorage.js \
+  --js glossaryapp/scripts/closure/goog/storage/mechanism/errorcode.js \
+  --js glossaryapp/scripts/closure/goog/storage/mechanism/iterablemechanism.js \
+  --js glossaryapp/scripts/closure/goog/storage/mechanism/html5localstorage.js \
+  --js glossaryapp/scripts/closure/goog/storage/mechanism/mechanism.js \
   --js glossaryapp/app.js \
   --js glossaryapp/terms/terms-controller.js \
   --js glossaryapp/terms/detail/term-detail-controller.js \
   --js glossaryapp/components/comment-resource/comment-resource.js \
   --js glossaryapp/components/contenteditable/contenteditable.js \
-
-
+  --js glossaryapp/components/gravatar-image-factory/gravatar-image-factory.js \
+  --js glossaryapp/components/personalize-filter/personalize-filter.js \
+  --js glossaryapp/components/profile-component/profile-component.js \
+  --js glossaryapp/components/profile-component/profile-directive.js \
+  --js glossaryapp/components/profile-store-service/profile-store-service.js \
+  --js glossaryapp/components/term-comments-store-service/term-comments-store-service.js \
+  --js glossaryapp/components/term-resource/term-resource.js \
+  --js glossaryapp/components/terms-store-service/terms-store-service.js \

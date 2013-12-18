@@ -4,11 +4,12 @@ goog.provide('glossaryApp.termCommentsStoreService.termCommentsStoreService');
 goog.require('glossaryApp.commentResource.module');
 
 goog.scope(function() {
-/**
- * @constructor
- * @param {glossaryApp.commentResource.Comment} Comment
- */
+
 var TermCommentsStoreService =
+    /**
+     * @constructor
+     * @param {glossaryApp.commentResource.Comment} Comment
+     */
     glossaryApp.termCommentsStoreService.termCommentsStoreService =
     function(Comment) {
       /**

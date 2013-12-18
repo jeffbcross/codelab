@@ -1,9 +1,9 @@
-'use strict';
-
 /**
  * @fileoverview Primary module
  * for the angular glossary codelab app.
  */
+goog.provide('glossaryApp');
+goog.provide('glossaryApp.application');
 goog.provide('glossaryApp.application.module');
 goog.provide('glossaryApp.application.routes');
 

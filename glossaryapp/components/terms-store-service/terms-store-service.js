@@ -1,15 +1,16 @@
 goog.provide('glossaryApp.termsStoreService.module');
-goog.provide('glossaryApp.termsStoreService');
+goog.provide('glossaryApp.termsStoreService.termsStoreService');
 
 goog.require('glossaryApp.termResource.Term');
 
 goog.scope(function() {
 
-/**
- * @constructor
- * @param {angular.Resource} Term Term resource type
- */
-var TermsStoreService = glossaryApp.termsStoreService.termsStoreService =
+var TermsStoreService =
+    /**
+     * @constructor
+     * @param {angular.Resource} Term Term resource type
+     */
+    glossaryApp.termsStoreService.termsStoreService =
     function (Term) {
   var queryResult;
   /**
@@ -25,7 +26,7 @@ var TermsStoreService = glossaryApp.termsStoreService.termsStoreService =
     });
   });
 
-  functionmapById (terms) {
+  function mapById(terms) {
     var mapped = {};
 
     terms.forEach(function(item) {
@@ -44,7 +45,7 @@ TermsStoreService.prototype.add = function(term) {
   this.terms.push(Term.save(term));
 };
 
-/*
+/**
  * Update a term locally and save it to the server.
  * @param {string} id id of the term to be updated.
  * @param {glossaryApp.termResource.Term} term updated term content.

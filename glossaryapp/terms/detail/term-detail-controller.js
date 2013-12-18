@@ -1,3 +1,4 @@
+goog.provide('glossaryApp.terms.detail');
 goog.provide('glossaryApp.terms.detail.TermDetailController');
 
 goog.require('glossaryApp.termsStoreService.termsStoreService');
@@ -7,21 +8,21 @@ goog.require('glossaryApp.termResource.Term');
 
 goog.scope(function() {
 
-/**
- * Controller for the Term Detail view
- * of the application
- * @param {angular.Scope} $scope
- * @param {angular.$routeParams} $routeParams
- * @param {angular.$timeout} $timeout
- * @param {glossaryApp.termsStoreService.termsStoreService} termsStore
- * @param {glossaryApp.termCommentsStoreService.termCommentsStoreService}
-          termCommentsStore
- * @param {glossaryApp.profileStoreService.profileStoreService} profileStore
- * @param {glossaryApp.termResource.Term} Term
- * @constructor
- * @ngInject
- */
-var TermDetailController = glossaryApp.terms.detail.TermDetailController =
+var TermDetailController =
+    /**
+     * Controller for the Term Detail view
+     * of the application
+     * @param {angular.Scope} $scope
+     * @param {angular.$routeParams} $routeParams
+     * @param {angular.$timeout} $timeout
+     * @param {glossaryApp.termsStoreService.termsStoreService} termsStore
+     * @param {glossaryApp.termCommentsStoreService.termCommentsStoreService}
+              termCommentsStore
+     * @param {glossaryApp.profileStoreService.profileStoreService} profileStore
+     * @param {glossaryApp.termResource.Term} Term
+     * @constructor
+     */
+    glossaryApp.terms.detail.TermDetailController =
     function(
         $scope,
         $routeParams,

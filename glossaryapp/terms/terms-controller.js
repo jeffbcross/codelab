@@ -1,6 +1,5 @@
+goog.provide('glossaryApp.terms');
 goog.provide('glossaryApp.terms.TermsController');
-
-goog.require('glossaryApp.termsStore');
 
 goog.require('glossaryApp.termsStoreService.termsStoreService');
 goog.require('glossaryApp.profileStoreService.profileStoreService');
@@ -8,17 +7,16 @@ goog.require('glossaryApp.termResource.Term');
 
 goog.scope(function() {
 
-/**
- * Controller for Terms view of the
- * glossary application
- * @param {angular.Scope} $scope
- * @param {glossaryApp.termsStoreService.termsStoreService} termsStore
- * @param {glossaryApp.profileStoreService.profileStoreService} profileStore
- * @constructor
- * @ngInject
- */
-
-var TermsController = glossaryApp.terms.TermsController = function(
+var TermsController =
+    /**
+     * Controller for Terms view of the
+     * glossary application
+     * @param {angular.Scope} $scope
+     * @param {glossaryApp.termsStoreService.termsStoreService} termsStore
+     * @param {glossaryApp.profileStoreService.profileStoreService} profileStore
+     * @constructor
+     */
+    glossaryApp.terms.TermsController = function(
     $scope,
     termsStore,
     profileStore) {
@@ -28,7 +26,7 @@ var TermsController = glossaryApp.terms.TermsController = function(
    */
   this.scope_ = $scope;
 
-  /*
+  /**
    * @type {glossaryApp.termsStoreService.termsStoreService}
    */
   this.termsStore = termsStore;

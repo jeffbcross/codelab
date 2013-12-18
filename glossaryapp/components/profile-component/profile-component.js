@@ -1,7 +1,6 @@
 goog.provide('glossaryApp.profileComponent.module');
 
 goog.require('glossaryApp.profileComponent.profileDirective');
-goog.require('glossaryApp.profileComponent.profileDirectiveController');
 goog.require('glossaryApp.profileComponent.DIRECTIVE_NAME');
 
 /**

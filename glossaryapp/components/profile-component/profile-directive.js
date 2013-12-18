@@ -19,9 +19,9 @@ glossaryApp.profileComponent.CONTROLLER_AS_NAME = 'profile';
 
 /**
  * Controller for the profile component directive.
- * @return {angular.Controller} Controller for the profile component
  * @ngInject
  * @param {glossaryApp.profileStoreService.profileStoreService} profileStore
+ * @constructor
  */
 glossaryApp.profileComponent.ProfileDirectiveController =
     function(profileStore) {
