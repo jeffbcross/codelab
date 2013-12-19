@@ -2,16 +2,15 @@ goog.provide('glossaryApp.personalizeFilter.module');
 
 goog.require('glossaryApp.profileStoreService.profileStoreService');
 
+goog.scope(function() {
+
 /**
- * Filter to replace user email with personal pronoun
  * @constructor
- * @ngInject
- * @type {angular.filter}
- * @param {glossaryApp.profileStoreService.profileStoreService} profileStore
  */
-glossaryApp.personalizeFilter.personalizeFilter = function(profileStore) {
+var ProfileStore = function(profileStore) {
   return function(email) {
-    if (angular.isString(profileStore.email) && profileStore.email === email) {
+    if (goog.isString(profileStore.email) &&
+        profileStore.email === email) {
       return "You";
     } else {
       return email;
@@ -19,5 +18,20 @@ glossaryApp.personalizeFilter.personalizeFilter = function(profileStore) {
   };
 };
 
-angular.module('personalizeFilter', []).
-filter('personalize', glossaryApp.personalizeFilter.personalizeFilter);
+/**
+ * Filter to replace user email with personal pronoun
+ * @constructor
+ * @type {angular.filter}
+ * @param {glossaryApp.profileStoreService.profileStoreService} profileStore
+ */
+glossaryApp.personalizeFilter.personalizeFilter = [
+    'profileStore', ProfileStore];
+
+});// goog.scope
+
+glossaryApp.personalizeFilter.module = angular['module'](
+    'personalizeFilter',
+    []);
+glossaryApp.personalizeFilter.module['filter'](
+    'personalize',
+    glossaryApp.personalizeFilter.personalizeFilter);

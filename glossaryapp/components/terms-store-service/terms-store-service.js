@@ -5,31 +5,36 @@ goog.require('glossaryApp.termResource.Term');
 
 goog.scope(function() {
 
-var TermsStoreService =
-    /**
-     * @constructor
-     * @param {angular.Resource} Term Term resource type
-     */
-    glossaryApp.termsStoreService.termsStoreService =
-    function (Term) {
+/**
+ * @constructor
+ */
+var TermsStoreService = function (Term) {
   var queryResult;
   /**
    * List of terms used in controller and template
    * @type {Array.<glossaryApp.termResource.Term>}
    * @expose
    */
-  this.terms = [];
+  this['terms'] = [];
 
-  queryResult = Term.query(function(terms) {
-    angular.forEach(terms, function(term) {
-      self.terms.push(term);
-    });
+  /**
+   * @private
+   * @type {glossaryApp.termResource.Term}
+   */
+  this.Term_ = Term;
+
+  var pushTerm = goog.bind(function (term) {
+    this['terms'].push(term);
+  }, this);
+
+  queryResult = Term['query'](function(terms) {
+    angular['forEach'](terms, pushTerm);
   });
 
   function mapById(terms) {
     var mapped = {};
 
-    terms.forEach(function(item) {
+    terms['forEach'](function(item) {
       mapped[item.id] = item;
     });
 
@@ -42,7 +47,7 @@ var TermsStoreService =
  * @param {glossaryApp.termResource.Term} term
  */
 TermsStoreService.prototype.add = function(term) {
-  this.terms.push(Term.save(term));
+  this['terms']['push'](this.Term_['save'](term));
 };
 
 /**
@@ -51,14 +56,24 @@ TermsStoreService.prototype.add = function(term) {
  * @param {glossaryApp.termResource.Term} term updated term content.
  */
 TermsStoreService.prototype.updateById = function(id, term) {
-  var mapped = mapById(self.terms);
-  mapped[id].name = term.name;
-  mapped[id].definition = term.definition;
-  Term.update({id: id}, term);
+  var mapped = mapById(this.terms);
+  mapped[id].name = term['name'];
+  mapped[id].definition = term['definition'];
+  this.Term_['update']({id: id}, term);
 };
+
+/**
+ * @constructor
+ * @param {angular.Resource} Term Term resource type
+ */
+glossaryApp.termsStoreService.termsStoreService = ['Term', TermsStoreService];
 
 }); // goog.scope
 
-glossaryApp.termsStoreService.module = angular.module(
-    'glossaryApp.termsStoreService', []).
-service('termsStoreService', glossaryApp.termsStoreService.termsStoreService);
+glossaryApp.termsStoreService.module = angular['module'](
+    'glossaryApp.termsStoreService', [
+        glossaryApp.termResource.module.name
+    ]);
+glossaryApp.termsStoreService.module['service'](
+  'termsStore',
+  glossaryApp.termsStoreService.termsStoreService);

@@ -4,19 +4,12 @@ goog.require('glossaryApp.termsStoreService.termsStoreService');
 goog.require('glossaryApp.profileStoreService.profileStoreService');
 goog.require('glossaryApp.termResource.Term');
 
+goog.scope(function() {
+
 /**
- * Controller for Terms view of the
- * glossary application
- * @param {angular.Scope} $scope
- * @param {glossaryApp.termsStoreService.termsStoreService} termsStore
- * @param {glossaryApp.profileStoreService.profileStoreService} profileStore
  * @constructor
  */
-glossaryApp.terms.TermsController = function(
-    $scope,
-    termsStore,
-    profileStore) {
-
+var TermsController = function($scope, termsStore, profileStore) {
   /**
    * @private
    * @type {angular.Scope}
@@ -25,29 +18,48 @@ glossaryApp.terms.TermsController = function(
 
   /**
    * @type {glossaryApp.termsStoreService.termsStoreService}
+   * @private
    */
-  this.termsStore = termsStore;
+  this.termsStore_ = termsStore;
 
   /**
    * @type {Array.<glossaryApp.termResource.Term>}
    */
-  this.terms = termsStore.terms;
+  this['terms'] = termsStore['terms'];
 
   /**
    * A user's own profile
    * @type {glossaryApp.profileStoreService.profileStoreService}
    */
-  this.currentUser = profileStore;
-}
+  this['currentUser'] = profileStore;
+};
 
-glossaryApp.terms.TermsController.prototype.saveTerm = function() {
+/**
+ * @expose
+ */
+TermsController.prototype.saveTerm = function() {
   this.termsStore_.add({
-    name: this.scope_.newTerm.name,
-    definition: this.scope_.newTerm.definition,
-    creatorEmail: this.currentUser.email,
-    createdAt: Date.now()
+    name: this.scope_['newTerm']['name'],
+    definition: this.scope_['newTerm']['definition'],
+    creatorEmail: this['currentUser']['email'],
+    createdAt: goog.now()
   });
 
   //Reset the model
-  this.scope_.newTerm = {};
+  this.scope_['newTerm'] = {};
 };
+
+/**
+ * Controller for Terms view of the
+ * glossary application
+ * @param {angular.Scope} $scope
+ * @param {glossaryApp.termsStoreService.termsStoreService} termsStore
+ * @param {glossaryApp.profileStoreService.profileStoreService} profileStore
+ * @constructor
+ */
+glossaryApp.terms.TermsController = [
+    '$scope',
+    'termsStore',
+    'profileStore', TermsController];
+
+});// goog.scope

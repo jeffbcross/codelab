@@ -25,18 +25,23 @@ goog.scope(function () {
  * @ngInject
  */
 glossaryApp.application.routes = function($routeProvider) {
-  $routeProvider.when('/terms', {
-    controller: glossaryApp.terms.TermsController,
-    templateUrl: 'terms/terms.html',
-    controllerAs: 'terms'
-  }).
-  when('/terms/:id', {
-    controller: glossaryApp.terms.detail.TermDetailController,
-    templateUrl: 'terms/detail/term-detail.html',
-    controllerAs: 'termDetail'
-  }).
-  otherwise({
-    redirectTo: '/terms'
+  /**
+   * @expose
+   */
+  var termsRoute = {
+    'controller': glossaryApp.terms.TermsController,
+    'templateUrl': 'terms/terms.html',
+    'controllerAs': 'terms'
+  };
+
+  $routeProvider['when']('/terms', termsRoute);
+  $routeProvider['when']('/terms/:id', {
+    'controller': glossaryApp.terms.detail.TermDetailController,
+    'templateUrl': 'terms/detail/term-detail.html',
+    'controllerAs': 'termDetail'
+  });
+  $routeProvider['otherwise']({
+    'redirectTo': '/terms'
   });
 };
 
@@ -45,7 +50,7 @@ glossaryApp.application.routes = function($routeProvider) {
  *
  * @type {angular.Module}
  */
-glossaryApp.application.module = angular.module(
+glossaryApp.application.module = angular['module'](
   'glossaryApp', [
     'ngRoute',
     'ngResource',
@@ -57,7 +62,10 @@ glossaryApp.application.module = angular.module(
     glossaryApp.profileStoreService.module.name,
     glossaryApp.termsStoreService.module.name,
     glossaryApp.termCommentsStoreService.module.name]);
+glossaryApp.application.module['constant'](
+    'COMMENTS_PATH',
+    glossaryApp.COMMENTS_PATH);
 
-glossaryApp.config(glossaryApp.application.routes);
+glossaryApp.application.module['config'](glossaryApp.application.routes);
 
 }); //goog.scope

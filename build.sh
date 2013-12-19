@@ -22,6 +22,7 @@ java -jar compiler.jar \
   --js glossaryapp/scripts/closure/goog/storage/mechanism/html5localstorage.js \
   --js glossaryapp/scripts/closure/goog/storage/mechanism/mechanism.js \
   --js glossaryapp/app.js \
+  --js glossaryapp/constants.js \
   --js glossaryapp/terms/terms-controller.js \
   --js glossaryapp/terms/detail/term-detail-controller.js \
   --js glossaryapp/components/comment-resource/comment-resource.js \

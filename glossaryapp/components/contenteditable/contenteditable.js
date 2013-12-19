@@ -12,28 +12,29 @@ glossaryApp.contenteditableDirective.contenteditableDirective = function() {
     link: function(scope, element, attrs, ngModel) {
       if(!ngModel) return;
 
-      ngModel.$render = function() {
-        element.html(ngModel.$viewValue || '');
+      ngModel['$render'] = function() {
+        element['html'](ngModel['$viewValue'] || '');
       };
 
-      element.on('blur keyup', function() {
-        scope.$apply(read);
+      element['on']('blur keyup', function() {
+        scope['$apply'](read);
       });
       read();
 
       function read() {
-        var html = element.html();
-        if( attrs.stripBr && html == '<br>' ) {
+        var html = element['html']();
+        if( attrs['stripBr'] && html == '<br>' ) {
           html = '';
         }
-        ngModel.$setViewValue(html);
+        ngModel['$setViewValue'](html);
       }
     }
   };
 };
 
-glossaryApp.contenteditableDirective.module = angular.module(
-    'glossaryApp.contenteditableDirective', []).
-directive(
-    'contenteditableDirective',
+glossaryApp.contenteditableDirective.module = angular['module'](
+    'glossaryApp.contenteditableDirective', []);
+
+glossaryApp.contenteditableDirective.module['directive'](
+    'contenteditable',
     glossaryApp.contenteditableDirective.contenteditableDirective);

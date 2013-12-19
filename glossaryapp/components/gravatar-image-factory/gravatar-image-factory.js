@@ -9,7 +9,7 @@ goog.require('goog.crypt.Md5');
  */
 glossaryApp.gravatarImageFactory.gravatarImageFactory = function() {
   return function(email) {
-    if (!angular.isString(email)) return;
+    if (!goog.isString(email)) return;
 
     var hash = new goog.crypt.Md5();
     hash.update(email.toLowerCase());
@@ -21,8 +21,9 @@ glossaryApp.gravatarImageFactory.gravatarImageFactory = function() {
   }
 };
 
-glossaryApp.gravatarImageFactory.module = angular.module(
-    'glossaryApp.gravatarImageFactory', []).
-factory(
-    'gravatarImageFactory',
+glossaryApp.gravatarImageFactory.module = angular['module'](
+    'glossaryApp.gravatarImageFactory', []);
+
+glossaryApp.gravatarImageFactory.module['factory'](
+    'gravatarImage',
     glossaryApp.gravatarImageFactory.gravatarImageFactory);

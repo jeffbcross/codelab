@@ -19,19 +19,18 @@ glossaryApp.profileComponent.CONTROLLER_AS_NAME = 'profile';
 
 /**
  * Controller for the profile component directive.
- * @ngInject
  * @param {glossaryApp.profileStoreService.profileStoreService} profileStore
  * @constructor
  */
 glossaryApp.profileComponent.ProfileDirectiveController =
-    function(profileStore) {
+    ['profileStore', function(profileStore) {
       /**
        * Makes profileStore available on controller to templates
        * @expose
        * @type {glossaryApp.profileStoreService.profileStoreService}
        */
       this.profileStore = profileStore;
-    };
+    }];
 
 /**
  * The component to show a user's profile (email and avatar)
